@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Acu-te-0CT">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--즐겨찾기-->
+        <scene sceneID="xYT-AK-iE2">
+            <objects>
+                <viewController title="즐겨찾기" id="Pm7-8e-9hC" customClass="BookMarkListVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1uv-1C-8xU"/>
+                        <viewControllerLayoutGuide type="bottom" id="HoH-6K-Tpv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vEv-HE-oyR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAt-mQ-Fc6">
+                                <rect key="frame" x="194" y="197" width="117" height="30"/>
+                                <state key="normal" title="친구의 포 스트 목록">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="gotoCommonPostList:" destination="Pm7-8e-9hC" eventType="touchUpInside" id="FBA-sB-N39"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPU-71-KwN">
+                                <rect key="frame" x="213" y="264" width="91" height="30"/>
+                                <state key="normal" title="메인포스트목록">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="gotoMainPostList:" destination="Pm7-8e-9hC" eventType="touchUpInside" id="T7p-s8-5xn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OSa-03-vR2"/>
+                    <connections>
+                        <segue destination="vvQ-QS-naV" kind="show" identifier="SgCommonPostList" id="ju2-ce-seH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oba-Xe-dEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1292" y="750"/>
+        </scene>
+        <!--포스트목록-->
+        <scene sceneID="tCb-Kb-ulo">
+            <objects>
+                <viewController title="포스트목록" id="kYV-v9-A5F" customClass="MainPostListVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="28D-37-6Dz"/>
+                        <viewControllerLayoutGuide type="bottom" id="5ai-TH-Uhn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rJC-BL-P16">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SY3-BS-G4A">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="643" id="0hd-kD-UtR">
+                                        <variation key="heightClass=regular" constant="700"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="600" id="z1Y-tw-vj9"/>
+                                </constraints>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0hd-kD-UtR"/>
+                                        <exclude reference="z1Y-tw-vj9"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="0hd-kD-UtR"/>
+                                        <exclude reference="z1Y-tw-vj9"/>
+                                    </mask>
+                                </variation>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="577-rE-fLA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="fixedSpace" id="Vgx-z3-QVZ"/>
+                                    <barButtonItem width="6" style="plain" id="Owi-NB-Orm" userLabel="블릿기호">
+                                        <color key="tintColor" red="0.97254901960784312" green="0.59607843137254901" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="카테고리" width="52" id="Fcp-fG-Jx8">
+                                        <color key="tintColor" red="0.97254901960784312" green="0.59607843137254901" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="onTouchCate:" destination="kYV-v9-A5F" id="qD6-9U-4GA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="l2z-Ly-5Yl" userLabel="카테고리 속성">
+                                        <color key="tintColor" red="0.97254901960784312" green="0.59607843137254901" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="W56-HO-tgS"/>
+                                    <barButtonItem width="100" style="plain" id="HjB-Vh-Ayh">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="lJL-Ok-jXT">
+                                            <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="시간순" width="50"/>
+                                                <segment title="인기순" width="50"/>
+                                            </segments>
+                                            <color key="tintColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="577-rE-fLA" firstAttribute="leading" secondItem="rJC-BL-P16" secondAttribute="leadingMargin" constant="-16" id="Cfe-hM-vqj"/>
+                            <constraint firstItem="SY3-BS-G4A" firstAttribute="leading" secondItem="rJC-BL-P16" secondAttribute="leadingMargin" constant="-16" id="Fbu-D2-qKv"/>
+                            <constraint firstItem="SY3-BS-G4A" firstAttribute="top" secondItem="28D-37-6Dz" secondAttribute="bottom" id="Gfb-rS-3bo">
+                                <variation key="heightClass=regular" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="SY3-BS-G4A" firstAttribute="width" secondItem="rJC-BL-P16" secondAttribute="width" id="QQB-Sa-QrQ"/>
+                            <constraint firstItem="SY3-BS-G4A" firstAttribute="height" secondItem="rJC-BL-P16" secondAttribute="height" id="V7C-su-Q6t">
+                                <variation key="heightClass=regular" constant="-44"/>
+                            </constraint>
+                            <constraint firstItem="5ai-TH-Uhn" firstAttribute="top" secondItem="SY3-BS-G4A" secondAttribute="bottom" id="YIa-BB-UXN"/>
+                            <constraint firstItem="577-rE-fLA" firstAttribute="top" secondItem="28D-37-6Dz" secondAttribute="bottom" id="Yj2-A4-463"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="577-rE-fLA" secondAttribute="trailing" constant="-16" id="bRO-T7-WKO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SY3-BS-G4A" secondAttribute="trailing" constant="-16" id="fDx-rT-1nn"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="SY3-BS-G4A"/>
+                                <exclude reference="577-rE-fLA"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="YIa-BB-UXN"/>
+                                <exclude reference="Cfe-hM-vqj"/>
+                                <exclude reference="Yj2-A4-463"/>
+                                <exclude reference="bRO-T7-WKO"/>
+                                <exclude reference="Fbu-D2-qKv"/>
+                                <exclude reference="Gfb-rS-3bo"/>
+                                <exclude reference="QQB-Sa-QrQ"/>
+                                <exclude reference="V7C-su-Q6t"/>
+                                <exclude reference="fDx-rT-1nn"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="SY3-BS-G4A"/>
+                                <include reference="577-rE-fLA"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="YIa-BB-UXN"/>
+                                <include reference="Cfe-hM-vqj"/>
+                                <include reference="Yj2-A4-463"/>
+                                <include reference="bRO-T7-WKO"/>
+                                <include reference="Fbu-D2-qKv"/>
+                                <include reference="Gfb-rS-3bo"/>
+                                <include reference="QQB-Sa-QrQ"/>
+                                <include reference="V7C-su-Q6t"/>
+                                <include reference="fDx-rT-1nn"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="포스트목록" id="jDo-ST-sFo"/>
+                    <connections>
+                        <outlet property="cateBuletBarbtn" destination="Owi-NB-Orm" id="EDQ-Xn-rQV"/>
+                        <outlet property="cateChildBarbtn" destination="l2z-Ly-5Yl" id="1cH-NR-1Ff"/>
+                        <outlet property="cateToolbar" destination="577-rE-fLA" id="lAn-Sq-Jii"/>
+                        <outlet property="tbl" destination="SY3-BS-G4A" id="j0V-mz-1nE"/>
+                        <segue destination="ctY-LL-hRC" kind="show" identifier="SgGoMaintoDetail" id="EaD-Wr-G26"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9xE-d0-JbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1220" y="81.75"/>
+        </scene>
+        <!--포스트상세보기-->
+        <scene sceneID="yl9-Rg-qop">
+            <objects>
+                <viewController title="포스트상세보기" hidesBottomBarWhenPushed="YES" id="ctY-LL-hRC" customClass="PostDetailVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="포스트 상세" id="FGa-El-7bx"/>
+                    <connections>
+                        <segue destination="3Hn-qF-zSR" kind="show" identifier="SgPostMap" id="TBf-9i-01q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcz-XR-nz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2012" y="100"/>
+        </scene>
+        <!--친구포스트목록-->
+        <scene sceneID="eL4-fx-kxj">
+            <objects>
+                <viewController title="친구포스트목록" id="vvQ-QS-naV" customClass="CommonPostListVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="X0T-YQ-h95" kind="show" identifier="SgPostDetail" id="FFL-tM-63j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="imn-Xe-WxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2128" y="809"/>
+        </scene>
+        <!--나의포스트상세-->
+        <scene sceneID="aqf-t0-N8F">
+            <objects>
+                <viewController title="나의포스트상세" id="dtB-xu-aro" customClass="PostDetailVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="3Hn-qF-zSR" kind="show" identifier="SgPostMap" id="Cts-33-uP7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9sJ-Ct-xH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2216" y="1561"/>
+        </scene>
+        <!--개인정보 수정-->
+        <scene sceneID="36A-jl-Sfa">
+            <objects>
+                <viewController title="개인정보 수정" id="aTR-W8-qn7" customClass="MyInfoVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hvh-ly-JNS"/>
+                        <viewControllerLayoutGuide type="bottom" id="eIO-9i-Zdh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5jf-BV-kQ1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="개인정보수정" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sy0-az-eda">
+                                <rect key="frame" x="147" y="154" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tl2-lV-qDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2207" y="2384"/>
+        </scene>
+        <!--어권변경-->
+        <scene sceneID="GLK-G3-UUl">
+            <objects>
+                <viewController title="어권변경" id="P97-GR-Ls2" customClass="LanguageChangeVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cs5-Tf-tek"/>
+                        <viewControllerLayoutGuide type="bottom" id="z5F-9t-Wsz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nij-Y0-h1s">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="어권변경" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgH-nD-8uC">
+                                <rect key="frame" x="99" y="135" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gNJ-1T-aEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2175" y="3128"/>
+        </scene>
+        <!--상세지도-->
+        <scene sceneID="L4g-hz-qKD">
+            <objects>
+                <viewController title="상세지도" id="3Hn-qF-zSR" customClass="PostMapVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fr9-50-qNy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2758" y="88"/>
+        </scene>
+        <!--친구포스트상세-->
+        <scene sceneID="qM5-wP-CFa">
+            <objects>
+                <viewController title="친구포스트상세" id="X0T-YQ-h95" customClass="PostDetailVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="3Hn-qF-zSR" kind="show" identifier="SgPostMap" id="uL6-fR-XaG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d7W-j8-wT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2976" y="841"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Gwn-q2-AsR">
+            <objects>
+                <tabBarController id="Acu-te-0CT" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ZXc-xs-Mxy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="nmg-rJ-jRW" kind="relationship" relationship="viewControllers" id="LAy-FF-aI1"/>
+                        <segue destination="fdo-fs-Qii" kind="relationship" relationship="viewControllers" id="yLd-3t-vl1"/>
+                        <segue destination="CoI-qF-ion" kind="relationship" relationship="viewControllers" id="cZv-er-atz"/>
+                        <segue destination="QFD-bz-eij" kind="relationship" relationship="viewControllers" id="q7c-uD-IXH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zdz-fA-PHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-520" y="443"/>
+        </scene>
+        <!--홈-->
+        <scene sceneID="j7v-b8-O4H">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nmg-rJ-jRW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="홈" id="8u1-Az-vi1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ose-hD-L2Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kYV-v9-A5F" kind="relationship" relationship="rootViewController" id="MbQ-bA-A0k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NxD-TB-8dN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="336" y="-148"/>
+        </scene>
+        <!--즐겨찾기-->
+        <scene sceneID="hnk-7A-W28">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fdo-fs-Qii" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="즐겨찾기" id="ebf-zb-oxY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IB5-qL-tkz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Pm7-8e-9hC" kind="relationship" relationship="rootViewController" id="Iw2-Oh-lMz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k5q-lS-bRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="480" y="750"/>
+        </scene>
+        <!--나의포스트목록-->
+        <scene sceneID="1Fa-Bq-qp5">
+            <objects>
+                <viewController title="나의포스트목록" id="e7P-g8-QK0" customClass="CommonPostListVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ykT-nP-uwg"/>
+                    <connections>
+                        <segue destination="dtB-xu-aro" kind="show" identifier="SgPostDetail" id="0Eh-t2-Dgg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aW8-0Y-0c7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1313" y="1516"/>
+        </scene>
+        <!--설정-->
+        <scene sceneID="HI4-kx-HU9">
+            <objects>
+                <viewController title="설정" id="0JQ-F2-Vff" customClass="SettingVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="설정" id="BHT-zJ-szM">
+                        <barButtonItem key="backBarButtonItem" title="뒤로" id="bbZ-KC-JoI"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="aTR-W8-qn7" kind="show" identifier="SgMyInfo" id="v7s-Dg-TS7"/>
+                        <segue destination="P97-GR-Ls2" kind="show" identifier="SgLangChange" id="4Zi-rk-y4l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lX1-RG-r7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1313" y="2244"/>
+        </scene>
+        <!--마이포스트-->
+        <scene sceneID="WJY-Kf-Z4G">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CoI-qF-ion" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="마이포스트" id="Qio-GY-Otc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MRI-tM-3K7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="e7P-g8-QK0" kind="relationship" relationship="rootViewController" id="3jL-tr-2UP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xrT-WA-gEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="501" y="1516"/>
+        </scene>
+        <!--설정-->
+        <scene sceneID="wcx-et-BlK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QFD-bz-eij" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="설정" id="7z4-uM-nbJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aAK-ab-F4v">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0JQ-F2-Vff" kind="relationship" relationship="rootViewController" id="g7H-xI-IQ9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9tg-Df-1cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="501" y="2244"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TBf-9i-01q"/>
+    </inferredMetricsTieBreakers>
+</document>
