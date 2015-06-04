@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oba-Xe-dEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="750"/>
+            <point key="canvasLocation" x="2104" y="750"/>
         </scene>
         <!--포스트목록-->
         <scene sceneID="tCb-Kb-ulo">
@@ -204,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imn-Xe-WxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2128" y="809"/>
+            <point key="canvasLocation" x="2940" y="809"/>
         </scene>
         <!--나의포스트상세-->
         <scene sceneID="aqf-t0-N8F">
@@ -216,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9sJ-Ct-xH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2216" y="1561"/>
+            <point key="canvasLocation" x="3028" y="1561"/>
         </scene>
         <!--개인정보 수정-->
         <scene sceneID="36A-jl-Sfa">
@@ -288,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7W-j8-wT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2976" y="841"/>
+            <point key="canvasLocation" x="3788" y="841"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Gwn-q2-AsR">
@@ -305,11 +305,22 @@
                         <segue destination="fdo-fs-Qii" kind="relationship" relationship="viewControllers" id="yLd-3t-vl1"/>
                         <segue destination="CoI-qF-ion" kind="relationship" relationship="viewControllers" id="cZv-er-atz"/>
                         <segue destination="QFD-bz-eij" kind="relationship" relationship="viewControllers" id="q7c-uD-IXH"/>
+                        <segue destination="hI9-wb-SUc" kind="relationship" relationship="viewControllers" id="NQY-ny-ODs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdz-fA-PHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-520" y="443"/>
+        </scene>
+        <!--등록-->
+        <scene sceneID="5U4-Ur-hsL">
+            <objects>
+                <viewController id="842-Qi-IJx" customClass="PostInsertVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="등록" id="zAy-sB-ZEU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X8G-CT-pLx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="154" y="1156"/>
         </scene>
         <!--홈-->
         <scene sceneID="j7v-b8-O4H">
@@ -347,7 +358,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k5q-lS-bRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="480" y="750"/>
+            <point key="canvasLocation" x="1292" y="750"/>
         </scene>
         <!--나의포스트목록-->
         <scene sceneID="1Fa-Bq-qp5">
@@ -360,7 +371,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aW8-0Y-0c7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1313" y="1516"/>
+            <point key="canvasLocation" x="2125" y="1516"/>
         </scene>
         <!--설정-->
         <scene sceneID="HI4-kx-HU9">
@@ -395,7 +406,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xrT-WA-gEg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501" y="1516"/>
+            <point key="canvasLocation" x="1313" y="1516"/>
         </scene>
         <!--설정-->
         <scene sceneID="wcx-et-BlK">
@@ -415,6 +426,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9tg-Df-1cX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="501" y="2244"/>
+        </scene>
+        <!--등록-->
+        <scene sceneID="C3J-Ql-FzT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hI9-wb-SUc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="등록" id="wLW-BD-mYO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ckl-l1-GYO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="842-Qi-IJx" kind="relationship" relationship="rootViewController" id="si0-OD-A2l"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="for-hW-TaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-658" y="1156"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

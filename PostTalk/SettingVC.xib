@@ -1,45 +1,150 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingVC" customModule="PostTalk" customModuleProvider="target">
             <connections>
+                <outlet property="autoLogin" destination="mse-Le-Pas" id="NnD-kQ-oed"/>
+                <outlet property="getLanguagePickerView" destination="7VR-S2-eMO" id="jTy-H6-EgA"/>
+                <outlet property="getName" destination="0hG-SX-1Ru" id="JSh-f5-Lxy"/>
+                <outlet property="getUserId" destination="93M-3w-SWQ" id="ice-1b-1fA"/>
+                <outlet property="getUserImage" destination="0um-lv-iq2" id="SJx-zp-wOw"/>
+                <outlet property="txtPwd" destination="5JA-wi-Rw0" id="ypM-8S-fdJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Setting" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9o-HL-66C">
-                    <rect key="frame" x="64" y="289" width="55" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이름:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fyx-KP-1pk">
+                    <rect key="frame" x="59" y="187" width="35" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="0.046180555555555558" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QT9-ce-w4e">
-                    <rect key="frame" x="54" y="103" width="83" height="30"/>
-                    <state key="normal" title=" 개인정보수정">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2a-gZ-HuQ">
+                    <rect key="frame" x="181" y="156" width="30" height="30"/>
+                    <state key="normal" title="사진">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="gotoMyInfo:" destination="-1" eventType="touchUpInside" id="SHs-zH-WFh"/>
-                    </connections>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="167" y="199" width="30" height="30"/>
+                    </variation>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwn-5S-Rf6">
-                    <rect key="frame" x="54" y="141" width="52" height="30"/>
-                    <state key="normal" title="어권변경">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="아이디:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6c-V7-nTr">
+                    <rect key="frame" x="59" y="221" width="49" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="45" y="264" width="49" height="21"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hz4-pL-CrY">
+                    <rect key="frame" x="59" y="254" width="64" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="45" y="297" width="64" height="21"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Language:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2H6-CD-LMF">
+                    <rect key="frame" x="48" y="367" width="81" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="45" y="422" width="81" height="21"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="자동로그인:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYm-1o-f9u">
+                    <rect key="frame" x="59" y="290" width="79" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="45" y="333" width="79" height="21"/>
+                    </variation>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2X-ER-AEp">
+                    <rect key="frame" x="48" y="463" width="52" height="30"/>
+                    <state key="normal" title="회원탈퇴">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="gotoLangChange:" destination="-1" eventType="touchUpInside" id="8Va-u9-6R6"/>
-                    </connections>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="45" y="518" width="52" height="30"/>
+                    </variation>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klc-ga-end">
+                    <rect key="frame" x="130" y="463" width="52" height="30"/>
+                    <state key="normal" title="로그아웃">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="127" y="518" width="52" height="30"/>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6T-Kn-U1G">
+                    <rect key="frame" x="216" y="463" width="30" height="30"/>
+                    <state key="normal" title="저장">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="213" y="518" width="30" height="30"/>
+                    </variation>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hG-SX-1Ru">
+                    <rect key="frame" x="169" y="187" width="147" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="155" y="230" width="147" height="21"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93M-3w-SWQ">
+                    <rect key="frame" x="169" y="221" width="147" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="155" y="264" width="147" height="21"/>
+                    </variation>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mse-Le-Pas">
+                    <rect key="frame" x="169" y="285" width="51" height="31"/>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="155" y="328" width="51" height="31"/>
+                    </variation>
+                </switch>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5JA-wi-Rw0">
+                    <rect key="frame" x="169" y="250" width="147" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="155" y="293" width="147" height="30"/>
+                    </variation>
+                </textField>
+                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7VR-S2-eMO">
+                    <rect key="frame" x="-99" y="329" width="600" height="97"/>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="-102" y="384" width="600" height="97"/>
+                    </variation>
+                </pickerView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0um-lv-iq2">
+                    <rect key="frame" x="73" y="13" width="240" height="128"/>
+                    <variation key="heightClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="62" y="63" width="240" height="128"/>
+                    </variation>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="270.5" y="254.5"/>
         </view>
     </objects>
 </document>
