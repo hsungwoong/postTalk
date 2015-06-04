@@ -78,6 +78,22 @@ class BaseVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    //로그인필요한 페이지 체크
+    func openLoginChk()
+    {
+        //저장된 아이디 있을시 보여준다
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let name = defaults.stringForKey("userId")
+        //로그인 상황인 아니면 로그인페이지로 이동한다.
+        if name == "" {
+            let controller = LoginVC(nibName: "LoginVC", bundle: nil)
+            self.navigationController!.pushViewController(controller, animated: true)
+            //self.navigationController!.popViewControllerAnimated(true) //pushViewController(controller, animated: true)
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
