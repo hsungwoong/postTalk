@@ -10,13 +10,15 @@ import UIKit
 
 class PostDetailVC: BaseVC {
     
-    static var insCnt = 0;
-    
     var entity:EntityPostInfo?;
 
-    @IBAction func gotoPostMap(sender: AnyObject) {
+    @IBOutlet var photoDummy: UIImageView!
+    @IBOutlet var pagCtrl: UIPageControl!
+    
+   /* @IBAction func gotoPostMap(sender: AnyObject) {
         self.performSegueWithIdentifier("SgPostMap", sender: self)
     }
+*/
     /**/
     override func loadView() {
         
@@ -30,60 +32,17 @@ class PostDetailVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        creatRightButton();
         
-        println("idx: \(self.entity?.idx)");
-        println("idx: \(self.entity?.memo)")
+        self.pagCtrl.addTarget(self, action: "onSelectImage:", forControlEvents: UIControlEvents.TouchUpInside);
+        
         // Do any additional setup after loading the view.
     }
     
-    func creatRightButton(){
+    func onSelectImage(target:AnyObject?){
         
-        var arr:[AnyObject] = [AnyObject]();
-        
-        
-        //var button = UIBarButtonItem(image: UIImage(named: "barbutton_refresh"), style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-        var img = UIImageView(image: UIImage(named: "barbutton_refresh"))
-        img.frame = CGRectMake(0, 0, 20, 20);
-        var button = UIBarButtonItem(customView: img);
-        arr.append(button)
-        
-        button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
-        button.width = 10;
-        arr.append(button)
-        
-        img = UIImageView(image: UIImage(named: "barbutton_map"))
-        img.frame = CGRectMake(0, 0, 20, 20);
-        button = UIBarButtonItem(customView: img);
-        arr.append(button)
-        
-        button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: nil, action: nil)
-        button.width = 10;
-        arr.append(button)
-        
-        img = UIImageView(image: UIImage(named: "barbutton_search"))
-        img.frame = CGRectMake(0, 0, 20, 20);
-        button = UIBarButtonItem(customView: img);
-        arr.append(button)
-        /*
-        
-        UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-        spacer.width = -10; //
-        */
-        /*
-        button = UIBarButtonItem(image: UIImage(named: "barbutton_map"), style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-        button.customView?.frame = CGRectMake(0, 0, 22, 22);
-        arr.append(button)
-        
-        button = UIBarButtonItem(image: UIImage(named: "barbutton_search"), style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-        button.customView?.frame = CGRectMake(0, 0, 22, 22);
-        arr.append(button)
-        */
-        
-        
-        self.navigationItem.rightBarButtonItems = arr;
         
     }
+    
 
 
     override func didReceiveMemoryWarning() {
