@@ -22,7 +22,9 @@ class MainPostListVC: BaseVC , IBaseDataAccessManager,  UITableViewDataSource, U
     @IBAction func onTouchCate(sender: AnyObject) {
     }
     
-
+    @IBAction func onPan(sender:AnyObject){
+        println(sender);
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
