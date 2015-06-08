@@ -6,8 +6,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostDetailVC" customModule="PostTalk" customModuleProvider="target">
             <connections>
+                <outlet property="btnRecommand" destination="1LB-JN-Q8c" id="PHs-1h-rv2"/>
+                <outlet property="desc" destination="Ph3-O6-rGk" id="Oqm-YR-ERu"/>
+                <outlet property="likeCnt" destination="gMv-ti-6B3" id="XQ9-Fl-kza"/>
                 <outlet property="pagCtrl" destination="1SD-qx-dZ0" id="ivs-5x-7ls"/>
                 <outlet property="photoDummy" destination="aDn-hm-LfY" id="W0L-0X-voL"/>
+                <outlet property="scroll" destination="Enm-wf-vbv" id="vsw-m5-Sbh"/>
+                <outlet property="thumbnail" destination="Xaw-gC-AOL" id="vQ3-2p-4Nx"/>
+                <outlet property="timed" destination="FtI-an-sii" id="N8V-c3-OVL"/>
+                <outlet property="userId" destination="qyP-Sx-AiP" id="Zqp-bK-vlA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,81 +33,106 @@
                 <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1SD-qx-dZ0">
                     <rect key="frame" x="280" y="246" width="39" height="0.0"/>
                 </pageControl>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Enm-wf-vbv">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Enm-wf-vbv">
                     <rect key="frame" x="8" y="267" width="584" height="289"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ph3-O6-rGk">
-                            <rect key="frame" x="8" y="15" width="568" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ph3-O6-rGk" userLabel="상세">
+                            <rect key="frame" x="8" y="15" width="465" height="12"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyP-Sx-AiP">
-                            <rect key="frame" x="79" y="70" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FtI-an-sii">
-                            <rect key="frame" x="534" y="70" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="like_red.png" translatesAutoresizingMaskIntoConstraints="NO" id="3si-Bp-Xqi">
-                            <rect key="frame" x="79" y="108" width="12" height="12"/>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMv-ti-6B3">
-                            <rect key="frame" x="94" y="103" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xaw-gC-AOL">
-                            <rect key="frame" x="8" y="70" width="50" height="50"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xaw-gC-AOL">
+                            <rect key="frame" x="8" y="47" width="50" height="50"/>
                             <color key="backgroundColor" red="0.97254901959999995" green="0.59607843140000005" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FtI-an-sii" userLabel="시간">
+                            <rect key="frame" x="534" y="49" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.67843137254901964" green="0.6705882352941176" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="like_red.png" translatesAutoresizingMaskIntoConstraints="NO" id="3si-Bp-Xqi">
+                            <rect key="frame" x="79" y="79" width="12" height="12"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMv-ti-6B3">
+                            <rect key="frame" x="94" y="75" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyP-Sx-AiP" userLabel="사용자 아이디">
+                            <rect key="frame" x="79" y="53" width="70" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="3si-Bp-Xqi" firstAttribute="top" secondItem="qyP-Sx-AiP" secondAttribute="bottom" constant="5" id="1Rk-IQ-emH"/>
+                        <constraint firstAttribute="trailing" secondItem="FtI-an-sii" secondAttribute="trailing" constant="8" id="AG3-DU-fy5"/>
+                        <constraint firstItem="Ph3-O6-rGk" firstAttribute="top" secondItem="Enm-wf-vbv" secondAttribute="top" constant="15" id="I3m-GS-3tZ"/>
+                        <constraint firstItem="gMv-ti-6B3" firstAttribute="top" secondItem="qyP-Sx-AiP" secondAttribute="bottom" constant="1" id="KHy-eY-Mpa"/>
+                        <constraint firstItem="3si-Bp-Xqi" firstAttribute="leading" secondItem="qyP-Sx-AiP" secondAttribute="leading" id="Pad-oV-POz"/>
+                        <constraint firstItem="gMv-ti-6B3" firstAttribute="leading" secondItem="3si-Bp-Xqi" secondAttribute="trailing" constant="3" id="VF5-iE-Ge8"/>
+                        <constraint firstItem="Ph3-O6-rGk" firstAttribute="leading" secondItem="Enm-wf-vbv" secondAttribute="leading" constant="8" id="Vce-np-N4V"/>
+                        <constraint firstItem="qyP-Sx-AiP" firstAttribute="leading" secondItem="Enm-wf-vbv" secondAttribute="leading" constant="79" id="c2Q-En-8tQ"/>
+                        <constraint firstItem="FtI-an-sii" firstAttribute="top" secondItem="Ph3-O6-rGk" secondAttribute="bottom" constant="22" id="fWd-TS-4MG"/>
+                        <constraint firstItem="Xaw-gC-AOL" firstAttribute="top" secondItem="Ph3-O6-rGk" secondAttribute="bottom" constant="20" id="o0Y-eQ-IB3"/>
+                        <constraint firstAttribute="trailing" secondItem="Ph3-O6-rGk" secondAttribute="trailing" constant="8" id="ol0-6h-AbN"/>
+                        <constraint firstItem="Ph3-O6-rGk" firstAttribute="width" secondItem="Enm-wf-vbv" secondAttribute="width" constant="-20" id="pwO-CE-jyh"/>
+                        <constraint firstItem="qyP-Sx-AiP" firstAttribute="top" secondItem="Ph3-O6-rGk" secondAttribute="bottom" constant="26" id="zOM-Sx-hNf"/>
+                    </constraints>
                 </scrollView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKx-Rh-DoV">
                     <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                     <items>
-                        <barButtonItem style="plain" id="n50-YZ-xq4">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1LB-JN-Q8c">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                        <barButtonItem width="36" style="plain" id="n50-YZ-xq4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1LB-JN-Q8c">
+                                <rect key="frame" x="16" y="9" width="36" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="recommand.png">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="recommand_on.png"/>
+                                <connections>
+                                    <action selector="onRecomand:" destination="-1" eventType="touchUpInside" id="Prh-Aw-7nA"/>
+                                </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem style="plain" id="4Uq-UF-alA">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="t5c-yh-JeM">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                        <barButtonItem width="32" style="plain" id="4Uq-UF-alA">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="t5c-yh-JeM">
+                                <rect key="frame" x="62" y="9" width="32" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" image="chatting.png"/>
+                                <connections>
+                                    <action selector="onChatting:" destination="-1" eventType="touchUpInside" id="g53-yr-Bg1"/>
+                                </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem style="plain" id="51H-DP-KBc">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mHm-Ah-2fp">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                        <barButtonItem width="32" style="plain" id="51H-DP-KBc">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mHm-Ah-2fp">
+                                <rect key="frame" x="104" y="9" width="32" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="reg_friend.png">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onRegFriend:" destination="-1" eventType="touchUpInside" id="sgd-uj-wIL"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="3ia-xC-bYJ"/>
-                        <barButtonItem style="plain" id="unk-AG-4ZL">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WfC-Er-Y8P">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                        <barButtonItem width="32" style="plain" id="unk-AG-4ZL">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WfC-Er-Y8P">
+                                <rect key="frame" x="552" y="9" width="32" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="del.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onDelete:" destination="-1" eventType="touchUpInside" id="ZZs-D7-kgD"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </items>
@@ -125,6 +157,11 @@
         </view>
     </objects>
     <resources>
+        <image name="chatting.png" width="27" height="27"/>
+        <image name="del.png" width="27" height="27"/>
         <image name="like_red.png" width="13" height="13"/>
+        <image name="recommand.png" width="27" height="27"/>
+        <image name="recommand_on.png" width="54" height="54"/>
+        <image name="reg_friend.png" width="27" height="27"/>
     </resources>
 </document>

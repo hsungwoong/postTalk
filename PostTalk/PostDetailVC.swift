@@ -12,9 +12,21 @@ class PostDetailVC: BaseVC {
     
     var entity:EntityPostInfo?;
 
+    @IBOutlet var btnRecommand: UIButton!
     @IBOutlet var photoDummy: UIImageView!
     @IBOutlet var pagCtrl: UIPageControl!
     
+    @IBOutlet var desc: UILabel!
+    
+    @IBOutlet var thumbnail: UIImageView!
+    
+    @IBOutlet var userId: UILabel!
+    
+    @IBOutlet var likeCnt: UILabel!
+    
+    @IBOutlet var timed: UILabel!
+    
+    @IBOutlet var scroll: UIScrollView!
    /* @IBAction func gotoPostMap(sender: AnyObject) {
         self.performSegueWithIdentifier("SgPostMap", sender: self)
     }
@@ -35,16 +47,48 @@ class PostDetailVC: BaseVC {
         
         self.pagCtrl.addTarget(self, action: "onSelectImage:", forControlEvents: UIControlEvents.TouchUpInside);
         
+        btnRecommand.selected = true;
+        
+        desc.text = entity?.memo;
+        desc.sizeToFit();
+        
+        //scroll.setNeedsDisplay();
+        //scroll.setNeedsLayout();
+        
+        println(desc.frame);
+        
+        //scroll.contentSize = CGSizeMake(desc.frame.size.width, desc.frame.size.height + 50 );
+        
+        //println("contne size \(scroll.contentSize)")
         // Do any additional setup after loading the view.
+        
+        //scroll.setNeedsDisplay();
     }
     
+    
+    override func  viewDidLayoutSubviews() {
+    
+    scroll.contentSize = CGSizeMake(desc.frame.size.width, thumbnail.frame.origin.y + thumbnail.frame.size.height + 20 );
+    
+    }
     func onSelectImage(target:AnyObject?){
         
         
     }
     
 
+    @IBAction func onRecomand(sender: AnyObject) {
+    }
+    
+    @IBAction func onChatting(sender: AnyObject) {
+    }
+    
+    @IBAction func onRegFriend(sender: AnyObject) {
+    }
 
+    @IBAction func onDelete(sender: AnyObject) {
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
