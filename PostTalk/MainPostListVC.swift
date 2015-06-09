@@ -56,7 +56,6 @@ class MainPostListVC: BaseVC , IBaseDataAccessManager,  UITableViewDataSource, U
         // Do any additional setup after loading the view.
         tbl.delegate = self;
         tbl.dataSource = self;
-        //tbl.s
         
         //cell등록
         var nib = UINib(nibName: "PostCell", bundle: nil)

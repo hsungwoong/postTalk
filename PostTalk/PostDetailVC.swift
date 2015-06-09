@@ -44,6 +44,7 @@ class PostDetailVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        println("viewDidLoad")
         
         self.pagCtrl.addTarget(self, action: "onSelectImage:", forControlEvents: UIControlEvents.TouchUpInside);
         
@@ -67,8 +68,8 @@ class PostDetailVC: BaseVC {
     
     
     override func  viewDidLayoutSubviews() {
-    
-    scroll.contentSize = CGSizeMake(desc.frame.size.width, thumbnail.frame.origin.y + thumbnail.frame.size.height + 20 );
+        println("viewDidLayoutSubviews")
+        scroll.contentSize = CGSizeMake(desc.frame.size.width, thumbnail.frame.origin.y + thumbnail.frame.size.height + 20 );
     
     }
     func onSelectImage(target:AnyObject?){
