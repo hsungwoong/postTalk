@@ -69,7 +69,7 @@ class SettingVC: BaseVC, IBaseDataAccessManager, UIPickerViewDelegate, UIPickerV
     }
     
     /**
-    데이타 요청 시작
+    데이타 요청 시작1
     */
     func requestData(){
         if loader == nil {
