@@ -363,9 +363,38 @@
         <!--나의포스트목록-->
         <scene sceneID="1Fa-Bq-qp5">
             <objects>
-                <viewController title="나의포스트목록" id="e7P-g8-QK0" customClass="CommonPostListVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="나의포스트목록" id="e7P-g8-QK0" customClass="MyPostListVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UYm-lz-cDF"/>
+                        <viewControllerLayoutGuide type="bottom" id="o0q-Rc-nsI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2PG-cd-sRX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OLV-ZO-XYA">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                                </variation>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="OLV-ZO-XYA"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="OLV-ZO-XYA"/>
+                            </mask>
+                        </variation>
+                    </view>
                     <navigationItem key="navigationItem" id="ykT-nP-uwg"/>
                     <connections>
+                        <outlet property="tbl" destination="OLV-ZO-XYA" id="vpg-jN-Upl"/>
                         <segue destination="dtB-xu-aro" kind="show" identifier="SgPostDetail" id="0Eh-t2-Dgg"/>
                     </connections>
                 </viewController>

@@ -33,6 +33,7 @@
 		F40EF86D1AF204D70007E992 /* MyInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EF86B1AF204D70007E992 /* MyInfoVC.xib */; };
 		F40EF8701AF204FD0007E992 /* LanguageChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40EF86E1AF204FD0007E992 /* LanguageChangeVC.swift */; };
 		F40EF8711AF204FD0007E992 /* LanguageChangeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EF86F1AF204FD0007E992 /* LanguageChangeVC.xib */; };
+		F43B52F31B2EADD600CDAB09 /* MyPostListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B52F21B2EADD600CDAB09 /* MyPostListVC.swift */; };
 		F44569F11AFB334F003F20CF /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44569F01AFB334F003F20CF /* AppManager.swift */; };
 		F44569F31AFB391E003F20CF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44569F21AFB391E003F20CF /* BaseVC.swift */; };
 		F44569F61AFB3DA0003F20CF /* BaseDataAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44569F51AFB3DA0003F20CF /* BaseDataAccessManager.swift */; };
@@ -124,6 +125,7 @@
 		F40EF86B1AF204D70007E992 /* MyInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInfoVC.xib; sourceTree = "<group>"; };
 		F40EF86E1AF204FD0007E992 /* LanguageChangeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageChangeVC.swift; sourceTree = "<group>"; };
 		F40EF86F1AF204FD0007E992 /* LanguageChangeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageChangeVC.xib; sourceTree = "<group>"; };
+		F43B52F21B2EADD600CDAB09 /* MyPostListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostListVC.swift; sourceTree = "<group>"; };
 		F44569F01AFB334F003F20CF /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		F44569F21AFB391E003F20CF /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		F44569F51AFB3DA0003F20CF /* BaseDataAccessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataAccessManager.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				F40EF86B1AF204D70007E992 /* MyInfoVC.xib */,
 				F40EF86E1AF204FD0007E992 /* LanguageChangeVC.swift */,
 				F40EF86F1AF204FD0007E992 /* LanguageChangeVC.xib */,
+				F43B52F21B2EADD600CDAB09 /* MyPostListVC.swift */,
 			);
 			name = Vc;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				F44569F81AFB3DE3003F20CF /* DataMainPostLIst.swift in Sources */,
 				F40EF8471AF1FCD00007E992 /* MainPostListVC.swift in Sources */,
 				F40EF84E1AF1FDFE0007E992 /* PostMapVC.swift in Sources */,
+				F43B52F31B2EADD600CDAB09 /* MyPostListVC.swift in Sources */,
 				F40EF8541AF1FF1D0007E992 /* CommonPostListVC.swift in Sources */,
 				F458826F1B16E2C0001B8A37 /* PostCell.swift in Sources */,
 			);
