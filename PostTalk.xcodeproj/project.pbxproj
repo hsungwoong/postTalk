@@ -19,7 +19,6 @@
 		F40EF84F1AF1FDFE0007E992 /* PostMapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EF84D1AF1FDFE0007E992 /* PostMapVC.xib */; };
 		F40EF8511AF1FE520007E992 /* BookMarkListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40EF8501AF1FE520007E992 /* BookMarkListVC.swift */; };
 		F40EF8541AF1FF1D0007E992 /* CommonPostListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40EF8521AF1FF1D0007E992 /* CommonPostListVC.swift */; };
-		F40EF8551AF1FF1D0007E992 /* CommonPostListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EF8531AF1FF1D0007E992 /* CommonPostListVC.xib */; };
 		F40EF8581AF1FF920007E992 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40EF8561AF1FF920007E992 /* SettingVC.swift */; };
 		F40EF8591AF1FF920007E992 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EF8571AF1FF920007E992 /* SettingVC.xib */; };
 		F40EF85C1AF200020007E992 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40EF85A1AF200020007E992 /* LoginVC.swift */; };
@@ -111,7 +110,6 @@
 		F40EF84D1AF1FDFE0007E992 /* PostMapVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostMapVC.xib; sourceTree = "<group>"; };
 		F40EF8501AF1FE520007E992 /* BookMarkListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkListVC.swift; sourceTree = "<group>"; };
 		F40EF8521AF1FF1D0007E992 /* CommonPostListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonPostListVC.swift; sourceTree = "<group>"; };
-		F40EF8531AF1FF1D0007E992 /* CommonPostListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonPostListVC.xib; sourceTree = "<group>"; };
 		F40EF8561AF1FF920007E992 /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		F40EF8571AF1FF920007E992 /* SettingVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		F40EF85A1AF200020007E992 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -275,14 +273,13 @@
 			isa = PBXGroup;
 			children = (
 				F44569F21AFB391E003F20CF /* BaseVC.swift */,
+				F40EF8521AF1FF1D0007E992 /* CommonPostListVC.swift */,
 				F40EF8461AF1FCD00007E992 /* MainPostListVC.swift */,
 				F40EF8481AF1FD810007E992 /* PostDetailVC.swift */,
 				F40EF8491AF1FD810007E992 /* PostDetailVC.xib */,
 				F40EF84C1AF1FDFE0007E992 /* PostMapVC.swift */,
 				F40EF84D1AF1FDFE0007E992 /* PostMapVC.xib */,
 				F40EF8501AF1FE520007E992 /* BookMarkListVC.swift */,
-				F40EF8521AF1FF1D0007E992 /* CommonPostListVC.swift */,
-				F40EF8531AF1FF1D0007E992 /* CommonPostListVC.xib */,
 				F40EF8561AF1FF920007E992 /* SettingVC.swift */,
 				F40EF8571AF1FF920007E992 /* SettingVC.xib */,
 				F40EF85A1AF200020007E992 /* LoginVC.swift */,
@@ -512,7 +509,6 @@
 				F40EF8691AF202D10007E992 /* PostInsertVC.xib in Resources */,
 				F4ABCFB31B25392200405674 /* reg_friend_on@2x.png in Resources */,
 				F458825E1B15A5C8001B8A37 /* barbutton_refresh.png in Resources */,
-				F40EF8551AF1FF1D0007E992 /* CommonPostListVC.xib in Resources */,
 				F4ABCFBA1B25392F00405674 /* heart.png in Resources */,
 				F4ABCFCA1B25521900405674 /* del_on@2x.png in Resources */,
 				F4ABCFCC1B25521900405674 /* del@2x.png in Resources */,

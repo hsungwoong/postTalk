@@ -173,7 +173,7 @@
                         <outlet property="cateBuletBarbtn" destination="Owi-NB-Orm" id="EDQ-Xn-rQV"/>
                         <outlet property="cateChildBarbtn" destination="l2z-Ly-5Yl" id="1cH-NR-1Ff"/>
                         <outlet property="cateToolbar" destination="577-rE-fLA" id="lAn-Sq-Jii"/>
-                        <outlet property="tbl" destination="SY3-BS-G4A" id="j0V-mz-1nE"/>
+                        <outlet property="tbl" destination="SY3-BS-G4A" id="pi4-hE-Dl7"/>
                         <segue destination="ctY-LL-hRC" kind="show" identifier="SgGoMaintoDetail" id="EaD-Wr-G26"/>
                     </connections>
                 </viewController>
