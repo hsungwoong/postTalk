@@ -14,8 +14,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvU-5z-Ndp" userLabel="BgView">
-                        <rect key="frame" x="4" y="18" width="492" height="182"/>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bvU-5z-Ndp" userLabel="BgView">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="200"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like_red.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ftz-iT-dqg">
@@ -86,11 +86,17 @@
                     <constraint firstItem="1MC-96-UwI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="Zxf-Y6-un5"/>
                     <constraint firstAttribute="bottomMargin" secondItem="bvU-5z-Ndp" secondAttribute="bottom" constant="-8" id="d80-XK-ok0"/>
                     <constraint firstItem="vgh-Vp-wSS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="85" id="e8h-BG-UgY"/>
+                    <constraint firstItem="bvU-5z-Ndp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="fFx-Vz-dbP"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vgh-Vp-wSS" secondAttribute="trailing" constant="8" id="oGs-j7-jAr"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Eon-YN-Q2D" secondAttribute="trailing" constant="9" id="otH-CP-DLb"/>
                     <constraint firstItem="bvU-5z-Ndp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="t4n-bJ-jlp"/>
                     <constraint firstItem="eBL-nP-GNC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="28" id="v1B-Cw-OoQ"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="t4n-bJ-jlp"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>

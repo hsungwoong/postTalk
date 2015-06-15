@@ -10,12 +10,10 @@ import UIKit
 
 class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , UIScrollViewDelegate , IBaseDataAccessManager{
     
-    
-    var loader:DataMainPostLIst!;
-    
     @IBOutlet var tbl: UITableView!
     
     var totalItems = 0;
+     var loader:DataMainPostLIst!;
     
     /*
     override func loadView() {
@@ -73,18 +71,18 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
     테이블 관련 소스
     */
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return totalItems;
     }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return loader.total;
-        return totalItems;
+        return 1;
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        var entity:EntityPostInfo = loader.entities?[indexPath.row] as! EntityPostInfo;
+        var entity:EntityPostInfo = loader.entities?[indexPath.section] as! EntityPostInfo;
         var str:String  = entity.memo!;
         
         let label:UILabel = UILabel(frame: CGRectMake(0, 0, tableView.frame.width - 46, CGFloat.max));
@@ -104,10 +102,10 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! PostCell;
         
-        var entity:EntityPostInfo = loader.entities?[indexPath.row] as! EntityPostInfo;
+        var entity:EntityPostInfo = loader.entities?[indexPath.section] as! EntityPostInfo;
         
         
-        if indexPath.row % 2 == 0{
+        if indexPath.section % 2 == 0{
             cell.bg.backgroundColor = UIColor.whiteColor();
             
         }else{
@@ -122,13 +120,59 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
         }else{
             cell.like.text = "0";
         }
-        
-        //if let timed = entity.
+
         
         cell.desc.text = entity.memo!;
         
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        //var v = view as! UITableViewHeaderFooterView;
+        //v.contentView.backgroundColor  = UIColor.clearColor();
+    }
+    
+    func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+        //var v = view as! UITableViewHeaderFooterView;
+        //v.contentView.backgroundColor  = UIColor.clearColor();
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var v = UIView();
+        return v;
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        var v = UIView();
+        return v;
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 5;
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 5;
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true;
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        var vv = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "삭제", handler: {
+            action, indexPath in
+                //
+        })
+        
+        return [vv];
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
