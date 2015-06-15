@@ -24,29 +24,10 @@ class MainPostListVC: CommonPostListVC{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //cateToolbar.delegate = self;
-        
-        /*
-        var rec = cateToolbar.frame;
-        rec.size.height = 40;
-        cateToolbar.frame = rec;
-        */
-        
-        //cateToolbar.setBackgroundImage(UIImage(named: "cate_toolbar_bg.png"), forToolbarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
-        //cateToolbar.
+
        
         cateToolbar.setBackgroundImage(UIImage(named: "cate_toolbar_bg.png"), forToolbarPosition: UIBarPosition.Bottom, barMetrics: UIBarMetrics.Default)
-       // cateToolbar.
-        
-        //cateToolbar.setShadowImage( UIImage(named: "shadow.png") , forToolbarPosition: UIBarPosition.Top)
- /**/
-        
-      // cateToolbar.setShadowImage(UIImage(named: "shadow.png") , forToolbarPosition: UIBarPosition.Any)
-        
-        //var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate;
-        //appDelegate.appManager;
-        
+
         creatNaviBarRightButtons();
         
 
@@ -65,11 +46,6 @@ class MainPostListVC: CommonPostListVC{
     }
     
 
-    
-
-    
-
-    
     override func  prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if let postDetail = segue.destinationViewController as? PostDetailVC{

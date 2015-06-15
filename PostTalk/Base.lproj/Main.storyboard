@@ -63,26 +63,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SY3-BS-G4A">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="643" id="0hd-kD-UtR">
-                                        <variation key="heightClass=regular" constant="700"/>
-                                    </constraint>
-                                    <constraint firstAttribute="width" constant="600" id="z1Y-tw-vj9"/>
-                                </constraints>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="0hd-kD-UtR"/>
-                                        <exclude reference="z1Y-tw-vj9"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular">
-                                    <mask key="constraints">
-                                        <exclude reference="0hd-kD-UtR"/>
-                                        <exclude reference="z1Y-tw-vj9"/>
-                                    </mask>
-                                </variation>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="577-rE-fLA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -372,27 +354,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OLV-ZO-XYA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OLV-ZO-XYA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
-                                </variation>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="o0q-Rc-nsI" firstAttribute="top" secondItem="OLV-ZO-XYA" secondAttribute="bottom" constant="-49" id="2S2-Jc-XNe"/>
+                            <constraint firstItem="OLV-ZO-XYA" firstAttribute="top" secondItem="UYm-lz-cDF" secondAttribute="bottom" constant="-64" id="2XS-kt-Xsc"/>
+                            <constraint firstItem="OLV-ZO-XYA" firstAttribute="height" secondItem="2PG-cd-sRX" secondAttribute="height" id="LlW-Gp-h5K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OLV-ZO-XYA" secondAttribute="trailing" constant="-16" id="RBS-FR-88Z"/>
+                            <constraint firstItem="OLV-ZO-XYA" firstAttribute="width" secondItem="2PG-cd-sRX" secondAttribute="width" id="ZfH-Ok-opr"/>
+                            <constraint firstItem="OLV-ZO-XYA" firstAttribute="leading" secondItem="2PG-cd-sRX" secondAttribute="leadingMargin" constant="-16" id="q06-lP-NKb"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="OLV-ZO-XYA"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="2XS-kt-Xsc"/>
+                                <exclude reference="LlW-Gp-h5K"/>
+                                <exclude reference="RBS-FR-88Z"/>
+                                <exclude reference="ZfH-Ok-opr"/>
+                                <exclude reference="q06-lP-NKb"/>
+                                <exclude reference="2S2-Jc-XNe"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="subviews">
                                 <include reference="OLV-ZO-XYA"/>
                             </mask>
+                            <mask key="constraints">
+                                <include reference="2XS-kt-Xsc"/>
+                                <include reference="LlW-Gp-h5K"/>
+                                <include reference="RBS-FR-88Z"/>
+                                <include reference="ZfH-Ok-opr"/>
+                                <include reference="q06-lP-NKb"/>
+                                <include reference="2S2-Jc-XNe"/>
+                            </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="ykT-nP-uwg"/>
+                    <navigationItem key="navigationItem" title="나의 포스트 목록" id="ykT-nP-uwg"/>
                     <connections>
                         <outlet property="tbl" destination="OLV-ZO-XYA" id="vpg-jN-Upl"/>
                         <segue destination="dtB-xu-aro" kind="show" identifier="SgPostDetail" id="0Eh-t2-Dgg"/>

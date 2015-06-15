@@ -14,6 +14,9 @@ class MyPostListVC: CommonPostListVC {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        //메인 목록 데이타 요청
+        self.requestData();
     }
 
     override func didReceiveMemoryWarning() {
