@@ -34,6 +34,10 @@
 		F40EF8701AF204FD0007E992 /* LanguageChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40EF86E1AF204FD0007E992 /* LanguageChangeVC.swift */; };
 		F40EF8711AF204FD0007E992 /* LanguageChangeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EF86F1AF204FD0007E992 /* LanguageChangeVC.xib */; };
 		F43B52F31B2EADD600CDAB09 /* MyPostListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B52F21B2EADD600CDAB09 /* MyPostListVC.swift */; };
+		F43B52F71B2FA7D500CDAB09 /* GpsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B52F61B2FA7D500CDAB09 /* GpsManager.swift */; };
+		F43B52F91B2FAC1000CDAB09 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43B52F81B2FAC1000CDAB09 /* CoreLocation.framework */; };
+		F43B52FB1B2FAE7B00CDAB09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43B52FA1B2FAE7B00CDAB09 /* MapKit.framework */; };
+		F43B52FD1B2FC11100CDAB09 /* IGpsManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B52FC1B2FC11100CDAB09 /* IGpsManagerDelegate.swift */; };
 		F44569F11AFB334F003F20CF /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44569F01AFB334F003F20CF /* AppManager.swift */; };
 		F44569F31AFB391E003F20CF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44569F21AFB391E003F20CF /* BaseVC.swift */; };
 		F44569F61AFB3DA0003F20CF /* BaseDataAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44569F51AFB3DA0003F20CF /* BaseDataAccessManager.swift */; };
@@ -126,6 +130,10 @@
 		F40EF86E1AF204FD0007E992 /* LanguageChangeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageChangeVC.swift; sourceTree = "<group>"; };
 		F40EF86F1AF204FD0007E992 /* LanguageChangeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LanguageChangeVC.xib; sourceTree = "<group>"; };
 		F43B52F21B2EADD600CDAB09 /* MyPostListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostListVC.swift; sourceTree = "<group>"; };
+		F43B52F61B2FA7D500CDAB09 /* GpsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GpsManager.swift; sourceTree = "<group>"; };
+		F43B52F81B2FAC1000CDAB09 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F43B52FA1B2FAE7B00CDAB09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F43B52FC1B2FC11100CDAB09 /* IGpsManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGpsManagerDelegate.swift; sourceTree = "<group>"; };
 		F44569F01AFB334F003F20CF /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		F44569F21AFB391E003F20CF /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		F44569F51AFB3DA0003F20CF /* BaseDataAccessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataAccessManager.swift; sourceTree = "<group>"; };
@@ -181,6 +189,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43B52FB1B2FAE7B00CDAB09 /* MapKit.framework in Frameworks */,
+				F43B52F91B2FAC1000CDAB09 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +207,8 @@
 		F40EF8101AF1ED0A0007E992 = {
 			isa = PBXGroup;
 			children = (
+				F43B52FA1B2FAE7B00CDAB09 /* MapKit.framework */,
+				F43B52F81B2FAC1000CDAB09 /* CoreLocation.framework */,
 				F40EF81B1AF1ED0A0007E992 /* PostTalk */,
 				F40EF8311AF1ED0A0007E992 /* PostTalkTests */,
 				F40EF81A1AF1ED0A0007E992 /* Products */,
@@ -215,6 +227,7 @@
 		F40EF81B1AF1ED0A0007E992 /* PostTalk */ = {
 			isa = PBXGroup;
 			children = (
+				F43B52F41B2FA7A500CDAB09 /* Service */,
 				F45882681B16E205001B8A37 /* View */,
 				F45882631B16A61E001B8A37 /* Config */,
 				F40EF83F1AF1FA3D0007E992 /* Model */,
@@ -307,6 +320,23 @@
 				F44569F01AFB334F003F20CF /* AppManager.swift */,
 			);
 			name = App;
+			sourceTree = "<group>";
+		};
+		F43B52F41B2FA7A500CDAB09 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F43B52F51B2FA7B000CDAB09 /* Gps */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		F43B52F51B2FA7B000CDAB09 /* Gps */ = {
+			isa = PBXGroup;
+			children = (
+				F43B52F61B2FA7D500CDAB09 /* GpsManager.swift */,
+				F43B52FC1B2FC11100CDAB09 /* IGpsManagerDelegate.swift */,
+			);
+			name = Gps;
 			sourceTree = "<group>";
 		};
 		F44569F41AFB3D67003F20CF /* Data */ = {
@@ -456,6 +486,11 @@
 				TargetAttributes = {
 					F40EF8181AF1ED0A0007E992 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					F40EF82D1AF1ED0A0007E992 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -559,6 +594,8 @@
 				F40EF8701AF204FD0007E992 /* LanguageChangeVC.swift in Sources */,
 				F40EF8601AF202900007E992 /* SearchMapVC.swift in Sources */,
 				F44569FA1AFB3E1C003F20CF /* DataBookMarkList.swift in Sources */,
+				F43B52FD1B2FC11100CDAB09 /* IGpsManagerDelegate.swift in Sources */,
+				F43B52F71B2FA7D500CDAB09 /* GpsManager.swift in Sources */,
 				F40EF8681AF202D10007E992 /* PostInsertVC.swift in Sources */,
 				F40EF85C1AF200020007E992 /* LoginVC.swift in Sources */,
 				F44569F11AFB334F003F20CF /* AppManager.swift in Sources */,

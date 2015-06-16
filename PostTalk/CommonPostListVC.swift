@@ -13,7 +13,7 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
     @IBOutlet var tbl: UITableView!
     
     var totalItems = 0;
-     var loader:DataMainPostLIst!;
+    var loader:DataMainPostLIst!;
     
     /*
     override func loadView() {
@@ -48,9 +48,18 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
             loader = DataMainPostLIst()
             loader.delegate = self;
         }
-        println("# 메인 포스트 목록 데이타 api url :")
-        println(APIUrl.mainList)
-        loader.load(APIUrl.mainList);
+
+        loader.load( getUrl(), params: getParams() );
+        
+    }
+    
+    func getUrl() -> String?{
+        //return nil;
+        return APIUrl.mainList;
+    }
+    
+    func getParams() -> String? {
+        return nil;
     }
     
     /**
@@ -176,9 +185,12 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("SgGoMaintoDetail", sender: self);
+        self.performSegueWithIdentifier("SgPostDetail", sender: self);
     }
     
+    /**
+
+*/
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         println("scrollViewWillBeginDragging")
     }
@@ -196,6 +208,19 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
         println("scrollViewDidScrollToTop")
     }
 
+    
+    override func  prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if let postDetail = segue.destinationViewController as? PostDetailVC {
+            if let indexPath = self.tbl.indexPathForSelectedRow(){
+                var entity = loader.entities?[indexPath.section] as! EntityPostInfo;
+                postDetail.entity  = entity;
+            }
+            
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

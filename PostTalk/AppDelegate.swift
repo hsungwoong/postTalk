@@ -30,10 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor(red: 240/255.0, green: 239/255.0, blue: 245/255.0, alpha: 1.0);
         
         
-        //appManager = AppManager(window: window!);
-        
-        
-        
         return true
     }
 

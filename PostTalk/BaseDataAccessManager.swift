@@ -22,18 +22,29 @@ class BaseDataAccessManager: NSObject {
     }
     
     /**
-    데이타 요청
-*/
-    func load(url:String){
-        /**/
-        let httpMethod = "POST"
-        let timeout = 15
-        let url = NSURL(string: url)
-        let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:15.0)
-        let queue = NSOperationQueue.mainQueue();
-        NSURLConnection.sendAsynchronousRequest(urlRequest, queue: queue,completionHandler:complete)
-
+        데이타 요청
+    */
+    func load(httpUrl:String?, params:String?){
+        
+        if let u = httpUrl {
+            let url = NSURL(string: u)
+            let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:15.0)
+            urlRequest.HTTPMethod = "POST";
+            
+            println("url : \(u)")
+            println("params : \(params)")
+            
+            if let p = params {
+                urlRequest.HTTPBody = p.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                println("\(p)")
+            }
+            let queue = NSOperationQueue.mainQueue();
+            NSURLConnection.sendAsynchronousRequest(urlRequest, queue: queue,completionHandler:complete)
+        }else{
+            println("요청한 http Url 값이 없습니다.")
+        }
     }
+    
     
     /**
         데이타 로드 성공

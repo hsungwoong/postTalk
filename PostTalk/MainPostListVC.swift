@@ -7,55 +7,75 @@
 //
 
 import UIKit
+import CoreLocation
 
-
-class MainPostListVC: CommonPostListVC{
+class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
  
     @IBOutlet var cateToolbar: UIToolbar!
     @IBOutlet var cateBuletBarbtn: UIBarButtonItem!
     @IBOutlet var cateChildBarbtn: UIBarButtonItem!
     
-    @IBAction func onTouchCate(sender: AnyObject) {
-    }
-    
-    @IBAction func onPan(sender:AnyObject){
-        println(sender);
-    }
 
+    var gps:GpsManager!;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
-        cateToolbar.setBackgroundImage(UIImage(named: "cate_toolbar_bg.png"), forToolbarPosition: UIBarPosition.Bottom, barMetrics: UIBarMetrics.Default)
-
         creatNaviBarRightButtons();
         
-
+        setupSortMenu();
         
-        setupListMenu();
+        setupGps();
+    }
+    
+    override func getUrl() -> String? {
+        return APIUrl.mainList;
+    }
+    
+    override func getParams() -> String? {
+        var p = "lat=&";
+        p += "lat=123"
+        return p;
+    }
+    
+    func setupGps(){
+        gps = GpsManager();
+        gps.delegate = self;
+        gps.start();
+    }
+    
+    /**
+        gps manager delegate
+    */
+    func onGpsDidStart() {
+        //
+        println("####")
+        println("onGpsDidStart")
         
-        //메인 목록 데이타 요청
         self.requestData();
     }
     
+    func onGpsAuthDeny() {
+        println("####")
+        println("onGpsAuthDeny")
+    }
 
     
-    func setupListMenu() {
+    /**
+        정렬메뉴 설정
+    */
+    func setupSortMenu() {
+        cateToolbar.setBackgroundImage(UIImage(named: "cate_toolbar_bg.png"), forToolbarPosition: UIBarPosition.Bottom, barMetrics: UIBarMetrics.Default)
         
         cateBuletBarbtn.customView = UIImageView(image: UIImage(named: "bulet_cate.png"))
     }
     
-
-    override func  prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if let postDetail = segue.destinationViewController as? PostDetailVC{
-            if let indexPath = self.tbl.indexPathForSelectedRow(){
-                var entity = loader.entities?[indexPath.row] as! EntityPostInfo;
-                postDetail.entity  = entity;
-            }
-            
-        }
-       
+    @IBAction func onTouchCate(sender: AnyObject) {
+        //
+    }
+    
+    @IBAction func onPan(sender:AnyObject){
+        println(sender);
     }
 
 

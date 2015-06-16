@@ -44,7 +44,7 @@ class LoginVC: BaseVC, IBaseDataAccessManager {
         }
         println("# 회원정보 api url :")
         println(APIUrl.userInfo)
-        loader.load(APIUrl.loginChk+"?USER_ID="+inputUserId.text+"&PWD="+inputPwd.text+"");
+        //loader.load(APIUrl.loginChk+"?USER_ID="+inputUserId.text+"&PWD="+inputPwd.text+"");
     }
     
     /**

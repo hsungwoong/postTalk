@@ -78,7 +78,7 @@ class SettingVC: BaseVC, IBaseDataAccessManager, UIPickerViewDelegate, UIPickerV
         }
         println("# 세팅 포스트 회원정보 api url :")
         println(APIUrl.userInfo)
-        loader.load(APIUrl.userInfo+"?USER_ID=cstone501");
+        //loader.load(APIUrl.userInfo+"?USER_ID=cstone501");
     }
     
     /**
