@@ -37,11 +37,15 @@ class GpsManager: NSObject, CLLocationManagerDelegate {
         println("###########")
         println("GpsManager init")
         
-        CLLocationManager.significantLocationChangeMonitoringAvailable();
+        //CLLocationManager.significantLocationChangeMonitoringAvailable();
+        //CLLocationManager.
+        
+
         
         locMgr.delegate = self;
         locMgr.desiredAccuracy = kCLLocationAccuracyBest;
         locMgr.distanceFilter = kCLDistanceFilterNone;
+        
         
     }
     
@@ -63,6 +67,13 @@ class GpsManager: NSObject, CLLocationManagerDelegate {
     }
     
     func start(){
+        
+        if !CLLocationManager.locationServicesEnabled() {
+            println("## 설정>개인정보>위치서비스")
+            locMgr.requestWhenInUseAuthorization();
+            return;
+        }
+        
         if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined {
             
             requestAuth();
@@ -90,6 +101,7 @@ class GpsManager: NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
         println("### didChangeAuthorizationStatus ###")
+        
         switch status {
         case .NotDetermined :
             println("NotDetermined")
@@ -98,7 +110,11 @@ class GpsManager: NSObject, CLLocationManagerDelegate {
             self.start();
         case .Denied :
             println("Denied")
-            locMgr.requestWhenInUseAuthorization();
+            
+            
+            //var alert = UIAlertView(title: "에러", message: "22", delegate: nil, cancelButtonTitle: "ok");
+            //alert.show();
+            //
         default :
             println("nothing")
         }
@@ -120,8 +136,10 @@ class GpsManager: NSObject, CLLocationManagerDelegate {
             //location.coordinate.latitude;
             //location.coordinate.longitude;
             self.currentLocation = location;
-            println("######user current location ####")
+            println("######user recent current location ####")
             println(self.currentLocation!)
+
+            delegate!.onGpsDidUpdateCurrentLocation?();
         }
     }
 

@@ -33,8 +33,8 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
     }
     
     override func getParams() -> String? {
-        var p = "lat=&";
-        p += "lat=123"
+        var p = "long=\(gps.currentLocation!.coordinate.longitude)&";
+        p += "lat=\(gps.currentLocation!.coordinate.latitude)&"
         return p;
     }
     
@@ -52,12 +52,19 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
         println("####")
         println("onGpsDidStart")
         
-        self.requestData();
+        //self.requestData();
     }
     
     func onGpsAuthDeny() {
         println("####")
         println("onGpsAuthDeny")
+    }
+    
+    func onGpsDidUpdateCurrentLocation() {
+        //self.gps.currentLocation?.coordinate.longitude;
+        println("#####")
+        println("onGpsDidUpdateCurrentLocation")
+        self.requestData();
     }
 
     

@@ -32,13 +32,16 @@ class BaseDataAccessManager: NSObject {
             urlRequest.HTTPMethod = "POST";
             
             println("url : \(u)")
-            println("params : \(params)")
+            //println("params : \(params)")
             
             if let p = params {
                 urlRequest.HTTPBody = p.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
                 println("\(p)")
             }
             let queue = NSOperationQueue.mainQueue();
+            
+            //println("\(urlRequest.description)");
+            
             NSURLConnection.sendAsynchronousRequest(urlRequest, queue: queue,completionHandler:complete)
         }else{
             println("요청한 http Url 값이 없습니다.")

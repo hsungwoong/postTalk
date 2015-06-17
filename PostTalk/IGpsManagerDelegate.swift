@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import CoreLocation
 
 @objc protocol IGpsManagerDelegate {
     // protocol definition goes here
     
      optional func onGpsDidStart();
     optional func onGpsAuthDeny();
+    optional func onGpsDidUpdateCurrentLocation();
 }
 
