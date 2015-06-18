@@ -61,15 +61,15 @@ class BaseVC: UIViewController {
     }
     
     func refresh(target:UIBarButtonItem){
-        println("111")
+        println("## refresh ##")
     }
     
     func showMap(target:UIBarButtonItem){
-        println("222")
+        println("## show map ##")
     }
     
     func doSearch(target:UIBarButtonItem){
-        println("3333")
+        println("## search ##")
     }
 
     

@@ -37,14 +37,9 @@ class GpsManager: NSObject, CLLocationManagerDelegate {
         println("###########")
         println("GpsManager init")
         
-        //CLLocationManager.significantLocationChangeMonitoringAvailable();
-        //CLLocationManager.
-        
-
-        
         locMgr.delegate = self;
         locMgr.desiredAccuracy = kCLLocationAccuracyBest;
-        locMgr.distanceFilter = kCLDistanceFilterNone;
+        locMgr.distanceFilter = 10.0;
         
         
     }
@@ -63,24 +58,19 @@ class GpsManager: NSObject, CLLocationManagerDelegate {
         println("###########")
         println("GpsManager requestAuth")
         locMgr.requestWhenInUseAuthorization();
-        //locMgr.
     }
     
     func start(){
+    /*
         
-        if !CLLocationManager.locationServicesEnabled() {
-            println("## 설정>개인정보>위치서비스")
-            locMgr.requestWhenInUseAuthorization();
-            return;
-        }
-        
-        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined {
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined || !CLLocationManager.locationServicesEnabled() {
             
-            requestAuth();
+            //requestAuth();
             
             return;
         }
-        
+*/
+        /*
         if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.Denied{
             
             println("###########")
@@ -96,6 +86,7 @@ class GpsManager: NSObject, CLLocationManagerDelegate {
             
             delegate!.onGpsAuthDeny?()
         }
+*/
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -105,9 +96,14 @@ class GpsManager: NSObject, CLLocationManagerDelegate {
         switch status {
         case .NotDetermined :
             println("NotDetermined")
+            requestAuth();
         case .AuthorizedWhenInUse :
             println("AuthorizedWhenInUse")
-            self.start();
+            //self.start();
+            locMgr.startUpdatingLocation();
+            
+            delegate!.onGpsDidStart?();
+            //locMgr.startUpdatingLocation();
         case .Denied :
             println("Denied")
             

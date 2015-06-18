@@ -18,6 +18,8 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
 
     var gps:GpsManager!;
     
+    var initedGpsUpdate = false;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,7 +43,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
     func setupGps(){
         gps = GpsManager();
         gps.delegate = self;
-        gps.start();
+        //gps.start();
     }
     
     /**
@@ -61,12 +63,22 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
     }
     
     func onGpsDidUpdateCurrentLocation() {
-        //self.gps.currentLocation?.coordinate.longitude;
+
         println("#####")
         println("onGpsDidUpdateCurrentLocation")
+        
+        //앱실행시 현재 사용자 위치 업데이트 최초 한번 발생할때만 데이타 로드
+        if !initedGpsUpdate {
+            
+            self.requestData();
+            initedGpsUpdate = true;
+        }
+    }
+    
+    override func refresh(target: UIBarButtonItem) {
+        super.refresh(target);
         self.requestData();
     }
-
     
     /**
         정렬메뉴 설정
