@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="myActivityIndicator" destination="YWS-Qe-hyx" id="rzO-LY-0v2"/>
                 <outlet property="myImageView" destination="ZZb-9k-EmV" id="bPp-e7-MmC"/>
-                <outlet property="myMemo" destination="CvX-cq-pdA" id="OtX-Ya-j5l"/>
+                <outlet property="myMemo" destination="tqX-N0-fgd" id="0A1-7C-szN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,13 +17,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" borderStyle="roundedRect" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CvX-cq-pdA">
-                    <rect key="frame" x="0.0" y="101" width="375" height="30"/>
-                    <attributedString key="attributedText"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b28-yF-TOk">
-                    <rect key="frame" x="8" y="157" width="88" height="30"/>
+                    <rect key="frame" x="26" y="276" width="88" height="30"/>
                     <state key="normal" title="select Image">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -32,7 +27,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhR-aJ-hFn">
-                    <rect key="frame" x="280" y="157" width="30" height="30"/>
+                    <rect key="frame" x="249" y="244" width="30" height="30"/>
                     <state key="normal" title="등록">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -41,14 +36,46 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZZb-9k-EmV">
-                    <rect key="frame" x="67" y="211" width="240" height="128"/>
+                    <rect key="frame" x="67" y="325" width="240" height="128"/>
                 </imageView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YWS-Qe-hyx">
-                    <rect key="frame" x="177" y="157" width="20" height="20"/>
+                    <rect key="frame" x="177" y="249" width="20" height="20"/>
                 </activityIndicatorView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rpm-SY-tgT">
+                    <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                    <items>
+                        <barButtonItem style="plain" id="VsI-Lz-hDo">
+                            <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6U6-KP-Enn">
+                                <rect key="frame" x="16" y="11" width="368" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="319" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="카테고리를 선택해 주세요">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="tqX-N0-fgd">
+                    <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="tqX-N0-fgd" secondAttribute="bottom" constant="49" id="3FO-uY-UUc"/>
+                <constraint firstItem="Rpm-SY-tgT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="3Wv-F4-wAc"/>
+                <constraint firstItem="Rpm-SY-tgT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="M6g-M2-qM4"/>
+                <constraint firstItem="tqX-N0-fgd" firstAttribute="top" secondItem="Rpm-SY-tgT" secondAttribute="bottom" id="T0Z-s7-pnf"/>
+                <constraint firstItem="tqX-N0-fgd" firstAttribute="width" secondItem="Rpm-SY-tgT" secondAttribute="width" id="Y9d-Jd-izB"/>
+                <constraint firstAttribute="trailing" secondItem="Rpm-SY-tgT" secondAttribute="trailing" id="hdr-1b-aOc"/>
+                <constraint firstItem="tqX-N0-fgd" firstAttribute="leading" secondItem="Rpm-SY-tgT" secondAttribute="leading" id="ngA-1i-zzR"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="192.5" y="312.5"/>
         </view>
     </objects>
 </document>
