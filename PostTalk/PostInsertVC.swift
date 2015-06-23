@@ -22,34 +22,44 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     override var inputAccessoryView: UIView! {
         get {
             
-            var toolBar = UIView(frame: CGRectMake(0, 0, 200, 49))
+            /*var toolBar = UIView(frame: CGRectMake(0, 0, 200, 49))
             var child = UIView(frame: CGRectMake(0, 0, 200, 49))
             child.backgroundColor = UIColor.lightGrayColor()
             toolBar.addSubview(child);
             toolBar.layer.zPosition = 0;
-            
-/*
-            var toolBar = UIToolbar(frame: CGRectMake(0, 0, 200, 49));
-            toolBar.barStyle = UIBarStyle.BlackTranslucent;
-            
-            var arr = [AnyObject]();
-            
-            var bb = UIBarButtonItem(title: "test", style: UIBarButtonItemStyle.Plain, target: self, action: "gogo:");
-            arr.append(bb);
-            
-            toolBar.items = arr;
-            
-            //myMemo.inputAccessoryView = toolBar;
-
 */
+            /*
+           var container = UIView(frame: CGRectMake(0,0 , UIScreen.mainScreen().bounds.width, 49));
             
-            return toolBar
+            var toolbar = UIToolbar(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
+            
+            var but = UIBarButtonItem(title: "좌측", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+            var but1 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
+            
+            var but2 = UIBarButtonItem(title: "우측", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+            
+            toolbar.items = [but,but1, but2];
+            
+            println("#### outside toolbar ");
+            println(toolbar)
+            container.addSubview(toolbar);
+            
+            return container;
+*/
+            return  PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49))
+            //return  PostInsertAccessory(frame: CGRectZero)
         }
-    }   /**/
+    }
+
+
+
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        //self.inputAccessoryViewController
     }
     
     override func loadView() {
@@ -62,6 +72,8 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         //로그인페이지 호출
         //openLoginChk()
         
+        
+        
         self.myMemo.delegate = self;
 
         
@@ -69,52 +81,20 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
             textViewDidEndEditing(myMemo)
         }
         
-        self.view.sendSubviewToBack(self.inputAccessoryView)
+        //self.view.sendSubviewToBack(self.inputAccessoryView)
         
-        //setupKbToolbar();
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil);
         
+        //self.inputAccessoryView.setNeedsLayout();
         
-        self.reloadInputViews();
-        
-        println("########")
-        println(self.inputAccessoryView);
-        println(self.inputAccessoryView.superview);
-        
-        
+        becomeFirstResponder() ;
     }
     
     override func canBecomeFirstResponder() -> Bool {
         return true;
     }
-    
-    func setupKbToolbar() {
-        
-        var toolBar = UIToolbar(frame: CGRectMake(0, 0, 200, 44));
-        toolBar.barStyle = UIBarStyle.BlackTranslucent;
-        
-        var arr = [AnyObject]();
-        
-        var bb = UIBarButtonItem(title: "test", style: UIBarButtonItemStyle.Plain, target: self, action: "gogo:");
-        arr.append(bb);
-        
-        toolBar.items = arr;
-        
-        myMemo.inputAccessoryView = toolBar;
-        
-        //myMemo.inputDelegate
-        //myMemo.inputAccessoryViewController
-        
-    }
-    
-    
-    
-    func gogo(target:AnyObject){
-        
-    }
-    
     
     
     func keyboardWillShow(notification:NSNotification ) {

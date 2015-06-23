@@ -38,6 +38,7 @@
 		F43B52F91B2FAC1000CDAB09 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43B52F81B2FAC1000CDAB09 /* CoreLocation.framework */; };
 		F43B52FB1B2FAE7B00CDAB09 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F43B52FA1B2FAE7B00CDAB09 /* MapKit.framework */; };
 		F43B52FD1B2FC11100CDAB09 /* IGpsManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B52FC1B2FC11100CDAB09 /* IGpsManagerDelegate.swift */; };
+		F43B53051B391D9600CDAB09 /* PostInsertAccessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B53041B391D9600CDAB09 /* PostInsertAccessory.swift */; };
 		F44569F11AFB334F003F20CF /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44569F01AFB334F003F20CF /* AppManager.swift */; };
 		F44569F31AFB391E003F20CF /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44569F21AFB391E003F20CF /* BaseVC.swift */; };
 		F44569F61AFB3DA0003F20CF /* BaseDataAccessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44569F51AFB3DA0003F20CF /* BaseDataAccessManager.swift */; };
@@ -56,6 +57,15 @@
 		F45882651B16A63B001B8A37 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45882641B16A63B001B8A37 /* Config.swift */; };
 		F458826F1B16E2C0001B8A37 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F458826D1B16E2C0001B8A37 /* PostCell.swift */; };
 		F45882701B16E2C0001B8A37 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F458826E1B16E2C0001B8A37 /* PostCell.xib */; };
+		F4A9E3241B391DEB006EBB07 /* PostInsertAccessory.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3231B391DEB006EBB07 /* PostInsertAccessory.xib */; };
+		F4A9E32A1B392394006EBB07 /* icon_album_on.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3261B392393006EBB07 /* icon_album_on.png */; };
+		F4A9E32B1B392394006EBB07 /* icon_album_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3271B392393006EBB07 /* icon_album_on@2x.png */; };
+		F4A9E32C1B392394006EBB07 /* icon_album.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3281B392394006EBB07 /* icon_album.png */; };
+		F4A9E32D1B392394006EBB07 /* icon_album@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3291B392394006EBB07 /* icon_album@2x.png */; };
+		F4A9E3321B3926F3006EBB07 /* icon_camera_on.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E32E1B3926F3006EBB07 /* icon_camera_on.png */; };
+		F4A9E3331B3926F3006EBB07 /* icon_camera_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E32F1B3926F3006EBB07 /* icon_camera_on@2x.png */; };
+		F4A9E3341B3926F3006EBB07 /* icon_camera.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3301B3926F3006EBB07 /* icon_camera.png */; };
+		F4A9E3351B3926F3006EBB07 /* icon_camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3311B3926F3006EBB07 /* icon_camera@2x.png */; };
 		F4ABCFA61B25385F00405674 /* reg_friend.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ABCFA21B25385F00405674 /* reg_friend.png */; };
 		F4ABCFA71B25385F00405674 /* reg_friend@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ABCFA31B25385F00405674 /* reg_friend@2x.png */; };
 		F4ABCFAC1B25391500405674 /* chatting_on.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ABCFA81B25391500405674 /* chatting_on.png */; };
@@ -134,6 +144,7 @@
 		F43B52F81B2FAC1000CDAB09 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F43B52FA1B2FAE7B00CDAB09 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F43B52FC1B2FC11100CDAB09 /* IGpsManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGpsManagerDelegate.swift; sourceTree = "<group>"; };
+		F43B53041B391D9600CDAB09 /* PostInsertAccessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInsertAccessory.swift; sourceTree = "<group>"; };
 		F44569F01AFB334F003F20CF /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		F44569F21AFB391E003F20CF /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		F44569F51AFB3DA0003F20CF /* BaseDataAccessManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDataAccessManager.swift; sourceTree = "<group>"; };
@@ -152,6 +163,15 @@
 		F45882641B16A63B001B8A37 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F458826D1B16E2C0001B8A37 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F458826E1B16E2C0001B8A37 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		F4A9E3231B391DEB006EBB07 /* PostInsertAccessory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostInsertAccessory.xib; sourceTree = "<group>"; };
+		F4A9E3261B392393006EBB07 /* icon_album_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_album_on.png; sourceTree = "<group>"; };
+		F4A9E3271B392393006EBB07 /* icon_album_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_album_on@2x.png"; sourceTree = "<group>"; };
+		F4A9E3281B392394006EBB07 /* icon_album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_album.png; sourceTree = "<group>"; };
+		F4A9E3291B392394006EBB07 /* icon_album@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_album@2x.png"; sourceTree = "<group>"; };
+		F4A9E32E1B3926F3006EBB07 /* icon_camera_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_camera_on.png; sourceTree = "<group>"; };
+		F4A9E32F1B3926F3006EBB07 /* icon_camera_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_camera_on@2x.png"; sourceTree = "<group>"; };
+		F4A9E3301B3926F3006EBB07 /* icon_camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_camera.png; sourceTree = "<group>"; };
+		F4A9E3311B3926F3006EBB07 /* icon_camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_camera@2x.png"; sourceTree = "<group>"; };
 		F4ABCFA21B25385F00405674 /* reg_friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reg_friend.png; sourceTree = "<group>"; };
 		F4ABCFA31B25385F00405674 /* reg_friend@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reg_friend@2x.png"; sourceTree = "<group>"; };
 		F4ABCFA81B25391500405674 /* chatting_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chatting_on.png; sourceTree = "<group>"; };
@@ -356,6 +376,7 @@
 		F45882511B140CD6001B8A37 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				F4A9E3251B39237F006EBB07 /* insert */,
 				F4ABCF9F1B25383300405674 /* post detail */,
 				F4DB28FB1B1D82AA006CD67A /* main post list */,
 				F45882521B140D31001B8A37 /* common */,
@@ -394,8 +415,25 @@
 				F458826D1B16E2C0001B8A37 /* PostCell.swift */,
 				F458826E1B16E2C0001B8A37 /* PostCell.xib */,
 				F4DB28F91B1D7B37006CD67A /* Empty.xib */,
+				F43B53041B391D9600CDAB09 /* PostInsertAccessory.swift */,
+				F4A9E3231B391DEB006EBB07 /* PostInsertAccessory.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		F4A9E3251B39237F006EBB07 /* insert */ = {
+			isa = PBXGroup;
+			children = (
+				F4A9E32E1B3926F3006EBB07 /* icon_camera_on.png */,
+				F4A9E32F1B3926F3006EBB07 /* icon_camera_on@2x.png */,
+				F4A9E3301B3926F3006EBB07 /* icon_camera.png */,
+				F4A9E3311B3926F3006EBB07 /* icon_camera@2x.png */,
+				F4A9E3261B392393006EBB07 /* icon_album_on.png */,
+				F4A9E3271B392393006EBB07 /* icon_album_on@2x.png */,
+				F4A9E3281B392394006EBB07 /* icon_album.png */,
+				F4A9E3291B392394006EBB07 /* icon_album@2x.png */,
+			);
+			name = insert;
 			sourceTree = "<group>";
 		};
 		F4ABCF9F1B25383300405674 /* post detail */ = {
@@ -524,7 +562,9 @@
 			files = (
 				F4ABCFC21B2551CF00405674 /* recommand.png in Resources */,
 				F4ABCFB81B25392F00405674 /* heart_on.png in Resources */,
+				F4A9E3341B3926F3006EBB07 /* icon_camera.png in Resources */,
 				F45882621B15A95B001B8A37 /* barbutton_search.png in Resources */,
+				F4A9E32D1B392394006EBB07 /* icon_album@2x.png in Resources */,
 				F4DB28FE1B1D82BD006CD67A /* bulet_cate.png in Resources */,
 				F40EF86D1AF204D70007E992 /* MyInfoVC.xib in Resources */,
 				F40EF8611AF202900007E992 /* SearchMapVC.xib in Resources */,
@@ -536,6 +576,7 @@
 				F40EF8291AF1ED0A0007E992 /* LaunchScreen.xib in Resources */,
 				F4ABCFAF1B25391500405674 /* chatting@2x.png in Resources */,
 				F4DB28FF1B1D82BD006CD67A /* bulet_cate@2x.png in Resources */,
+				F4A9E3331B3926F3006EBB07 /* icon_camera_on@2x.png in Resources */,
 				F45882701B16E2C0001B8A37 /* PostCell.xib in Resources */,
 				F4ABCFC11B2551CF00405674 /* recommand_on@2x.png in Resources */,
 				F45882581B140D62001B8A37 /* barbutton_refresh@2x.png in Resources */,
@@ -544,6 +585,7 @@
 				F4DB290C1B1E05E3006CD67A /* like_gray.png in Resources */,
 				F4ABCFAD1B25391500405674 /* chatting_on@2x.png in Resources */,
 				F4DB29021B1D932D006CD67A /* cate_toolbar_bg.png in Resources */,
+				F4A9E32B1B392394006EBB07 /* icon_album_on@2x.png in Resources */,
 				F40EF8691AF202D10007E992 /* PostInsertVC.xib in Resources */,
 				F4ABCFB31B25392200405674 /* reg_friend_on@2x.png in Resources */,
 				F458825E1B15A5C8001B8A37 /* barbutton_refresh.png in Resources */,
@@ -555,14 +597,19 @@
 				F4ABCFB21B25392200405674 /* reg_friend_on.png in Resources */,
 				F4ABCFCB1B25521900405674 /* del.png in Resources */,
 				F40EF8261AF1ED0A0007E992 /* Images.xcassets in Resources */,
+				F4A9E32C1B392394006EBB07 /* icon_album.png in Resources */,
 				F4DB290D1B1E05E3006CD67A /* like_red.png in Resources */,
 				F4ABCFC91B25521900405674 /* del_on.png in Resources */,
 				F4DB29091B1E0555006CD67A /* like_red@2x.png in Resources */,
 				F4ABCFC01B2551CF00405674 /* recommand_on.png in Resources */,
 				F40EF8591AF1FF920007E992 /* SettingVC.xib in Resources */,
 				F40EF8651AF202B10007E992 /* CurrentMapVC.xib in Resources */,
+				F4A9E3351B3926F3006EBB07 /* icon_camera@2x.png in Resources */,
+				F4A9E3241B391DEB006EBB07 /* PostInsertAccessory.xib in Resources */,
 				F4DB28FA1B1D7B37006CD67A /* Empty.xib in Resources */,
+				F4A9E32A1B392394006EBB07 /* icon_album_on.png in Resources */,
 				F4DB29031B1D932D006CD67A /* cate_toolbar_bg@2x.png in Resources */,
+				F4A9E3321B3926F3006EBB07 /* icon_camera_on.png in Resources */,
 				F4DB29051B1D9858006CD67A /* shadow.png in Resources */,
 				F4ABCFC31B2551CF00405674 /* recommand@2x.png in Resources */,
 				F40EF85D1AF200020007E992 /* LoginVC.xib in Resources */,
@@ -607,6 +654,7 @@
 				F44569FC1AFB3E58003F20CF /* DataUserInfo.swift in Sources */,
 				F4456A001AFB3EAA003F20CF /* EntityUserInfo.swift in Sources */,
 				F44569FE1AFB3E71003F20CF /* EntityPostInfo.swift in Sources */,
+				F43B53051B391D9600CDAB09 /* PostInsertAccessory.swift in Sources */,
 				F40EF84A1AF1FD810007E992 /* PostDetailVC.swift in Sources */,
 				F45882651B16A63B001B8A37 /* Config.swift in Sources */,
 				F44569F81AFB3DE3003F20CF /* DataMainPostLIst.swift in Sources */,
