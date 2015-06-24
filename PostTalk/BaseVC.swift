@@ -16,6 +16,9 @@ class BaseVC: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        /**
+머지테스트
+*/
     }
     
     /**
