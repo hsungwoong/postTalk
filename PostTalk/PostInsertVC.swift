@@ -343,6 +343,9 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     }
     
     
+    @IBAction func hide(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil);
+    }
     
     
     
