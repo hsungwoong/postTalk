@@ -22,7 +22,8 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        createPostInsertButton();
         creatNaviBarRightButtons();
         
         setupSortMenu();

@@ -35,6 +35,12 @@ class BaseVC: UIViewController {
         
     }
     
+    func createPostInsertButton(){
+        println("-------")
+        println("createPostInsertButton");
+        var button = createBarButton("barbutton_postwrite", target: self, action: "showPostInsert:")
+        self.navigationItem.leftBarButtonItems = [button];
+    }
 
     /**
         
@@ -72,6 +78,9 @@ class BaseVC: UIViewController {
         println("## search ##")
     }
 
+    func showPostInsert(target:UIBarButtonItem){
+        println("#showPostInsert#")
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
