@@ -57,6 +57,7 @@
 		F45882651B16A63B001B8A37 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45882641B16A63B001B8A37 /* Config.swift */; };
 		F458826F1B16E2C0001B8A37 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F458826D1B16E2C0001B8A37 /* PostCell.swift */; };
 		F45882701B16E2C0001B8A37 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F458826E1B16E2C0001B8A37 /* PostCell.xib */; };
+		F47635AB1B3A7604005BEC02 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F47635AA1B3A7604005BEC02 /* .gitignore */; };
 		F4A9E3241B391DEB006EBB07 /* PostInsertAccessory.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3231B391DEB006EBB07 /* PostInsertAccessory.xib */; };
 		F4A9E32A1B392394006EBB07 /* icon_album_on.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3261B392393006EBB07 /* icon_album_on.png */; };
 		F4A9E32B1B392394006EBB07 /* icon_album_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3271B392393006EBB07 /* icon_album_on@2x.png */; };
@@ -167,6 +168,7 @@
 		F45882641B16A63B001B8A37 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		F458826D1B16E2C0001B8A37 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F458826E1B16E2C0001B8A37 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		F47635AA1B3A7604005BEC02 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F4A9E3231B391DEB006EBB07 /* PostInsertAccessory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostInsertAccessory.xib; sourceTree = "<group>"; };
 		F4A9E3261B392393006EBB07 /* icon_album_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_album_on.png; sourceTree = "<group>"; };
 		F4A9E3271B392393006EBB07 /* icon_album_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_album_on@2x.png"; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		F40EF8101AF1ED0A0007E992 = {
 			isa = PBXGroup;
 			children = (
+				F47635AA1B3A7604005BEC02 /* .gitignore */,
 				F43B52FA1B2FAE7B00CDAB09 /* MapKit.framework */,
 				F43B52F81B2FAC1000CDAB09 /* CoreLocation.framework */,
 				F40EF81B1AF1ED0A0007E992 /* PostTalk */,
@@ -626,6 +629,7 @@
 				F4A9E3321B3926F3006EBB07 /* icon_camera_on.png in Resources */,
 				F4DB29051B1D9858006CD67A /* shadow.png in Resources */,
 				F4ABCFC31B2551CF00405674 /* recommand@2x.png in Resources */,
+				F47635AB1B3A7604005BEC02 /* .gitignore in Resources */,
 				F40EF85D1AF200020007E992 /* LoginVC.xib in Resources */,
 				F4ABCFB91B25392F00405674 /* heart_on@2x.png in Resources */,
 				F4ABCFA71B25385F00405674 /* reg_friend@2x.png in Resources */,
