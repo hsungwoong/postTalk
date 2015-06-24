@@ -17,7 +17,7 @@ struct EntityPostInfo {
     var userId:String?
     var categoryCode:String?
     var memo:String?
-    var img:[String]?
+    var img:String?
     var likeCnt:String?
     var viewCnt:String?
     var mapLat:String?

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UITextViewDelegate {
+class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UITextViewDelegate, IPostInsertAccessoryDelegate {
     
     @IBOutlet var bottomToolbar: UIToolbar!
     @IBOutlet var myMemo: UITextView!
@@ -46,21 +46,16 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
             
             return container;
 */
-            return  PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49))
+            println("!!!!!!")
+            println(self)
+            var acc = PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
+            acc.delegate = self;
+            return acc;
             //return  PostInsertAccessory(frame: CGRectZero)
         }
     }
 
 
-
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
-        //self.inputAccessoryViewController
-    }
     
     override func loadView() {
         NSBundle.mainBundle().loadNibNamed("PostInsertVC", owner: self, options: nil)
@@ -96,8 +91,14 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         return true;
     }
     
-    
+    /**
+
+        키보드 이벤트 헨들러
+*/
     func keyboardWillShow(notification:NSNotification ) {
+        
+        println("keyboardWillShow")
+        /*
         let info = notification.userInfo as NSDictionary?
         let rectValue = info![UIKeyboardFrameBeginUserInfoKey] as! NSValue
         let kbSize = rectValue.CGRectValue().size
@@ -115,19 +116,22 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         if !aRect.contains(targetRect.origin) {
             myMemo.scrollRectToVisible(targetRect, animated: true)
         }
-
-/**/
-
+*/
     }
     
     
     
     func keyboardWillHide(notification:NSNotification ) {
-        myMemo.contentInset = UIEdgeInsetsZero
-        myMemo.scrollIndicatorInsets = UIEdgeInsetsZero;
+        println("keyboardWillHide")
+        //myMemo.contentInset = UIEdgeInsetsZero
+        //myMemo.scrollIndicatorInsets = UIEdgeInsetsZero;
     }
     
+/**
 
+    텍스트뷰 위임자
+
+*/
     func textViewDidBeginEditing(textView: UITextView) {
         if (textView.text == placeHolderText ){
             textView.text = ""
@@ -144,6 +148,32 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         textView.resignFirstResponder()
     }
     
+    func sendPost(target: AnyObject) {
+        //
+        println("sendPost")
+    }
+    
+    func selectAlbum(target: AnyObject) {
+        //
+        println("selectAlbum")
+        
+        var myPickerController = UIImagePickerController()
+        myPickerController.delegate = self
+        myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+        //println(self.view)
+        
+        self.presentViewController(myPickerController, animated: true, completion: nil)
+        //println("----")
+       // println(self.view)
+        
+    }
+    
+    func openCamera(target: AnyObject) {
+        //
+        println("openCamera")
+    }
+    
 
     //image album에서 선택
     @IBAction func selectPhotoButtonTapped(sender: AnyObject) {
@@ -152,6 +182,8 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
         self.presentViewController(myPickerController, animated: true, completion: nil)
+        
+        self.becomeFirstResponder();
     }
     
     //포스트 등록
@@ -176,10 +208,11 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         //println(dateFormatter.stringFromDate(now)+String(arc4random())
         return dateFormatter.stringFromDate(now)+String(arc4random())
     }
-    
+    /*
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
+*/
     /*
     //UITextField Delegate
     func textFieldShouldReturn(textField: UITextField) -> Bool{
@@ -190,7 +223,7 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        myImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        //myImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -307,6 +340,17 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     func generateBoundaryString() -> String {
         return "Boundary-\(NSUUID().UUIDString)"
+    }
+    
+    
+    
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        
+        //self.inputAccessoryViewController
     }
     
     deinit {

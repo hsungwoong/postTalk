@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostInsertAccessory" customModule="PostTalk" customModuleProvider="target">
             <connections>
                 <outlet property="toolbar" destination="SJI-Ya-1IT" id="TxK-YL-7ve"/>
                 <outlet property="view" destination="1z6-O9-Yuu" id="YTd-7b-R5r"/>
@@ -52,6 +52,9 @@
                         <state key="normal" image="icon_album.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="onTouchAlbum:" destination="-1" eventType="touchUpInside" id="i99-YW-Quf"/>
+                        </connections>
                     </button>
                 </barButtonItem>
                 <barButtonItem width="40" style="plain" id="v5Y-sV-iTT">
@@ -61,17 +64,23 @@
                         <state key="normal" image="icon_camera.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="onTouchCamera:" destination="-1" eventType="touchUpInside" id="IL7-KI-Qe7"/>
+                        </connections>
                     </button>
                 </barButtonItem>
                 <barButtonItem style="plain" systemItem="flexibleSpace" id="OJg-wm-WFt"/>
                 <barButtonItem title="Item" style="plain" id="0fj-Vc-wrX">
-                    <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="prv-74-bUy">
+                    <button key="customView" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="prv-74-bUy">
                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="전송">
-                            <color key="titleColor" red="0.21176470589999999" green="0.21176470589999999" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="전송" backgroundImage="send_bg.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="onTouchSend:" destination="-1" eventType="touchUpInside" id="2y0-gk-pVp"/>
+                        </connections>
                     </button>
                 </barButtonItem>
             </items>
@@ -85,5 +94,6 @@
     <resources>
         <image name="icon_album.png" width="28" height="20"/>
         <image name="icon_camera.png" width="28" height="20"/>
+        <image name="send_bg.png" width="47" height="29"/>
     </resources>
 </document>

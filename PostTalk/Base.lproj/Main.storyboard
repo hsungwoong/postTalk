@@ -297,7 +297,7 @@
         <!--등록-->
         <scene sceneID="5U4-Ur-hsL">
             <objects>
-                <viewController id="842-Qi-IJx" customClass="PostInsertVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="842-Qi-IJx" customClass="PostInsertRootVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="등록" id="zAy-sB-ZEU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8G-CT-pLx" userLabel="First Responder" sceneMemberID="firstResponder"/>

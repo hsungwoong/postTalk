@@ -16,7 +16,7 @@ class DataMainPostLIst: BaseDataAccessManager {
         
         //println(jsonResult)
 
-        if let orders:NSArray = jsonResult?["Orders"] as? NSArray {
+        if let orders:NSArray = jsonResult?["Main"] as? NSArray {
             
              //println(orders)
             
@@ -24,7 +24,7 @@ class DataMainPostLIst: BaseDataAccessManager {
             for item in orders{
                 var entity = EntityPostInfo();
                 entity.idx = item["IDX"] as? String;
-                entity.img = item["IMAGE_NAME"] as? [String];
+                entity.img = item["IMAGE_NAME"] as? String;
                 entity.memo = item["MEMO"] as? String;
                 entity.userId = item["USER_ID"] as? String;
                 

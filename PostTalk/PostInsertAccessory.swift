@@ -14,6 +14,10 @@ class PostInsertAccessory: UIView {
     
     @IBOutlet var toolbar: UIToolbar!
     
+    //var delegate:IPos
+    //var delegate:
+    var delegate:IPostInsertAccessoryDelegate?;
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -52,7 +56,18 @@ class PostInsertAccessory: UIView {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
+    @IBAction func onTouchAlbum(sender: AnyObject) {
+        
+        self.delegate?.selectAlbum(self)
+    }
+    @IBAction func onTouchSend(sender: AnyObject) {
+        self.delegate?.sendPost(self)
+    }
+
+    @IBAction func onTouchCamera(sender: AnyObject) {
+        self.delegate?.openCamera(self);
+    }
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
