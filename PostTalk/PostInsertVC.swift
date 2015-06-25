@@ -21,6 +21,8 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     let placeHolderText = "메세지를 입력해 주세요.";
     
+    var isOpen = false;
+    
     override var inputAccessoryView: UIView! {
         get {
             
@@ -84,6 +86,7 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     override func viewWillAppear(animated: Bool) {
         //
+        isOpen = true;
         self.becomeFirstResponder();
     }
     
@@ -107,16 +110,20 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         
 
         if h <= 0 { // 낮은 위치
-            
+            println("### keyboardWillShow 낮은 위치")
             if accView.isIncludeImg(){
                 accView.showImgBar();
                 h = h + 80;
             }
             
         }else{ // 높은 위치
+            println("### keyboardWillShow 높은 위치")
+            accView.hideImgBar();
+            /*
             if accView.isIncludeImg(){
                 accView.hideImgBar();
             }
+*/
         }
         
         var contentInsets = UIEdgeInsetsMake(0, 0, h , 0)
@@ -158,8 +165,13 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
             
         }else{ // 높은 위치
             if accView.isIncludeImg(){
-                accView.showImgBar();
-                h = h + 80;
+                
+                if isOpen {
+                    accView.showImgBar();
+                    h = h + 80;
+                }else{
+                    accView.hideImgBar();
+                }
             }
         }
         
@@ -281,15 +293,18 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         var imageData:NSData?;
         var image_group_code:String = "";
         
+        var param = [String:String]();
+        
+        param["MEMO"] = self.myMemo.text!
+        param["USER_ID"] = "user5"
+        
         if let img = accView.getImage() {
             imageData  = UIImageJPEGRepresentation(img , 0.1)
             image_group_code = "G"+makeImageName();
+            param["IMAGE_GROUP_CODE"] = image_group_code;
         }
         
-        let param = [
-            "MEMO":self.myMemo.text!,
-            "USER_ID":"user5",
-            "IMAGE_GROUP_CODE":image_group_code]
+        //let param = ["MEMO":self.myMemo.text!,"USER_ID":"user5","IMAGE_GROUP_CODE":image_group_code]
         
         let boundary = generateBoundaryString()
         
@@ -335,6 +350,7 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData?, boundary: String) -> NSData {
         let body = NSMutableData();
         
+        //포스트 정보
         if parameters != nil {
             for (key, value) in parameters! {
                 if !value.isEmpty {
@@ -385,10 +401,23 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     
     @IBAction func hide(sender: AnyObject) {
+        isOpen = false;
         
-        //
-        self.myMemo.resignFirstResponder();
-        self.resignFirstResponder();
+        //이미지 비우기
+        accView.emptyImage();
+        
+        //메모 공백
+        myMemo?.text = "";
+        
+        //퍼스트에서 해제
+        if self.myMemo.isFirstResponder() {
+            self.myMemo.resignFirstResponder();
+        }
+        
+        if self.isFirstResponder(){
+            
+            self.resignFirstResponder();
+        }
         
         //약간 지연두고 등록창 닫기
         let delayTime = dispatch_time(DISPATCH_TIME_NOW,
