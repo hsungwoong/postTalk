@@ -423,7 +423,20 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     
     @IBAction func hide(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil);
+        
+        //
+        self.myMemo.resignFirstResponder();
+        self.resignFirstResponder();
+        
+        //약간 지연두고 등록창 닫기
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW,
+            Int64(0.2 * Double(NSEC_PER_SEC)))
+        
+        dispatch_after(delayTime , dispatch_get_main_queue(), {
+            self.dismissViewControllerAnimated(true, completion: nil);
+        });
+        
+        //
     }
     
     
