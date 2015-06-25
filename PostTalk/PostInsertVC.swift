@@ -8,6 +8,8 @@
 
 import UIKit
 
+private var accView = PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
+
 class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UITextViewDelegate, IPostInsertAccessoryDelegate {
     
     @IBOutlet var bottomToolbar: UIToolbar!
@@ -46,11 +48,9 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
             
             return container;
 */
-            println("!!!!!!")
-            println(self)
-            var acc = PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
-            acc.delegate = self;
-            return acc;
+            //var acc = PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
+            accView.delegate = self;
+            return accView;
             //return  PostInsertAccessory(frame: CGRectZero)
         }
     }
@@ -66,29 +66,29 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         
         //로그인페이지 호출
         //openLoginChk()
-        
-        
-        
+
         self.myMemo.delegate = self;
 
         
         if (myMemo.text == "") {
-            textViewDidEndEditing(myMemo)
+            displayPlaceHolder(myMemo)
         }
-        
-        //self.view.sendSubviewToBack(self.inputAccessoryView)
-        
-        
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil);
-        
-        //self.inputAccessoryView.setNeedsLayout();
-        
-        becomeFirstResponder() ;
     }
     
     override func canBecomeFirstResponder() -> Bool {
         return true;
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        //
+        self.becomeFirstResponder();
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        //self.resignFirstResponder();
     }
     
     /**
@@ -97,17 +97,34 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
 */
     func keyboardWillShow(notification:NSNotification ) {
         
-        println("keyboardWillShow")
-        /*
+        println("### keyboardWillShow")
+        /**/
         let info = notification.userInfo as NSDictionary?
         let rectValue = info![UIKeyboardFrameBeginUserInfoKey] as! NSValue
         let kbSize = rectValue.CGRectValue().size
         
-        let contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height - 45, 0)
+        var h = kbSize.height - 49;
+        
+
+        if h <= 0 { // 낮은 위치
+            
+            if accView.isIncludeImg(){
+                accView.showImgBar();
+                h = h + 80;
+            }
+            
+        }else{ // 높은 위치
+            if accView.isIncludeImg(){
+                accView.hideImgBar();
+            }
+        }
+        
+        var contentInsets = UIEdgeInsetsMake(0, 0, h , 0)
+        
         myMemo.contentInset = contentInsets
         myMemo.scrollIndicatorInsets = contentInsets;
         
-        
+        /*
         // optionally scroll
         var aRect = myMemo.superview!.frame
         
@@ -122,9 +139,37 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     
     func keyboardWillHide(notification:NSNotification ) {
-        println("keyboardWillHide")
-        //myMemo.contentInset = UIEdgeInsetsZero
-        //myMemo.scrollIndicatorInsets = UIEdgeInsetsZero;
+        println("### keyboardWillHide")
+        //println("include image: \(accView.isIncludeImg())")
+        
+        let info = notification.userInfo as NSDictionary?
+        let rectValue = info![UIKeyboardFrameBeginUserInfoKey] as! NSValue
+        let kbSize = rectValue.CGRectValue().size
+        
+        var h = kbSize.height - 49;
+        
+        
+        if h <= 0 { // 낮은 위치
+            
+            if accView.isIncludeImg(){
+                accView.hideImgBar();
+                
+            }
+            
+        }else{ // 높은 위치
+            if accView.isIncludeImg(){
+                accView.showImgBar();
+                h = h + 80;
+            }
+        }
+        
+        var contentInsets = UIEdgeInsetsMake(0, 0, h , 0)
+        
+        myMemo.contentInset = contentInsets
+        myMemo.scrollIndicatorInsets = contentInsets;
+        
+        //UIEdgeInsetsZero
+
     }
     
 /**
@@ -132,25 +177,46 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     텍스트뷰 위임자
 
 */
+   
     func textViewDidBeginEditing(textView: UITextView) {
         if (textView.text == placeHolderText ){
             textView.text = ""
             textView.textColor = UIColor.blackColor()
         }
-        textView.becomeFirstResponder()
+        /**/
+        
+
+        
+        //textView.becomeFirstResponder();
+
+
+
     }
     
-    func textViewDidEndEditing(textView: UITextView) {
+    func displayPlaceHolder(textView: UITextView){
         if (textView.text == "") {
             textView.text = placeHolderText;
             textView.textColor = UIColor.lightGrayColor()
         }
-        textView.resignFirstResponder()
     }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        
+        displayPlaceHolder(textView);
+        /*
+        if accView.isIncludeImg() {
+            accView.showImgBar();
+        }
+*/
+    }
+    
+
     
     func sendPost(target: AnyObject) {
         //
         println("sendPost")
+        
+        //accView.showSubContainer();
     }
     
     func selectAlbum(target: AnyObject) {
@@ -182,8 +248,7 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
         self.presentViewController(myPickerController, animated: true, completion: nil)
-        
-        self.becomeFirstResponder();
+
     }
     
     //포스트 등록
@@ -223,9 +288,23 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        //myImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        
+        if let img: AnyObject = info[UIImagePickerControllerOriginalImage] {
+            
+            accView.addImage(img as! UIImage)
+            //println("~~~~~~~~~~>")
+            //accView.showImgBar();
+            
+        }
+       
+        self.dismissViewControllerAnimated(true, completion: {
+            //self.becomeFirstResponder();
+            //accView.unvisibleKB();
+            
+        })
+        
     }
     
     func myImageUploadRequest()
