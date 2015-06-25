@@ -34,3 +34,8 @@ struct APIUrl {
     static let postInsert = APIHost.host + "postInsert_ok.php"
 }
 
+struct ImageUrl{
+    static let originPath = APIHost.host + "IMAGES/";
+    static let thumbPath = APIHost.host + "IMAGES/";
+}
+

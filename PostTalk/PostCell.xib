@@ -18,6 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="500" height="200"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QOj-V3-ali">
+                        <rect key="frame" x="16" y="126" width="467" height="66"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="160" id="ucr-x8-AKx"/>
+                        </constraints>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like_red.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ftz-iT-dqg">
                         <rect key="frame" x="78" y="55" width="12" height="12"/>
                         <constraints>
@@ -32,7 +39,7 @@
                             <constraint firstAttribute="width" constant="156" id="Vhb-tH-4Um"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQy-cw-tKI">
@@ -82,21 +89,18 @@
                     <constraint firstItem="eBL-nP-GNC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="70" id="IDp-0f-q5o"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bvU-5z-Ndp" secondAttribute="trailing" constant="-4" id="MIY-PM-rdR"/>
                     <constraint firstItem="Ftz-iT-dqg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="47" id="Miy-sp-lOf"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="QOj-V3-ali" secondAttribute="trailing" constant="9" id="OYG-pR-DVY"/>
                     <constraint firstItem="vgh-Vp-wSS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="PnQ-ty-ofg"/>
+                    <constraint firstItem="QOj-V3-ali" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="S4H-2J-JOa"/>
+                    <constraint firstItem="QOj-V3-ali" firstAttribute="top" secondItem="vgh-Vp-wSS" secondAttribute="bottom" constant="17" id="Vdd-x6-RN5"/>
                     <constraint firstItem="1MC-96-UwI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="Zxf-Y6-un5"/>
                     <constraint firstAttribute="bottomMargin" secondItem="bvU-5z-Ndp" secondAttribute="bottom" constant="-8" id="d80-XK-ok0"/>
                     <constraint firstItem="vgh-Vp-wSS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="85" id="e8h-BG-UgY"/>
                     <constraint firstItem="bvU-5z-Ndp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="fFx-Vz-dbP"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vgh-Vp-wSS" secondAttribute="trailing" constant="8" id="oGs-j7-jAr"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Eon-YN-Q2D" secondAttribute="trailing" constant="9" id="otH-CP-DLb"/>
-                    <constraint firstItem="bvU-5z-Ndp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="t4n-bJ-jlp"/>
                     <constraint firstItem="eBL-nP-GNC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="28" id="v1B-Cw-OoQ"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="t4n-bJ-jlp"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
@@ -105,6 +109,7 @@
                 <outlet property="img" destination="1MC-96-UwI" id="cbq-nN-jYd"/>
                 <outlet property="like" destination="yQy-cw-tKI" id="qTV-Qo-XMb"/>
                 <outlet property="passTimed" destination="Eon-YN-Q2D" id="7ge-TN-hR7"/>
+                <outlet property="thumbNail" destination="QOj-V3-ali" id="HiG-OY-UcM"/>
                 <outlet property="userId" destination="eBL-nP-GNC" id="Npx-Kc-sBm"/>
             </connections>
             <point key="canvasLocation" x="375" y="406.5"/>

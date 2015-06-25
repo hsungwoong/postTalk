@@ -18,6 +18,9 @@ class PostCell: UITableViewCell {
     @IBOutlet var like: UILabel!
     @IBOutlet var passTimed: UILabel!
     
+    var uid:String?;
+    
+    @IBOutlet var thumbNail: UIImageView!
     //var isOdd:Boolean = false;
     
     override func awakeFromNib() {
@@ -33,6 +36,18 @@ class PostCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func loadImageFromUrl(url:String){
+        if thumbNail.image == nil {
+            thumbNail.imageFromUrl(url)
+        }
+        thumbNail.hidden = false;
+    }
+    
+    func emptyImage(){
+        thumbNail.image = nil;
+        thumbNail.hidden = true;
     }
     
 }

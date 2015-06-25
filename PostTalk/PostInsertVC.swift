@@ -277,8 +277,14 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         let boundaryConstant = "----------V2ymHFg03esomerandomstuffhbqgZCaKO6jy";
         let contentType = "multipart/form-data; boundary=" + boundaryConstant
         NSURLProtocol.setProperty(contentType, forKey: "Content-Type", inRequest: request)
+ 
+        var imageData:NSData?;
+        var image_group_code:String = "";
         
-        let image_group_code = "G"+makeImageName()
+        if let img = accView.getImage() {
+            imageData  = UIImageJPEGRepresentation(img , 0.1)
+            image_group_code = "G"+makeImageName();
+        }
         
         let param = [
             "MEMO":self.myMemo.text!,
@@ -289,16 +295,6 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         
         request.setValue("multipart/form-data; boundary=\(boundary)",
             forHTTPHeaderField:"Content-Type")
-        
-        var imageData = NSData();
-        
-        //println("accView.getImage()\(accView.getImage())")
-        
-        if let img = accView.getImage() {
-           imageData  = UIImageJPEGRepresentation(img , 0.1)
-        }
-
-        //if(imageData == nil) { return }
         
         request.HTTPBody = createBodyWithParameters(param, filePathKey:"file",imageDataKey:imageData, boundary:boundary)
         
@@ -336,45 +332,49 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     }
     
     
-    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData?, boundary: String) -> NSData {
         let body = NSMutableData();
         
         if parameters != nil {
             for (key, value) in parameters! {
-                body.appendString("--\(boundary)\r\n")
+                if !value.isEmpty {
+                    body.appendString("--\(boundary)\r\n")
                 
-                //body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
-                //body.appendString("Content-Type: \(mimetype)\r\n\r\n")
-                //body.appendData(imageDataKey)
+                    //body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+                    //body.appendString("Content-Type: \(mimetype)\r\n\r\n")
+                    //body.appendData(imageDataKey)
                 
-                body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-                body.appendString("\(value)\r\n")
+                    body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                    body.appendString("\(value)\r\n")
+                }
             }
         }
         
-        let filename = makeImageName()+".png" //"user-profile.jpg"
         
-        //let mimetype = "image/jpg"
-        let mimetype = "application/octet-stream"
+        // 이미지 데이타
+        if let imgdata = imageDataKey{
+            
+            let filename = makeImageName()+".png" //"user-profile.jpg"
         
-        
-        // Image
-        body.appendData(NSString(format: "\r\n--%@\r\n", boundary).dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData(NSString(format:"Content-Disposition: form-data; name=\"file1\"; filename=\(filename)\r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData(NSString(format: "Content-Type: application/octet-stream\r\n\r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData(imageDataKey)
-        body.appendData(NSString(format: "\r\n--%@\r\n", boundary).dataUsingEncoding(NSUTF8StringEncoding)!)
+            //let mimetype = "image/jpg"
+            let mimetype = "application/octet-stream"
         
         
-        /*
-        body.appendString("–-\(boundary)\r\n")
-        body.appendData(NSString(format:"Content-Disposition: form-data; name=\"file1\"; filename=\"img.jpg\" \r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
-        //body.appendString("Content-Disposition: form-data; name='file1'; filename=\"\(filename)\"\r\n")
-        body.appendString("Content-Type: \(mimetype)\r\n\r\n")
-        body.appendData(imageDataKey)
-        body.appendString("\r\n")
-        */
-        body.appendString("–-\(boundary)–-\r\n")
+            // Image
+            body.appendData(NSString(format: "\r\n--%@\r\n", boundary).dataUsingEncoding(NSUTF8StringEncoding)!)
+            body.appendData(NSString(format:"Content-Disposition: form-data; name=\"file1\"; filename=\(filename)\r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
+            body.appendData(NSString(format: "Content-Type: application/octet-stream\r\n\r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+             body.appendData(imgdata)
+       
+       
+            body.appendData(NSString(format: "\r\n--%@\r\n", boundary).dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+       
+        
+            body.appendString("–-\(boundary)–-\r\n")
+        
+        }
         
         return body
     }
