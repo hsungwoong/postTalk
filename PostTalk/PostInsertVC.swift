@@ -16,7 +16,7 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     @IBOutlet var myMemo: UITextView!
     @IBOutlet var myActivityIndicator: UIActivityIndicatorView!
 
-    @IBOutlet var myImageView: UIImageView!
+    //@IBOutlet var myImageView: UIImageView!
     //@IBOutlet var keyboardHeight:NSLayoutConstraint!;
     
     let placeHolderText = "메세지를 입력해 주세요.";
@@ -183,14 +183,6 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
             textView.text = ""
             textView.textColor = UIColor.blackColor()
         }
-        /**/
-        
-
-        
-        //textView.becomeFirstResponder();
-
-
-
     }
     
     func displayPlaceHolder(textView: UITextView){
@@ -203,11 +195,7 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     func textViewDidEndEditing(textView: UITextView) {
         
         displayPlaceHolder(textView);
-        /*
-        if accView.isIncludeImg() {
-            accView.showImgBar();
-        }
-*/
+
     }
     
 
@@ -215,8 +203,8 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     func sendPost(target: AnyObject) {
         //
         println("sendPost")
-        
-        //accView.showSubContainer();
+
+        myImageUploadRequest()
     }
     
     func selectAlbum(target: AnyObject) {
@@ -226,13 +214,8 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         var myPickerController = UIImagePickerController()
         myPickerController.delegate = self
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        
-        //println(self.view)
-        
+
         self.presentViewController(myPickerController, animated: true, completion: nil)
-        //println("----")
-       // println(self.view)
-        
     }
     
     func openCamera(target: AnyObject) {
@@ -251,18 +234,10 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
 
     }
     
-    //포스트 등록
-    @IBAction func PostInsertButton(sender: AnyObject) {
-        myImageUploadRequest()
-    }
-    
-
-    
     
     //고유 이미지 생성키
     func makeImageName()->String {
-        
-        
+
         let now = NSDate() // 현재 날짜 및 시간 체크
         
         let dateFormatter = NSDateFormatter()
@@ -273,30 +248,11 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         //println(dateFormatter.stringFromDate(now)+String(arc4random())
         return dateFormatter.stringFromDate(now)+String(arc4random())
     }
-    /*
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.view.endEditing(true)
-    }
-*/
-    /*
-    //UITextField Delegate
-    func textFieldShouldReturn(textField: UITextField) -> Bool{
-        textField.resignFirstResponder()
-        return true
-        
-    }*/
-    
-    
+
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
 
-        
-        
         if let img: AnyObject = info[UIImagePickerControllerOriginalImage] {
-            
             accView.addImage(img as! UIImage)
-            //println("~~~~~~~~~~>")
-            //accView.showImgBar();
-            
         }
        
         self.dismissViewControllerAnimated(true, completion: {
@@ -304,13 +260,13 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
             //accView.unvisibleKB();
             
         })
-        
     }
     
     func myImageUploadRequest()
     {
         
-        let myUrl = NSURL(string:"http://52.68.46.70/postInsert_ok.php")
+        let myUrl = NSURL(string:APIUrl.postInsert);
+        
         //let cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData
         //let request = NSMutableURLRequest(URL: myUrl!, cachePolicy: cachePolicy, timeoutInterval: 5.0)
         let request = NSMutableURLRequest(URL: myUrl!)
@@ -334,11 +290,17 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         request.setValue("multipart/form-data; boundary=\(boundary)",
             forHTTPHeaderField:"Content-Type")
         
-        let imageData = UIImageJPEGRepresentation(myImageView.image, 0.1)
+        var imageData = NSData();
         
-        if(imageData == nil) { return }
+        //println("accView.getImage()\(accView.getImage())")
         
-        request.HTTPBody = createBodyWithParameters(param, filePathKey:"file",imageDataKey:imageData,boundary:boundary)
+        if let img = accView.getImage() {
+           imageData  = UIImageJPEGRepresentation(img , 0.1)
+        }
+
+        //if(imageData == nil) { return }
+        
+        request.HTTPBody = createBodyWithParameters(param, filePathKey:"file",imageDataKey:imageData, boundary:boundary)
         
         myActivityIndicator.startAnimating()
         
@@ -359,11 +321,11 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
             println("******* response data = \(responseString!)")
             
             dispatch_async(dispatch_get_main_queue(), {
-                self.myActivityIndicator.stopAnimating()
-                self.myImageView.image = nil
+                self.myActivityIndicator.stopAnimating();
+                accView.emptyImage();
                 self.myMemo.text = nil
                 self.view.endEditing(true)// 키보드 내림
-                self.tabBarController?.selectedIndex = 0;//tabBar 위치변환
+                //self.tabBarController?.selectedIndex = 0;//tabBar 위치변환
             });
             
         }

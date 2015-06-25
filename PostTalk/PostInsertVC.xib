@@ -7,7 +7,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostInsertVC" customModule="PostTalk" customModuleProvider="target">
             <connections>
                 <outlet property="myActivityIndicator" destination="YWS-Qe-hyx" id="rzO-LY-0v2"/>
-                <outlet property="myImageView" destination="ZZb-9k-EmV" id="bPp-e7-MmC"/>
                 <outlet property="myMemo" destination="tqX-N0-fgd" id="0A1-7C-szN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,9 +30,6 @@
                     <state key="normal" title="등록">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="PostInsertButton:" destination="-1" eventType="touchUpInside" id="5B2-Ph-6JA"/>
-                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZZb-9k-EmV">
                     <rect key="frame" x="67" y="325" width="240" height="128"/>

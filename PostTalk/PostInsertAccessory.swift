@@ -78,6 +78,14 @@ class PostInsertAccessory: UIView {
         self.thumbNail.image = img;
     }
     
+    func getImage() -> UIImage?{
+        return self.thumbNail.image;
+    }
+    
+    func emptyImage(){
+        self.thumbNail.image = nil;
+    }
+    
     func showImgBar(){
         println(">>> showImgBar")
         var fr = self.imgBar.bounds;

@@ -15,7 +15,13 @@ class MyPostListVC: CommonPostListVC {
 
         // Do any additional setup after loading the view.
         
+        creatNaviBarRightButtons();
+        
         //메인 목록 데이타 요청
+        self.requestData();
+    }
+    
+    override func refresh(target: UIBarButtonItem) {
         self.requestData();
     }
 

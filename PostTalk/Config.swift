@@ -31,5 +31,6 @@ struct APIUrl {
     static let mainList = APIHost.host + "post_list.php"; //hsw 20150624 add
     static let userInfo = APIHost.host + "userInfo.php";  //add hsw
     static let loginChk = APIHost.host + "loginChk.php";  //add hsw
+    static let postInsert = APIHost.host + "postInsert_ok.php"
 }
 
