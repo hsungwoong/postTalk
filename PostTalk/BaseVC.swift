@@ -71,10 +71,14 @@ class BaseVC: UIViewController {
     }
     
     func showMap(target:UIBarButtonItem){
+        self.presentViewController(CurrentMapVC(), animated: true, completion: nil);
+        //self.performSegueWithIdentifier("SgPostMapPre", sender: self);
+        
         println("## show map ##")
     }
     
     func doSearch(target:UIBarButtonItem){
+        self.presentViewController(SearchMapVC(), animated: true, completion: nil);
         println("## search ##")
     }
 
@@ -97,7 +101,9 @@ class BaseVC: UIViewController {
         let defaults = NSUserDefaults.standardUserDefaults()
         let name = defaults.stringForKey("userId")
         //로그인 상황인 아니면 로그인페이지로 이동한다.
-        if name == "" {
+        println("userid:")
+        println(name)
+        if name == nil {
             let controller = LoginVC(nibName: "LoginVC", bundle: nil)
             self.navigationController!.pushViewController(controller, animated: true)
             //self.navigationController!.popViewControllerAnimated(true) //pushViewController(controller, animated: true)

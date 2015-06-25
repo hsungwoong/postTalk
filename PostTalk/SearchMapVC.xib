@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchMapVC" customModule="PostTalk" customModuleProvider="target">
             <connections>
+                <outlet property="Map" destination="VU0-oY-X3Z" id="xZ4-on-UyJ"/>
+                <outlet property="searchDisplayController" destination="QH0-FX-KqG" id="jgc-W6-mP0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +15,54 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMq-Vm-xka">
+                    <rect key="frame" x="0.0" y="25" width="600" height="44"/>
+                    <items>
+                        <navigationItem title="검색" id="j15-rc-53K">
+                            <barButtonItem key="rightBarButtonItem" style="plain" id="bTX-54-Z6E">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ntP-Oa-PBl">
+                                    <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="닫기">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="btnClose:" destination="-1" eventType="touchUpInside" id="qg3-8D-IjP"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="k1Q-gT-74U">
+                    <rect key="frame" x="0.0" y="69" width="600" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VU0-oY-X3Z">
+                    <rect key="frame" x="0.0" y="113" width="600" height="512"/>
+                </mapView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="nMq-Vm-xka" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="0kX-QZ-gH5"/>
+                <constraint firstAttribute="trailing" secondItem="nMq-Vm-xka" secondAttribute="trailing" id="BrK-4h-j88"/>
+                <constraint firstItem="VU0-oY-X3Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="113" id="Fvi-kh-WER"/>
+                <constraint firstAttribute="trailing" secondItem="VU0-oY-X3Z" secondAttribute="trailing" id="IIC-Db-7XR"/>
+                <constraint firstItem="k1Q-gT-74U" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ki7-fc-aVY"/>
+                <constraint firstItem="k1Q-gT-74U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="69" id="N2F-0w-zrW"/>
+                <constraint firstAttribute="trailing" secondItem="k1Q-gT-74U" secondAttribute="trailing" id="RKj-Mi-aLc"/>
+                <constraint firstItem="VU0-oY-X3Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aBW-Vv-GJr"/>
+                <constraint firstItem="nMq-Vm-xka" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uL5-m7-rF8"/>
+            </constraints>
         </view>
+        <searchDisplayController id="QH0-FX-KqG">
+            <connections>
+                <outlet property="delegate" destination="-1" id="1oF-mw-GWc"/>
+                <outlet property="searchContentsController" destination="-1" id="9wH-2c-crc"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="bsT-O0-PLc"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="CvI-dG-vgZ"/>
+            </connections>
+        </searchDisplayController>
     </objects>
 </document>

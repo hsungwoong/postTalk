@@ -18,29 +18,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAt-mQ-Fc6">
-                                <rect key="frame" x="194" y="197" width="117" height="30"/>
-                                <state key="normal" title="친구의 포 스트 목록">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="gotoCommonPostList:" destination="Pm7-8e-9hC" eventType="touchUpInside" id="FBA-sB-N39"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPU-71-KwN">
-                                <rect key="frame" x="213" y="264" width="91" height="30"/>
-                                <state key="normal" title="메인포스트목록">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="gotoMainPostList:" destination="Pm7-8e-9hC" eventType="touchUpInside" id="T7p-s8-5xn"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1Ks-iG-r8Y">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="114" width="600" height="625"/>
+                                </variation>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eiL-g5-fUr">
+                                <rect key="frame" x="-61" y="-14" width="123" height="29"/>
+                                <segments>
+                                    <segment title="친구                                        "/>
+                                    <segment title="위치                                        "/>
+                                </segments>
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="30" y="78" width="540" height="29"/>
+                                </variation>
+                            </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Ks-iG-r8Y" firstAttribute="leading" secondItem="vEv-HE-oyR" secondAttribute="leadingMargin" constant="-16" id="70b-a1-i03"/>
+                            <constraint firstItem="HoH-6K-Tpv" firstAttribute="top" secondItem="1Ks-iG-r8Y" secondAttribute="bottom" id="IQd-8O-xHc"/>
+                            <constraint firstAttribute="centerY" secondItem="eiL-g5-fUr" secondAttribute="centerY" constant="308" id="IaC-Ck-msn"/>
+                            <constraint firstItem="1Ks-iG-r8Y" firstAttribute="top" secondItem="1uv-1C-8xU" secondAttribute="bottom" constant="62" id="SG0-pa-RgJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Ks-iG-r8Y" secondAttribute="trailing" constant="-16" id="fSW-iJ-jD8"/>
+                            <constraint firstAttribute="centerX" secondItem="eiL-g5-fUr" secondAttribute="centerX" id="jXS-lT-7GU"/>
+                            <constraint firstAttribute="centerX" secondItem="eiL-g5-fUr" secondAttribute="centerX" constant="-0.5" id="xZM-gq-N4e"/>
+                            <constraint firstItem="eiL-g5-fUr" firstAttribute="top" secondItem="1uv-1C-8xU" secondAttribute="bottom" constant="14" id="xdf-Jz-AVE"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="1Ks-iG-r8Y"/>
+                                <exclude reference="eiL-g5-fUr"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="70b-a1-i03"/>
+                                <exclude reference="SG0-pa-RgJ"/>
+                                <exclude reference="fSW-iJ-jD8"/>
+                                <exclude reference="IaC-Ck-msn"/>
+                                <exclude reference="jXS-lT-7GU"/>
+                                <exclude reference="xZM-gq-N4e"/>
+                                <exclude reference="xdf-Jz-AVE"/>
+                                <exclude reference="IQd-8O-xHc"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular">
+                            <mask key="subviews">
+                                <include reference="1Ks-iG-r8Y"/>
+                                <include reference="eiL-g5-fUr"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="70b-a1-i03"/>
+                                <include reference="SG0-pa-RgJ"/>
+                                <include reference="fSW-iJ-jD8"/>
+                                <exclude reference="IaC-Ck-msn"/>
+                                <exclude reference="jXS-lT-7GU"/>
+                                <include reference="xZM-gq-N4e"/>
+                                <include reference="xdf-Jz-AVE"/>
+                                <include reference="IQd-8O-xHc"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="OSa-03-vR2"/>
                     <connections>
+                        <outlet property="tbl" destination="1Ks-iG-r8Y" id="UKl-Ry-ZNd"/>
                         <segue destination="vvQ-QS-naV" kind="show" identifier="SgCommonPostList" id="ju2-ce-seH"/>
                     </connections>
                 </viewController>
@@ -452,7 +495,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="EaD-Wr-G26"/>
+        <segue reference="De2-74-Tdk"/>
         <segue reference="TBf-9i-01q"/>
     </inferredMetricsTieBreakers>
 </document>

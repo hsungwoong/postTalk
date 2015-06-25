@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrentMapVC" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrentMapVC" customModule="PostTalk" customModuleProvider="target">
             <connections>
+                <outlet property="Map" destination="DJM-Ey-xbh" id="i3J-4d-ZEr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +14,38 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DJM-Ey-xbh">
+                    <rect key="frame" x="0.0" y="71" width="600" height="570"/>
+                </mapView>
+                <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NT1-cL-BLR">
+                    <rect key="frame" x="0.0" y="27" width="600" height="44"/>
+                    <items>
+                        <navigationItem title="지도 보기" id="Q0f-N6-evF">
+                            <barButtonItem key="rightBarButtonItem" style="plain" id="sBO-p8-ljc">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9dX-8g-TWE">
+                                    <rect key="frame" x="500" y="8" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="닫기">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="btnClose:" destination="-1" eventType="touchUpInside" id="IDW-pl-bvz"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="DJM-Ey-xbh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="0dz-IK-MZ9"/>
+                <constraint firstAttribute="trailing" secondItem="NT1-cL-BLR" secondAttribute="trailing" id="VeP-sS-AOr"/>
+                <constraint firstItem="NT1-cL-BLR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="X8A-WN-h6f"/>
+                <constraint firstAttribute="bottom" secondItem="DJM-Ey-xbh" secondAttribute="bottom" constant="-41" id="s08-m6-1zL"/>
+            </constraints>
+            <point key="canvasLocation" x="287" y="371"/>
         </view>
     </objects>
 </document>

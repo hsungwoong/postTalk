@@ -37,16 +37,30 @@ class LoginVC: BaseVC, IBaseDataAccessManager {
     /**
     데이타 요청 시작
     */
+
+    
+    
     func requestData(){
         if loader == nil {
             loader = DataUserInfo()
             loader.delegate = self;
         }
-        println("# 회원정보 api url :")
-        println(APIUrl.userInfo)
-        //loader.load(APIUrl.loginChk+"?USER_ID="+inputUserId.text+"&PWD="+inputPwd.text+"");
+         println("# 회원정보 api url :")
+        loader.load( getUrl(), params: getParams() );
+        
     }
     
+    func getUrl() -> String?{
+        //return nil;
+        return APIUrl.userInfo;
+    }
+    
+    func getParams() -> String? {
+         var p = "USER_ID=\(inputUserId.text)&";
+            p += "PWD=\(inputPwd.text)&"
+        return p;
+    }
+
     /**
     데이타 완료
     */
@@ -65,6 +79,11 @@ class LoginVC: BaseVC, IBaseDataAccessManager {
             inputUserId.text=""
             inputPwd.text=""
             //self.dismissViewControllerAnimated(true, completion: nil)//.dismissViewControllerAnimated(true, completion: nil)
+            
+            //var settingVC: SettingVC = self.storyboard?.instantiateViewControllerWithIdentifier("SettingVC") as! SettingVC
+
+            //SettingVC; settingVC = new; SettingVC()
+            //settingVC.initSettingLoad()
             self.tabBarController?.selectedIndex = 0;
             //self.navigationController!.popViewControllerAnimated(true)
             println("login ok")

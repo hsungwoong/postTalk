@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0C0B6FC1B3C242C00DF9EB4 /* SearchMapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C0B6FB1B3C242C00DF9EB4 /* SearchMapVC.xib */; };
 		F40EF81F1AF1ED0A0007E992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40EF81E1AF1ED0A0007E992 /* AppDelegate.swift */; };
 		F40EF8241AF1ED0A0007E992 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F40EF8221AF1ED0A0007E992 /* Main.storyboard */; };
 		F40EF8261AF1ED0A0007E992 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F40EF8251AF1ED0A0007E992 /* Images.xcassets */; };
@@ -24,7 +25,6 @@
 		F40EF85C1AF200020007E992 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40EF85A1AF200020007E992 /* LoginVC.swift */; };
 		F40EF85D1AF200020007E992 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EF85B1AF200020007E992 /* LoginVC.xib */; };
 		F40EF8601AF202900007E992 /* SearchMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40EF85E1AF202900007E992 /* SearchMapVC.swift */; };
-		F40EF8611AF202900007E992 /* SearchMapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EF85F1AF202900007E992 /* SearchMapVC.xib */; };
 		F40EF8641AF202B10007E992 /* CurrentMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40EF8621AF202B10007E992 /* CurrentMapVC.swift */; };
 		F40EF8651AF202B10007E992 /* CurrentMapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F40EF8631AF202B10007E992 /* CurrentMapVC.xib */; };
 		F40EF8681AF202D10007E992 /* PostInsertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40EF8661AF202D10007E992 /* PostInsertVC.swift */; };
@@ -116,6 +116,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F0C0B6FB1B3C242C00DF9EB4 /* SearchMapVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchMapVC.xib; sourceTree = "<group>"; };
 		F40EF8191AF1ED0A0007E992 /* PostTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F40EF81D1AF1ED0A0007E992 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F40EF81E1AF1ED0A0007E992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,7 +138,6 @@
 		F40EF85A1AF200020007E992 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		F40EF85B1AF200020007E992 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		F40EF85E1AF202900007E992 /* SearchMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchMapVC.swift; sourceTree = "<group>"; };
-		F40EF85F1AF202900007E992 /* SearchMapVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchMapVC.xib; sourceTree = "<group>"; };
 		F40EF8621AF202B10007E992 /* CurrentMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentMapVC.swift; sourceTree = "<group>"; };
 		F40EF8631AF202B10007E992 /* CurrentMapVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentMapVC.xib; sourceTree = "<group>"; };
 		F40EF8661AF202D10007E992 /* PostInsertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInsertVC.swift; sourceTree = "<group>"; };
@@ -335,7 +335,7 @@
 				F40EF85A1AF200020007E992 /* LoginVC.swift */,
 				F40EF85B1AF200020007E992 /* LoginVC.xib */,
 				F40EF85E1AF202900007E992 /* SearchMapVC.swift */,
-				F40EF85F1AF202900007E992 /* SearchMapVC.xib */,
+				F0C0B6FB1B3C242C00DF9EB4 /* SearchMapVC.xib */,
 				F40EF8621AF202B10007E992 /* CurrentMapVC.swift */,
 				F40EF8631AF202B10007E992 /* CurrentMapVC.xib */,
 				F40EF8661AF202D10007E992 /* PostInsertVC.swift */,
@@ -589,7 +589,6 @@
 				F4A9E32D1B392394006EBB07 /* icon_album@2x.png in Resources */,
 				F4DB28FE1B1D82BD006CD67A /* bulet_cate.png in Resources */,
 				F40EF86D1AF204D70007E992 /* MyInfoVC.xib in Resources */,
-				F40EF8611AF202900007E992 /* SearchMapVC.xib in Resources */,
 				F45882601B15A876001B8A37 /* barbutton_search@2x.png in Resources */,
 				F40EF8241AF1ED0A0007E992 /* Main.storyboard in Resources */,
 				F4ABCFAE1B25391500405674 /* chatting.png in Resources */,
@@ -618,6 +617,7 @@
 				F4ABCFCC1B25521900405674 /* del@2x.png in Resources */,
 				F45882571B140D62001B8A37 /* barbutton_map@2x.png in Resources */,
 				F4ABCFA61B25385F00405674 /* reg_friend.png in Resources */,
+				F0C0B6FC1B3C242C00DF9EB4 /* SearchMapVC.xib in Resources */,
 				F4ABCFB21B25392200405674 /* reg_friend_on.png in Resources */,
 				F4ABCFCB1B25521900405674 /* del.png in Resources */,
 				F40EF8261AF1ED0A0007E992 /* Images.xcassets in Resources */,

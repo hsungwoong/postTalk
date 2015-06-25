@@ -29,6 +29,8 @@ struct APIHost {
 
 struct APIUrl {
     static let mainList = APIHost.host + "post_list.php"; //hsw 20150624 add
+    static let bookMarkFriendList = APIHost.host + "bookmark_friend_list.php"; //hsw 20150625 add
+    static let bookMarkLocationList = APIHost.host + "bookmark_location_list.php"; //hsw 20150625 add
     static let userInfo = APIHost.host + "userInfo.php";  //add hsw
     static let loginChk = APIHost.host + "loginChk.php";  //add hsw
 }
