@@ -13,7 +13,7 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
     @IBOutlet var tbl: UITableView!
     
     var totalItems = 0;
-    var loader:DataMainPostLIst!;
+    var loader:BaseDataAccessManager!;
     
     /*
     override func loadView() {
@@ -45,12 +45,17 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
     */
     func requestData(){
         if loader == nil {
-            loader = DataMainPostLIst()
+            loader = getLoader()!;//DataMainPostLIst()
             loader.delegate = self;
         }
 
         loader.load( getUrl(), params: getParams() );
         
+    }
+    
+    func getLoader() -> BaseDataAccessManager?{
+        
+        return nil
     }
     
     func getUrl() -> String?{
@@ -67,9 +72,11 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
     */
     func onLoadedData() {
         //
-        println("onLoadedData at MainPostListVC")
+        println("onLoadedData")
         
         totalItems = loader.total;
+        
+        println("totalItems : \(totalItems)")
         
         self.tbl.reloadData();
     }

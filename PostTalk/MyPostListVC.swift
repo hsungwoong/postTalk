@@ -24,6 +24,20 @@ class MyPostListVC: CommonPostListVC {
     override func refresh(target: UIBarButtonItem) {
         self.requestData();
     }
+    
+    override func getLoader() -> BaseDataAccessManager? {
+        return DataMainPostLIst();
+    }
+    
+    override func getUrl() -> String? {
+        return APIUrl.myPostList;
+    }
+    
+    override func getParams() -> String? {
+        //var p = "long=\(gps.currentLocation!.coordinate.longitude)&";
+        //p += "lat=\(gps.currentLocation!.coordinate.latitude)&"
+        return nil;
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

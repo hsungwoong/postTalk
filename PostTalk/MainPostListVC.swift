@@ -30,7 +30,9 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
         
         setupGps();
     }
-    
+    override func getLoader() -> BaseDataAccessManager? {
+        return DataMainPostLIst();
+    }
     override func getUrl() -> String? {
         return APIUrl.mainList;
     }
