@@ -18,6 +18,20 @@ class LoginVC: BaseVC, IBaseDataAccessManager {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "tapped:"))
+    }
+    
+    func tapped(sender:UITapGestureRecognizer){
+        println("tapped")
+        //self.resignFirstResponder();
+        if inputPwd.isFirstResponder() {
+            inputPwd.resignFirstResponder();
+        }
+        
+        if inputUserId.isFirstResponder(){
+            inputUserId.resignFirstResponder();
+        }
     }
     
     //로그인 check
