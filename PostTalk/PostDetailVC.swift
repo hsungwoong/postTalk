@@ -43,8 +43,9 @@ class PostDetailVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        println("viewDidLoad")
+        self.navigationItem.hidesBackButton = true;
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: UIBarButtonItemStyle.Plain , target: self, action: "hide:")
+        //self.navigationItem.leftBarButtonItem?.title = "뒤로"
         
         self.pagCtrl.addTarget(self, action: "onSelectImage:", forControlEvents: UIControlEvents.TouchUpInside);
         
@@ -53,10 +54,21 @@ class PostDetailVC: BaseVC {
         desc.text = entity?.memo;
         desc.sizeToFit();
         
+        userId.text = entity?.userId;
+        
+        if var imgName = entity?.img{
+            if !imgName.isEmpty {
+                photoDummy.imageFromUrl(ImageUrl.originPath + imgName)
+            }
+        }
+        
+        
+        
+        
         //scroll.setNeedsDisplay();
         //scroll.setNeedsLayout();
         
-        println(desc.frame);
+        //println(desc.frame);
         
         //scroll.contentSize = CGSizeMake(desc.frame.size.width, desc.frame.size.height + 50 );
         
@@ -66,12 +78,16 @@ class PostDetailVC: BaseVC {
         //scroll.setNeedsDisplay();
     }
     
+    func hide(sender:AnyObject){
+        self.navigationController?.popToRootViewControllerAnimated(true);
+    }
     
     override func  viewDidLayoutSubviews() {
         println("viewDidLayoutSubviews")
         scroll.contentSize = CGSizeMake(desc.frame.size.width, thumbnail.frame.origin.y + thumbnail.frame.size.height + 20 );
     
     }
+    
     func onSelectImage(target:AnyObject?){
         
         

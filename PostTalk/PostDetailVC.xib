@@ -23,9 +23,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aDn-hm-LfY">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="225"/>
-                    <color key="backgroundColor" red="1" green="1" blue="0.046180555560000003" alpha="1" colorSpace="calibratedRGB"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aDn-hm-LfY">
+                    <rect key="frame" x="0.0" y="44" width="600" height="225"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="225" id="5XX-e4-o2A"/>
                     </constraints>
@@ -33,7 +33,7 @@
                 <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1SD-qx-dZ0">
                     <rect key="frame" x="280" y="246" width="39" height="0.0"/>
                 </pageControl>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Enm-wf-vbv">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Enm-wf-vbv">
                     <rect key="frame" x="8" y="267" width="584" height="289"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ph3-O6-rGk" userLabel="상세">
@@ -148,7 +148,7 @@
                 <constraint firstAttribute="trailing" secondItem="aDn-hm-LfY" secondAttribute="trailing" id="YCB-lN-8W8"/>
                 <constraint firstAttribute="bottom" secondItem="Enm-wf-vbv" secondAttribute="bottom" constant="44" id="Ydb-BG-ae9"/>
                 <constraint firstAttribute="centerX" secondItem="1SD-qx-dZ0" secondAttribute="centerX" constant="0.5" id="b7f-YC-dCG"/>
-                <constraint firstItem="aDn-hm-LfY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="buQ-FI-gw4"/>
+                <constraint firstItem="aDn-hm-LfY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="buQ-FI-gw4"/>
                 <constraint firstItem="Enm-wf-vbv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="gSG-yL-bgK"/>
                 <constraint firstAttribute="trailing" secondItem="Enm-wf-vbv" secondAttribute="trailing" constant="8" id="uzT-sr-j52"/>
                 <constraint firstAttribute="trailing" secondItem="BKx-Rh-DoV" secondAttribute="trailing" id="wTF-ie-Eav"/>

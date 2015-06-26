@@ -31,6 +31,7 @@ class MyPostListVC: CommonPostListVC {
     
     override func getUrl() -> String? {
         return APIUrl.myPostList;
+        //return APIUrl.mainList;
     }
     
     override func getParams() -> String? {
