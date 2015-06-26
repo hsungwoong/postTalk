@@ -7,7 +7,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostInsertVC" customModule="PostTalk" customModuleProvider="target">
             <connections>
                 <outlet property="myActivityIndicator" destination="YWS-Qe-hyx" id="rzO-LY-0v2"/>
-                <outlet property="myImageView" destination="ZZb-9k-EmV" id="bPp-e7-MmC"/>
                 <outlet property="myMemo" destination="tqX-N0-fgd" id="0A1-7C-szN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,9 +30,6 @@
                     <state key="normal" title="등록">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="PostInsertButton:" destination="-1" eventType="touchUpInside" id="5B2-Ph-6JA"/>
-                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZZb-9k-EmV">
                     <rect key="frame" x="67" y="325" width="240" height="128"/>
@@ -63,13 +59,16 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                 </textView>
-                <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x5B-gT-zSb">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5B-gT-zSb">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="432-YZ-51M"/>
+                    </constraints>
                     <items>
                         <navigationItem title="등록" id="G8O-3n-7tN">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="2ml-zE-wZG">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QcW-S5-Ddg">
-                                    <rect key="frame" x="275" y="7" width="83" height="30"/>
+                                    <rect key="frame" x="298" y="7" width="60" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="닫기">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,7 +86,7 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="tqX-N0-fgd" secondAttribute="bottom" constant="49" id="3FO-uY-UUc"/>
                 <constraint firstItem="Rpm-SY-tgT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="3Wv-F4-wAc"/>
-                <constraint firstItem="x5B-gT-zSb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Fvn-Z2-ZSp"/>
+                <constraint firstItem="x5B-gT-zSb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Fvn-Z2-ZSp"/>
                 <constraint firstAttribute="trailing" secondItem="x5B-gT-zSb" secondAttribute="trailing" id="JCT-qS-nvV"/>
                 <constraint firstItem="Rpm-SY-tgT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="M6g-M2-qM4"/>
                 <constraint firstItem="x5B-gT-zSb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SlQ-CK-FzD"/>

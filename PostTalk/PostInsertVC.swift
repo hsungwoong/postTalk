@@ -8,16 +8,20 @@
 
 import UIKit
 
+private var accView = PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
+
 class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UITextViewDelegate, IPostInsertAccessoryDelegate {
     
     @IBOutlet var bottomToolbar: UIToolbar!
     @IBOutlet var myMemo: UITextView!
     @IBOutlet var myActivityIndicator: UIActivityIndicatorView!
 
-    @IBOutlet var myImageView: UIImageView!
+    //@IBOutlet var myImageView: UIImageView!
     //@IBOutlet var keyboardHeight:NSLayoutConstraint!;
     
     let placeHolderText = "메세지를 입력해 주세요.";
+    
+    var isOpen = false;
     
     override var inputAccessoryView: UIView! {
         get {
@@ -46,11 +50,9 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
             
             return container;
 */
-            println("!!!!!!")
-            println(self)
-            var acc = PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
-            acc.delegate = self;
-            return acc;
+            //var acc = PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
+            accView.delegate = self;
+            return accView;
             //return  PostInsertAccessory(frame: CGRectZero)
         }
     }
@@ -66,29 +68,30 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         
         //로그인페이지 호출
         //openLoginChk()
-        
-        
-        
+
         self.myMemo.delegate = self;
 
         
         if (myMemo.text == "") {
-            textViewDidEndEditing(myMemo)
+            displayPlaceHolder(myMemo)
         }
-        
-        //self.view.sendSubviewToBack(self.inputAccessoryView)
-        
-        
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil);
-        
-        //self.inputAccessoryView.setNeedsLayout();
-        
-        becomeFirstResponder() ;
     }
     
     override func canBecomeFirstResponder() -> Bool {
         return true;
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        //
+        isOpen = true;
+        self.becomeFirstResponder();
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        //self.resignFirstResponder();
     }
     
     /**
@@ -97,17 +100,38 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
 */
     func keyboardWillShow(notification:NSNotification ) {
         
-        println("keyboardWillShow")
-        /*
+        println("### keyboardWillShow")
+        /**/
         let info = notification.userInfo as NSDictionary?
         let rectValue = info![UIKeyboardFrameBeginUserInfoKey] as! NSValue
         let kbSize = rectValue.CGRectValue().size
         
-        let contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height - 45, 0)
+        var h = kbSize.height - 49;
+        
+
+        if h <= 0 { // 낮은 위치
+            println("### keyboardWillShow 낮은 위치")
+            if accView.isIncludeImg(){
+                accView.showImgBar();
+                h = h + 80;
+            }
+            
+        }else{ // 높은 위치
+            println("### keyboardWillShow 높은 위치")
+            accView.hideImgBar();
+            /*
+            if accView.isIncludeImg(){
+                accView.hideImgBar();
+            }
+*/
+        }
+        
+        var contentInsets = UIEdgeInsetsMake(0, 0, h , 0)
+        
         myMemo.contentInset = contentInsets
         myMemo.scrollIndicatorInsets = contentInsets;
         
-        
+        /*
         // optionally scroll
         var aRect = myMemo.superview!.frame
         
@@ -122,9 +146,42 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     
     func keyboardWillHide(notification:NSNotification ) {
-        println("keyboardWillHide")
-        //myMemo.contentInset = UIEdgeInsetsZero
-        //myMemo.scrollIndicatorInsets = UIEdgeInsetsZero;
+        println("### keyboardWillHide")
+        //println("include image: \(accView.isIncludeImg())")
+        
+        let info = notification.userInfo as NSDictionary?
+        let rectValue = info![UIKeyboardFrameBeginUserInfoKey] as! NSValue
+        let kbSize = rectValue.CGRectValue().size
+        
+        var h = kbSize.height - 49;
+        
+        
+        if h <= 0 { // 낮은 위치
+            
+            if accView.isIncludeImg(){
+                accView.hideImgBar();
+                
+            }
+            
+        }else{ // 높은 위치
+            if accView.isIncludeImg(){
+                
+                if isOpen {
+                    accView.showImgBar();
+                    h = h + 80;
+                }else{
+                    accView.hideImgBar();
+                }
+            }
+        }
+        
+        var contentInsets = UIEdgeInsetsMake(0, 0, h , 0)
+        
+        myMemo.contentInset = contentInsets
+        myMemo.scrollIndicatorInsets = contentInsets;
+        
+        //UIEdgeInsetsZero
+
     }
     
 /**
@@ -132,25 +189,34 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     텍스트뷰 위임자
 
 */
+   
     func textViewDidBeginEditing(textView: UITextView) {
         if (textView.text == placeHolderText ){
             textView.text = ""
             textView.textColor = UIColor.blackColor()
         }
-        textView.becomeFirstResponder()
     }
     
-    func textViewDidEndEditing(textView: UITextView) {
+    func displayPlaceHolder(textView: UITextView){
         if (textView.text == "") {
             textView.text = placeHolderText;
             textView.textColor = UIColor.lightGrayColor()
         }
-        textView.resignFirstResponder()
     }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        
+        displayPlaceHolder(textView);
+
+    }
+    
+
     
     func sendPost(target: AnyObject) {
         //
         println("sendPost")
+
+        myImageUploadRequest()
     }
     
     func selectAlbum(target: AnyObject) {
@@ -160,13 +226,8 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         var myPickerController = UIImagePickerController()
         myPickerController.delegate = self
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        
-        //println(self.view)
-        
+
         self.presentViewController(myPickerController, animated: true, completion: nil)
-        //println("----")
-       // println(self.view)
-        
     }
     
     func openCamera(target: AnyObject) {
@@ -182,22 +243,13 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
         self.presentViewController(myPickerController, animated: true, completion: nil)
-        
-        self.becomeFirstResponder();
-    }
-    
-    //포스트 등록
-    @IBAction func PostInsertButton(sender: AnyObject) {
-        myImageUploadRequest()
-    }
-    
 
+    }
     
     
     //고유 이미지 생성키
     func makeImageName()->String {
-        
-        
+
         let now = NSDate() // 현재 날짜 및 시간 체크
         
         let dateFormatter = NSDateFormatter()
@@ -208,30 +260,25 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         //println(dateFormatter.stringFromDate(now)+String(arc4random())
         return dateFormatter.stringFromDate(now)+String(arc4random())
     }
-    /*
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.view.endEditing(true)
-    }
-*/
-    /*
-    //UITextField Delegate
-    func textFieldShouldReturn(textField: UITextField) -> Bool{
-        textField.resignFirstResponder()
-        return true
-        
-    }*/
-    
-    
+
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        //myImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
+
+        if let img: AnyObject = info[UIImagePickerControllerOriginalImage] {
+            accView.addImage(img as! UIImage)
+        }
+       
+        self.dismissViewControllerAnimated(true, completion: {
+            //self.becomeFirstResponder();
+            //accView.unvisibleKB();
+            
+        })
     }
     
     func myImageUploadRequest()
     {
         
-        let myUrl = NSURL(string:"http://52.68.46.70/postInsert_ok.php")
+        let myUrl = NSURL(string:APIUrl.postInsert);
+        
         //let cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData
         //let request = NSMutableURLRequest(URL: myUrl!, cachePolicy: cachePolicy, timeoutInterval: 5.0)
         let request = NSMutableURLRequest(URL: myUrl!)
@@ -242,24 +289,29 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         let boundaryConstant = "----------V2ymHFg03esomerandomstuffhbqgZCaKO6jy";
         let contentType = "multipart/form-data; boundary=" + boundaryConstant
         NSURLProtocol.setProperty(contentType, forKey: "Content-Type", inRequest: request)
+ 
+        var imageData:NSData?;
+        var image_group_code:String = "";
         
-        let image_group_code = "G"+makeImageName()
+        var param = [String:String]();
         
-        let param = [
-            "MEMO":self.myMemo.text!,
-            "USER_ID":"user5",
-            "IMAGE_GROUP_CODE":image_group_code]
+        param["MEMO"] = self.myMemo.text!
+        param["USER_ID"] = "user5"
+        
+        if let img = accView.getImage() {
+            imageData  = UIImageJPEGRepresentation(img , 0.1)
+            image_group_code = "G"+makeImageName();
+            param["IMAGE_GROUP_CODE"] = image_group_code;
+        }
+        
+        //let param = ["MEMO":self.myMemo.text!,"USER_ID":"user5","IMAGE_GROUP_CODE":image_group_code]
         
         let boundary = generateBoundaryString()
         
         request.setValue("multipart/form-data; boundary=\(boundary)",
             forHTTPHeaderField:"Content-Type")
         
-        let imageData = UIImageJPEGRepresentation(myImageView.image, 0.1)
-        
-        if(imageData == nil) { return }
-        
-        request.HTTPBody = createBodyWithParameters(param, filePathKey:"file",imageDataKey:imageData,boundary:boundary)
+        request.HTTPBody = createBodyWithParameters(param, filePathKey:"file",imageDataKey:imageData, boundary:boundary)
         
         myActivityIndicator.startAnimating()
         
@@ -280,11 +332,11 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
             println("******* response data = \(responseString!)")
             
             dispatch_async(dispatch_get_main_queue(), {
-                self.myActivityIndicator.stopAnimating()
-                self.myImageView.image = nil
+                self.myActivityIndicator.stopAnimating();
+                accView.emptyImage();
                 self.myMemo.text = nil
                 self.view.endEditing(true)// 키보드 내림
-                self.tabBarController?.selectedIndex = 0;//tabBar 위치변환
+                //self.tabBarController?.selectedIndex = 0;//tabBar 위치변환
             });
             
         }
@@ -295,45 +347,50 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     }
     
     
-    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData?, boundary: String) -> NSData {
         let body = NSMutableData();
         
+        //포스트 정보
         if parameters != nil {
             for (key, value) in parameters! {
-                body.appendString("--\(boundary)\r\n")
+                if !value.isEmpty {
+                    body.appendString("--\(boundary)\r\n")
                 
-                //body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
-                //body.appendString("Content-Type: \(mimetype)\r\n\r\n")
-                //body.appendData(imageDataKey)
+                    //body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+                    //body.appendString("Content-Type: \(mimetype)\r\n\r\n")
+                    //body.appendData(imageDataKey)
                 
-                body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-                body.appendString("\(value)\r\n")
+                    body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                    body.appendString("\(value)\r\n")
+                }
             }
         }
         
-        let filename = makeImageName()+".png" //"user-profile.jpg"
         
-        //let mimetype = "image/jpg"
-        let mimetype = "application/octet-stream"
+        // 이미지 데이타
+        if let imgdata = imageDataKey{
+            
+            let filename = makeImageName()+".png" //"user-profile.jpg"
         
-        
-        // Image
-        body.appendData(NSString(format: "\r\n--%@\r\n", boundary).dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData(NSString(format:"Content-Disposition: form-data; name=\"file1\"; filename=\(filename)\r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData(NSString(format: "Content-Type: application/octet-stream\r\n\r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
-        body.appendData(imageDataKey)
-        body.appendData(NSString(format: "\r\n--%@\r\n", boundary).dataUsingEncoding(NSUTF8StringEncoding)!)
+            //let mimetype = "image/jpg"
+            let mimetype = "application/octet-stream"
         
         
-        /*
-        body.appendString("–-\(boundary)\r\n")
-        body.appendData(NSString(format:"Content-Disposition: form-data; name=\"file1\"; filename=\"img.jpg\" \r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
-        //body.appendString("Content-Disposition: form-data; name='file1'; filename=\"\(filename)\"\r\n")
-        body.appendString("Content-Type: \(mimetype)\r\n\r\n")
-        body.appendData(imageDataKey)
-        body.appendString("\r\n")
-        */
-        body.appendString("–-\(boundary)–-\r\n")
+            // Image
+            body.appendData(NSString(format: "\r\n--%@\r\n", boundary).dataUsingEncoding(NSUTF8StringEncoding)!)
+            body.appendData(NSString(format:"Content-Disposition: form-data; name=\"file1\"; filename=\(filename)\r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
+            body.appendData(NSString(format: "Content-Type: application/octet-stream\r\n\r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+             body.appendData(imgdata)
+       
+       
+            body.appendData(NSString(format: "\r\n--%@\r\n", boundary).dataUsingEncoding(NSUTF8StringEncoding)!)
+        
+       
+        
+            body.appendString("–-\(boundary)–-\r\n")
+        
+        }
         
         return body
     }
@@ -344,7 +401,33 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     
     @IBAction func hide(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil);
+        isOpen = false;
+        
+        //이미지 비우기
+        accView.emptyImage();
+        
+        //메모 공백
+        myMemo?.text = "";
+        
+        //퍼스트에서 해제
+        if self.myMemo.isFirstResponder() {
+            self.myMemo.resignFirstResponder();
+        }
+        
+        if self.isFirstResponder(){
+            
+            self.resignFirstResponder();
+        }
+        
+        //약간 지연두고 등록창 닫기
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW,
+            Int64(0.2 * Double(NSEC_PER_SEC)))
+        
+        dispatch_after(delayTime , dispatch_get_main_queue(), {
+            self.dismissViewControllerAnimated(true, completion: nil);
+        });
+        
+        //
     }
     
     

@@ -13,7 +13,7 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
     @IBOutlet var tbl: UITableView!
     
     var totalItems = 0;
-    var loader:DataMainPostLIst!;
+    var loader:BaseDataAccessManager!;
     
     /*
     override func loadView() {
@@ -45,12 +45,17 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
     */
     func requestData(){
         if loader == nil {
-            loader = DataMainPostLIst()
+            loader = getLoader()!;//DataMainPostLIst()
             loader.delegate = self;
         }
 
         loader.load( getUrl(), params: getParams() );
         
+    }
+    
+    func getLoader() -> BaseDataAccessManager?{
+        
+        return nil
     }
     
     func getUrl() -> String?{
@@ -67,9 +72,11 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
     */
     func onLoadedData() {
         //
-        println("onLoadedData at MainPostListVC")
+        println("onLoadedData")
         
         totalItems = loader.total;
+        
+        println("totalItems : \(totalItems)")
         
         self.tbl.reloadData();
     }
@@ -103,7 +110,14 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
         
         label.sizeToFit();
         
-        return 93 + label.frame.height + 10;
+        var imgHeight = 0;
+        if let imgname = entity.img {
+            if !imgname.isEmpty {
+                imgHeight = 180
+            }
+        }
+        
+        return 93 + label.frame.height + 10 + CGFloat(imgHeight);
     }
     
     
@@ -112,6 +126,7 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell", forIndexPath: indexPath) as! PostCell;
         
         var entity:EntityPostInfo = loader.entities?[indexPath.section] as! EntityPostInfo;
+        
         
         
         if indexPath.section % 2 == 0{
@@ -133,6 +148,29 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
         
         cell.desc.text = entity.memo!;
         
+        if cell.uid != entity.idx {
+            
+            cell.emptyImage();
+            
+            if let imgName = entity.img {
+                
+                if !imgName.isEmpty{
+                    println("image url : \(ImageUrl.originPath + imgName)")
+                    cell.loadImageFromUrl(ImageUrl.originPath + imgName)
+                }
+   
+            }
+        }
+        /*
+        if let imgName = entity.img {
+            println("image url : \(ImageUrl.originPath + imgName)")
+            cell.loadImageFromUrl(ImageUrl.originPath + imgName)
+        }else{
+            cell.emptyImage();
+        }
+        */
+        cell.uid = entity.idx;
+    
         
         return cell
     }

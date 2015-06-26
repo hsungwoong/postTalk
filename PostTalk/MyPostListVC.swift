@@ -15,8 +15,29 @@ class MyPostListVC: CommonPostListVC {
 
         // Do any additional setup after loading the view.
         
+        creatNaviBarRightButtons();
+        
         //메인 목록 데이타 요청
         self.requestData();
+    }
+    
+    override func refresh(target: UIBarButtonItem) {
+        self.requestData();
+    }
+    
+    override func getLoader() -> BaseDataAccessManager? {
+        return DataMainPostLIst();
+    }
+    
+    override func getUrl() -> String? {
+        return APIUrl.myPostList;
+        //return APIUrl.mainList;
+    }
+    
+    override func getParams() -> String? {
+        //var p = "long=\(gps.currentLocation!.coordinate.longitude)&";
+        //p += "lat=\(gps.currentLocation!.coordinate.latitude)&"
+        return nil;
     }
 
     override func didReceiveMemoryWarning() {
