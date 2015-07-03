@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        // Set app-wide shared cache (first number is megabyte value)
+        var cacheSizeMemory = 500*1024*1024; // 500 MB
+        var cacheSizeDisk = 500*1024*1024; // 500 MB
+        var che = NSURLCache(memoryCapacity: cacheSizeMemory, diskCapacity: cacheSizeDisk, diskPath: "nsurlcache");
+        NSURLCache.setSharedURLCache(che);
+        sleep(1); // Critically important line, sadly, but it's worth it!
         
         /**
             네이게이션바 스타일 설정

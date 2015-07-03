@@ -155,7 +155,7 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
             if let imgName = entity.img {
                 
                 if !imgName.isEmpty{
-                    println("image url : \(ImageUrl.originPath + imgName)")
+                    println(">>>> image url : \(ImageUrl.originPath + imgName)")
                     cell.loadImageFromUrl(ImageUrl.originPath + imgName)
                 }
    

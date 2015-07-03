@@ -13,8 +13,8 @@ class DataMainPostLIst: BaseDataAccessManager {
     override func parserJson(jsonResult: NSDictionary?) {
         //엔티티 배열 생성
         entities = [Any]();
-        println("******************")
-        println(jsonResult)
+        //println("******************")
+        //println(jsonResult)
 
         if let orders:NSArray = jsonResult?["Main"] as? NSArray {
             
