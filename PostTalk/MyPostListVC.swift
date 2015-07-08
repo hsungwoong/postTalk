@@ -10,6 +10,7 @@ import UIKit
 
 class MyPostListVC: CommonPostListVC {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
