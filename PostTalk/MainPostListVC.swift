@@ -9,8 +9,10 @@
 import UIKit
 import CoreLocation
 
-class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
+class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
  
+    @IBOutlet var inputBg: UIView!
+    @IBOutlet var inputText: UITextView!
     @IBOutlet var cateToolbar: UIToolbar!
     @IBOutlet var cateBuletBarbtn: UIBarButtonItem!
     @IBOutlet var cateChildBarbtn: UIBarButtonItem!
@@ -21,8 +23,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
     var gps:GpsManager!;
     
     var initedGpsUpdate = false;
-    
-    //var insertBar:PostInsertBar!;
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,48 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
         
         setupGps();
         
+        inputText.delegate = self;
+        inputText.layer.cornerRadius = 5;
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil);
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        println("textViewDidBeginEditing")
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        println("textViewDidChange")
+        var numLines = floor(textView.contentSize.height / textView.font.lineHeight);
+        println(numLines);
+        if numLines > 2 {
+            numLines = 2;
+        }
+        
+        let th = numLines * 35;
+        let ty = -(numLines - 1 ) * 35 + 5;
+        
+        var frm = textView.frame;
+        frm.size.height = th;
+        frm.origin.y = ty;
+        textView.frame = frm;
+        
+        var size = textView.contentSize;
+        size.height = th;
+        
+        let th2 = numLines * 44;
+        let ty2 = -(numLines - 1 ) * 44;
+        var frm2 = self.postInsertBar.bounds;
+        frm2.size.height = th2;
+         frm2.origin.y = ty2;
+        self.postInsertBar.bounds = frm2;
+        
+        //textView.contentSize = size;
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        println("textViewDidEndEditing")
     }
     
     /**
@@ -46,6 +87,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
     func keyboardWillShow(notification:NSNotification ) {
         
         println("### keyboardWillShow")
+        self.tbl.userInteractionEnabled = false;
         /**/
         let info = notification.userInfo as NSDictionary?
         let rectValue = info![UIKeyboardFrameBeginUserInfoKey] as! NSValue
@@ -55,7 +97,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
         
         let duration = info![UIKeyboardAnimationDurationUserInfoKey] as! Double;
         let curve = info![UIKeyboardAnimationCurveUserInfoKey] as! Int;
- println(            self.postInsertBar.constraints());
+ //println(            self.postInsertBar.constraints());
         
         self.postInsertBarBottomMargin.constant = h;
         
@@ -117,6 +159,26 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
         
         var h = kbSize.height - 49;
         
+        self.tbl.userInteractionEnabled = true;
+
+        
+        let duration = info![UIKeyboardAnimationDurationUserInfoKey] as! Double;
+        let curve = info![UIKeyboardAnimationCurveUserInfoKey] as! Int;
+        //println(            self.postInsertBar.constraints());
+        
+        self.postInsertBarBottomMargin.constant = 0;
+        
+        UIView.animateWithDuration(duration, delay: 0.0, options: UIViewAnimationOptions(rawValue: UInt(curve << 16)), animations: {
+            //var bb = self.postInsertBar.bounds;
+            //bb.origin.y = h;
+            //self.postInsertBar.bounds = bb;
+            self.postInsertBar.layoutIfNeeded();
+            
+            //
+            }, completion: {finished in
+                //
+        });
+        
         
         if h <= 0 { // 낮은 위치
             
@@ -145,6 +207,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate{
     override func getParams() -> String? {
         var p = "long=\(gps.currentLocation!.coordinate.longitude)&";
         p += "lat=\(gps.currentLocation!.coordinate.latitude)&"
+        
         return p;
     }
     
