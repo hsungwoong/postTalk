@@ -134,28 +134,31 @@
                                 </items>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ujc-Ib-pJN">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ujc-Ib-pJN">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itl-8G-aUv">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGA-y4-qLg">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <variation key="heightClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                        </variation>
                                     </view>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bc7-gg-59Q">
+                                    <textView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bc7-gg-59Q">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <variation key="heightClass=regular" misplaced="YES">
+                                        <variation key="heightClass=regular" ambiguous="YES">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <rect key="frame" x="45" y="5" width="510" height="37"/>
+                                            <rect key="frame" x="45" y="6" width="505" height="32"/>
                                         </variation>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cv-YL-pwX">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <state key="normal" title="상세">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -163,82 +166,78 @@
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="게시">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=regular" misplaced="YES">
-                                            <rect key="frame" x="552" y="8" width="38" height="30"/>
-                                        </variation>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="2Cv-YL-pwX" firstAttribute="leading" secondItem="Ujc-Ib-pJN" secondAttribute="leading" constant="19" id="1cy-Ij-Jzt">
                                         <variation key="heightClass=regular" constant="5"/>
                                     </constraint>
-                                    <constraint firstItem="itl-8G-aUv" firstAttribute="leading" secondItem="Ujc-Ib-pJN" secondAttribute="leading" id="2PH-W4-HdN"/>
-                                    <constraint firstAttribute="height" constant="44" id="3ST-aW-pBK"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="3ST-aW-pBK"/>
                                     <constraint firstItem="2Cv-YL-pwX" firstAttribute="top" secondItem="Ujc-Ib-pJN" secondAttribute="top" constant="8" id="7iJ-Ym-3g7"/>
-                                    <constraint firstItem="itl-8G-aUv" firstAttribute="top" secondItem="Ujc-Ib-pJN" secondAttribute="top" id="8Qi-K3-iq8"/>
                                     <constraint firstAttribute="trailing" secondItem="Web-hH-sJt" secondAttribute="trailing" constant="40" id="JzB-Kt-kQD">
                                         <variation key="heightClass=regular" constant="10"/>
                                     </constraint>
                                     <constraint firstAttribute="bottom" secondItem="bc7-gg-59Q" secondAttribute="bottom" constant="10" id="Mqi-Ti-cTB">
-                                        <variation key="heightClass=regular" constant="5"/>
+                                        <variation key="heightClass=regular" constant="6"/>
                                     </constraint>
                                     <constraint firstItem="Web-hH-sJt" firstAttribute="top" secondItem="Ujc-Ib-pJN" secondAttribute="top" constant="8" id="Uim-Um-I5L"/>
-                                    <constraint firstAttribute="trailing" secondItem="itl-8G-aUv" secondAttribute="trailing" id="WHk-U6-UC6"/>
-                                    <constraint firstAttribute="bottom" secondItem="itl-8G-aUv" secondAttribute="bottom" id="bke-D7-dhO"/>
                                     <constraint firstItem="bc7-gg-59Q" firstAttribute="top" secondItem="Ujc-Ib-pJN" secondAttribute="top" constant="12" id="ekw-Bc-NcI">
-                                        <variation key="heightClass=regular" constant="5"/>
+                                        <variation key="heightClass=regular" constant="6"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="bc7-gg-59Q" secondAttribute="trailing" constant="50" id="ldh-Yv-6ls"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Cv-YL-pwX" secondAttribute="bottom" constant="6" id="nnt-iO-Xxo">
+                                        <variation key="heightClass=regular" constant="7"/>
+                                    </constraint>
+                                    <constraint firstAttribute="bottom" secondItem="Web-hH-sJt" secondAttribute="bottom" constant="6" id="nob-JU-H6P">
+                                        <variation key="heightClass=regular" constant="7"/>
+                                    </constraint>
                                     <constraint firstItem="bc7-gg-59Q" firstAttribute="leading" secondItem="Ujc-Ib-pJN" secondAttribute="leading" constant="45" id="zNI-Fe-hy9"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="itl-8G-aUv"/>
+                                        <exclude reference="qGA-y4-qLg"/>
                                         <exclude reference="bc7-gg-59Q"/>
                                         <exclude reference="2Cv-YL-pwX"/>
                                         <exclude reference="Web-hH-sJt"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="3ST-aW-pBK"/>
-                                        <exclude reference="2PH-W4-HdN"/>
-                                        <exclude reference="8Qi-K3-iq8"/>
-                                        <exclude reference="WHk-U6-UC6"/>
-                                        <exclude reference="bke-D7-dhO"/>
                                         <exclude reference="1cy-Ij-Jzt"/>
                                         <exclude reference="7iJ-Ym-3g7"/>
+                                        <exclude reference="nnt-iO-Xxo"/>
                                         <exclude reference="Mqi-Ti-cTB"/>
                                         <exclude reference="ekw-Bc-NcI"/>
                                         <exclude reference="ldh-Yv-6ls"/>
                                         <exclude reference="zNI-Fe-hy9"/>
                                         <exclude reference="JzB-Kt-kQD"/>
                                         <exclude reference="Uim-Um-I5L"/>
+                                        <exclude reference="nob-JU-H6P"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular">
+                                <variation key="heightClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="707" width="600" height="44"/>
                                     <mask key="subviews">
-                                        <include reference="itl-8G-aUv"/>
+                                        <include reference="qGA-y4-qLg"/>
                                         <include reference="bc7-gg-59Q"/>
                                         <include reference="2Cv-YL-pwX"/>
                                         <include reference="Web-hH-sJt"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="3ST-aW-pBK"/>
-                                        <include reference="2PH-W4-HdN"/>
-                                        <include reference="8Qi-K3-iq8"/>
-                                        <include reference="WHk-U6-UC6"/>
-                                        <include reference="bke-D7-dhO"/>
                                         <include reference="1cy-Ij-Jzt"/>
-                                        <include reference="7iJ-Ym-3g7"/>
+                                        <exclude reference="7iJ-Ym-3g7"/>
+                                        <include reference="nnt-iO-Xxo"/>
                                         <include reference="Mqi-Ti-cTB"/>
                                         <include reference="ekw-Bc-NcI"/>
                                         <include reference="ldh-Yv-6ls"/>
                                         <include reference="zNI-Fe-hy9"/>
                                         <include reference="JzB-Kt-kQD"/>
-                                        <include reference="Uim-Um-I5L"/>
+                                        <exclude reference="Uim-Um-I5L"/>
+                                        <include reference="nob-JU-H6P"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -316,7 +315,6 @@
                         <outlet property="cateBuletBarbtn" destination="Owi-NB-Orm" id="EDQ-Xn-rQV"/>
                         <outlet property="cateChildBarbtn" destination="l2z-Ly-5Yl" id="1cH-NR-1Ff"/>
                         <outlet property="cateToolbar" destination="577-rE-fLA" id="lAn-Sq-Jii"/>
-                        <outlet property="inputBg" destination="itl-8G-aUv" id="3oV-af-sML"/>
                         <outlet property="inputText" destination="bc7-gg-59Q" id="l8P-bE-7mg"/>
                         <outlet property="postInsertBar" destination="Ujc-Ib-pJN" id="lf7-1K-B0c"/>
                         <outlet property="postInsertBarBottomMargin" destination="4uZ-sB-BYj" id="buL-bm-DEO"/>
