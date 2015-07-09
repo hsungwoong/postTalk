@@ -22,9 +22,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="114" width="600" height="625"/>
-                                </variation>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eiL-g5-fUr">
                                 <rect key="frame" x="-61" y="-14" width="123" height="29"/>
@@ -32,9 +29,6 @@
                                     <segment title="친구                                        "/>
                                     <segment title="위치                                        "/>
                                 </segments>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="30" y="78" width="540" height="29"/>
-                                </variation>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -54,14 +48,14 @@
                                 <exclude reference="eiL-g5-fUr"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="70b-a1-i03"/>
-                                <exclude reference="SG0-pa-RgJ"/>
-                                <exclude reference="fSW-iJ-jD8"/>
+                                <exclude reference="IQd-8O-xHc"/>
                                 <exclude reference="IaC-Ck-msn"/>
                                 <exclude reference="jXS-lT-7GU"/>
                                 <exclude reference="xZM-gq-N4e"/>
                                 <exclude reference="xdf-Jz-AVE"/>
-                                <exclude reference="IQd-8O-xHc"/>
+                                <exclude reference="70b-a1-i03"/>
+                                <exclude reference="SG0-pa-RgJ"/>
+                                <exclude reference="fSW-iJ-jD8"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -70,14 +64,14 @@
                                 <include reference="eiL-g5-fUr"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="70b-a1-i03"/>
-                                <include reference="SG0-pa-RgJ"/>
-                                <include reference="fSW-iJ-jD8"/>
+                                <include reference="IQd-8O-xHc"/>
                                 <exclude reference="IaC-Ck-msn"/>
                                 <exclude reference="jXS-lT-7GU"/>
                                 <include reference="xZM-gq-N4e"/>
                                 <include reference="xdf-Jz-AVE"/>
-                                <include reference="IQd-8O-xHc"/>
+                                <include reference="70b-a1-i03"/>
+                                <include reference="SG0-pa-RgJ"/>
+                                <include reference="fSW-iJ-jD8"/>
                             </mask>
                         </variation>
                     </view>
