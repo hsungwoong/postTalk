@@ -296,7 +296,9 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         var param = [String:String]();
         
         param["MEMO"] = self.myMemo.text!
-        param["USER_ID"] = "user5"
+        param["USER_ID"] = "user5";
+        //param["LONG"] = gps.currentLocation!.coordinate.longitude;
+        //param["LAT"] = gps.currentLocation!.coordinate.latitude;
         
         if let img = accView.getImage() {
             imageData  = UIImageJPEGRepresentation(img , 0.1)

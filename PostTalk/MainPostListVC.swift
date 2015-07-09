@@ -38,6 +38,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
         
         inputText.delegate = self;
         inputText.layer.cornerRadius = 5;
+        inputText.scrollEnabled = false;
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil);
@@ -45,35 +46,56 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
     
     func textViewDidBeginEditing(textView: UITextView) {
         println("textViewDidBeginEditing")
+        
     }
     
     func textViewDidChange(textView: UITextView) {
-        println("textViewDidChange")
-        var numLines = floor(textView.contentSize.height / textView.font.lineHeight);
-        println(numLines);
-        if numLines > 2 {
-            numLines = 2;
+        textView.layoutManager.ensureLayoutForTextContainer(textView.textContainer);
+        var textBounds = textView.layoutManager.usedRectForTextContainer(textView.textContainer);
+        
+        var numLines = floor(textBounds.size.height / textView.font.lineHeight);
+        
+        if numLines > 3 {
+            numLines = 3;
+        }else{
+            
         }
         
-        let th = numLines * 35;
-        let ty = -(numLines - 1 ) * 35 + 5;
+        println("numline \(numLines)");
+        
+        let th = numLines * 32;
+        let ty = -(numLines - 1 ) * 32 + 6;
+        
+         println("numline \(numLines), th \(th)");
         
         var frm = textView.frame;
         frm.size.height = th;
-        frm.origin.y = ty;
-        textView.frame = frm;
-        
-        var size = textView.contentSize;
-        size.height = th;
+
         
         let th2 = numLines * 44;
-        let ty2 = -(numLines - 1 ) * 44;
+        let ty2 = (numLines - 1 ) * 44;
         var frm2 = self.postInsertBar.bounds;
         frm2.size.height = th2;
-         frm2.origin.y = ty2;
-        self.postInsertBar.bounds = frm2;
         
-        //textView.contentSize = size;
+        UIView.animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.LayoutSubviews, animations: {
+            
+                self.postInsertBar.bounds = frm2;
+                textView.frame = frm;
+            
+            }, completion: { finished in
+               //
+                
+        })
+        
+        
+        if numLines >= 3 {
+            
+            textView.scrollEnabled  = true;
+            
+        }else  {
+            textView.scrollEnabled  = false;
+        }
+
     }
     
     func textViewDidEndEditing(textView: UITextView) {
@@ -87,7 +109,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
     func keyboardWillShow(notification:NSNotification ) {
         
         println("### keyboardWillShow")
-        self.tbl.userInteractionEnabled = false;
+        //self.tbl.userInteractionEnabled = false;
         /**/
         let info = notification.userInfo as NSDictionary?
         let rectValue = info![UIKeyboardFrameBeginUserInfoKey] as! NSValue
@@ -159,7 +181,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
         
         var h = kbSize.height - 49;
         
-        self.tbl.userInteractionEnabled = true;
+        //self.tbl.userInteractionEnabled = true;
 
         
         let duration = info![UIKeyboardAnimationDurationUserInfoKey] as! Double;
@@ -288,6 +310,17 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
         println(sender);
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //self.performSegueWithIdentifier("SgPostDetail", sender: self);
+        
+        if inputText.isFirstResponder() {
+            inputText.resignFirstResponder();
+        }else{
+            super.tableView(tableView , didSelectRowAtIndexPath: indexPath);
+        }
+        
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

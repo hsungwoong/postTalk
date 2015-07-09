@@ -204,7 +204,7 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true;
+        return false;
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
