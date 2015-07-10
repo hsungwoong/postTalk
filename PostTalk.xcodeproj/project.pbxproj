@@ -58,6 +58,8 @@
 		F458826F1B16E2C0001B8A37 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F458826D1B16E2C0001B8A37 /* PostCell.swift */; };
 		F45882701B16E2C0001B8A37 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F458826E1B16E2C0001B8A37 /* PostCell.xib */; };
 		F47635AB1B3A7604005BEC02 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F47635AA1B3A7604005BEC02 /* .gitignore */; };
+		F47E79781B4E8CE40041D9D4 /* DataPostInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E79771B4E8CE40041D9D4 /* DataPostInsert.swift */; };
+		F47E797A1B4E94AA0041D9D4 /* IDataPostInsert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E79791B4E94AA0041D9D4 /* IDataPostInsert.swift */; };
 		F48F31EB1B3BEBD1001AA7F1 /* UIImageView+AsynLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48F31EA1B3BEBD1001AA7F1 /* UIImageView+AsynLoad.swift */; };
 		F4A9E3241B391DEB006EBB07 /* PostInsertAccessory.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3231B391DEB006EBB07 /* PostInsertAccessory.xib */; };
 		F4A9E32A1B392394006EBB07 /* icon_album_on.png in Resources */ = {isa = PBXBuildFile; fileRef = F4A9E3261B392393006EBB07 /* icon_album_on.png */; };
@@ -172,6 +174,8 @@
 		F458826D1B16E2C0001B8A37 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F458826E1B16E2C0001B8A37 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		F47635AA1B3A7604005BEC02 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F47E79771B4E8CE40041D9D4 /* DataPostInsert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPostInsert.swift; sourceTree = "<group>"; };
+		F47E79791B4E94AA0041D9D4 /* IDataPostInsert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDataPostInsert.swift; sourceTree = "<group>"; };
 		F48F31EA1B3BEBD1001AA7F1 /* UIImageView+AsynLoad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+AsynLoad.swift"; sourceTree = "<group>"; };
 		F4A9E3231B391DEB006EBB07 /* PostInsertAccessory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostInsertAccessory.xib; sourceTree = "<group>"; };
 		F4A9E3261B392393006EBB07 /* icon_album_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_album_on.png; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 				F44569FD1AFB3E71003F20CF /* EntityPostInfo.swift */,
 				F44569FF1AFB3EAA003F20CF /* EntityUserInfo.swift */,
 				F44DA6E81B018BD600570717 /* IBaseDataAccessManager.swift */,
+				F47E79771B4E8CE40041D9D4 /* DataPostInsert.swift */,
+				F47E79791B4E94AA0041D9D4 /* IDataPostInsert.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -677,12 +683,14 @@
 				F40EF8511AF1FE520007E992 /* BookMarkListVC.swift in Sources */,
 				F40EF8581AF1FF920007E992 /* SettingVC.swift in Sources */,
 				F40EF8701AF204FD0007E992 /* LanguageChangeVC.swift in Sources */,
+				F47E79781B4E8CE40041D9D4 /* DataPostInsert.swift in Sources */,
 				F40EF8601AF202900007E992 /* SearchMapVC.swift in Sources */,
 				F44569FA1AFB3E1C003F20CF /* DataBookMarkList.swift in Sources */,
 				F43B52FD1B2FC11100CDAB09 /* IGpsManagerDelegate.swift in Sources */,
 				F43B52F71B2FA7D500CDAB09 /* GpsManager.swift in Sources */,
 				F40EF8681AF202D10007E992 /* PostInsertVC.swift in Sources */,
 				F40EF85C1AF200020007E992 /* LoginVC.swift in Sources */,
+				F47E797A1B4E94AA0041D9D4 /* IDataPostInsert.swift in Sources */,
 				F4A9E33D1B39A3F2006EBB07 /* IPostInsertAccessoryDelegate.swift in Sources */,
 				F44569F11AFB334F003F20CF /* AppManager.swift in Sources */,
 				F44569F61AFB3DA0003F20CF /* BaseDataAccessManager.swift in Sources */,

@@ -150,9 +150,8 @@
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <variation key="heightClass=regular" ambiguous="YES">
+                                        <variation key="heightClass=regular">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <rect key="frame" x="45" y="6" width="505" height="32"/>
                                         </variation>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cv-YL-pwX">
@@ -161,6 +160,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onInsertDeail:" destination="kYV-v9-A5F" eventType="touchUpInside" id="BeD-fh-7Wa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Web-hH-sJt">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -169,6 +171,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onInsertShort:" destination="kYV-v9-A5F" eventType="touchUpInside" id="FLe-gg-qVe"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -209,17 +214,16 @@
                                         <exclude reference="1cy-Ij-Jzt"/>
                                         <exclude reference="7iJ-Ym-3g7"/>
                                         <exclude reference="nnt-iO-Xxo"/>
+                                        <exclude reference="JzB-Kt-kQD"/>
+                                        <exclude reference="Uim-Um-I5L"/>
+                                        <exclude reference="nob-JU-H6P"/>
                                         <exclude reference="Mqi-Ti-cTB"/>
                                         <exclude reference="ekw-Bc-NcI"/>
                                         <exclude reference="ldh-Yv-6ls"/>
                                         <exclude reference="zNI-Fe-hy9"/>
-                                        <exclude reference="JzB-Kt-kQD"/>
-                                        <exclude reference="Uim-Um-I5L"/>
-                                        <exclude reference="nob-JU-H6P"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" ambiguous="YES">
-                                    <rect key="frame" x="0.0" y="707" width="600" height="44"/>
+                                <variation key="heightClass=regular">
                                     <mask key="subviews">
                                         <include reference="qGA-y4-qLg"/>
                                         <include reference="bc7-gg-59Q"/>
@@ -231,13 +235,13 @@
                                         <include reference="1cy-Ij-Jzt"/>
                                         <exclude reference="7iJ-Ym-3g7"/>
                                         <include reference="nnt-iO-Xxo"/>
+                                        <include reference="JzB-Kt-kQD"/>
+                                        <exclude reference="Uim-Um-I5L"/>
+                                        <include reference="nob-JU-H6P"/>
                                         <include reference="Mqi-Ti-cTB"/>
                                         <include reference="ekw-Bc-NcI"/>
                                         <include reference="ldh-Yv-6ls"/>
                                         <include reference="zNI-Fe-hy9"/>
-                                        <include reference="JzB-Kt-kQD"/>
-                                        <exclude reference="Uim-Um-I5L"/>
-                                        <include reference="nob-JU-H6P"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -312,6 +316,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="포스트목록" id="jDo-ST-sFo"/>
                     <connections>
+                        <outlet property="btnInsertDetail" destination="2Cv-YL-pwX" id="TFO-SV-KiD"/>
+                        <outlet property="btnInsertShort" destination="Web-hH-sJt" id="gqt-S9-39V"/>
                         <outlet property="cateBuletBarbtn" destination="Owi-NB-Orm" id="EDQ-Xn-rQV"/>
                         <outlet property="cateChildBarbtn" destination="l2z-Ly-5Yl" id="1cH-NR-1Ff"/>
                         <outlet property="cateToolbar" destination="577-rE-fLA" id="lAn-Sq-Jii"/>

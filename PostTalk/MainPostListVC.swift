@@ -11,6 +11,8 @@ import CoreLocation
 
 class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
  
+    @IBOutlet var btnInsertShort: UIButton!
+    @IBOutlet var btnInsertDetail: UIButton!
     @IBOutlet var inputBg: UIView!
     @IBOutlet var inputText: UITextView!
     @IBOutlet var cateToolbar: UIToolbar!
@@ -29,7 +31,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
         super.viewDidLoad()
         
        
-        createPostInsertButton();
+        //createPostInsertButton();
         creatNaviBarRightButtons();
          createInsertBar();
         setupSortMenu();
@@ -318,10 +320,19 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
         }else{
             super.tableView(tableView , didSelectRowAtIndexPath: indexPath);
         }
-        
-        
     }
 
+    @IBAction func onInsertDeail(sender: AnyObject) {
+        self.showPostInsert(nil);
+        println( ">> \(self.presentingViewController)");
+         println( ">> \(self.presentedViewController)");
+        
+        if let postInsertIns = self.presentedViewController as? PostInsertVC {
+            postInsertIns.gps = self.gps;
+        }
+    }
+    @IBAction func onInsertShort(sender: AnyObject) {
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
