@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>1ED5BBC7-4CF2-4E2E-9CA1-14F876C3330C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>PostTalk</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>D30493A569C28D47C84319994203EBC0464AA83D</key>
 		<string>https://github.com/hsungwoong/postTalk.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>PostTalk.xcodeproj/project.xcworkspace</string>
+	<string>PostTalk.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>D30493A569C28D47C84319994203EBC0464AA83D</key>
