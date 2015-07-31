@@ -27,7 +27,9 @@ class DataMainPostLIst: BaseDataAccessManager {
                 entity.img = item["IMAGE_NAME"] as? String;
                 entity.memo = item["MEMO"] as? String;
                 entity.userId = item["USER_ID"] as? String;
-                
+                entity.insDate = item["INS_DATE"] as? String;
+                entity.likeCnt = item["LIKE_CNT"] as? String;
+                entity.viewCnt = item["VIEW_CNT"] as? String;
                 entities?.append(entity);
             }
         }//end if

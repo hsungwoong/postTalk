@@ -22,5 +22,6 @@ struct EntityPostInfo {
     var viewCnt:String?
     var mapLat:String?
     var mapLng:String?
-    var tag:String?
+    var tag:String?;
+    var insDate:String?;
 }

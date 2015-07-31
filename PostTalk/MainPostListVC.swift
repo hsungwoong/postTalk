@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
+class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate, IDataPostInsert{
  
     @IBOutlet var btnInsertShort: UIButton!
     @IBOutlet var btnInsertDetail: UIButton!
@@ -25,7 +25,8 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
     var gps:GpsManager!;
     
     var initedGpsUpdate = false;
-
+    
+    var postDataInsert:DataPostInsert! = DataPostInsert();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,8 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
         inputText.delegate = self;
         inputText.layer.cornerRadius = 5;
         inputText.scrollEnabled = false;
+        
+        postDataInsert.delegate = self;
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil);
@@ -332,7 +335,33 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
         }
     }
     @IBAction func onInsertShort(sender: AnyObject) {
+        
+        var entity = EntityPostInfo();
+        entity.memo = inputText.text;
+        entity.userId = "user5";
+        
+        if let g = gps{
+            if let cl = g.currentLocation{
+                entity.mapLng = String(format: "%.7f", cl.coordinate.longitude);
+                entity.mapLat =  String(format: "%.7f", cl.coordinate.latitude);
+            }
+        }
+        
+        postDataInsert.send(entity, images: nil);
     }
+    
+    func onPostInsertStart() {
+        //
+    }
+    
+    func onPostInsertComplete() {
+        //
+    }
+    
+    func onPostInsertFail() {
+        //
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

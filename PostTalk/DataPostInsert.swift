@@ -23,6 +23,9 @@ class DataPostInsert: NSObject {
     
     func send(entity:EntityPostInfo?, images:[UIImage]?){
         
+
+        
+    
         let url = NSURL(string:APIUrl.postInsert);
         let request = NSMutableURLRequest(URL: url!);
         request.HTTPMethod = "POST";
@@ -38,10 +41,10 @@ class DataPostInsert: NSObject {
         
         if let et = entity {
             
-            param["USER_ID"] = et.userId;
-            param["MEMO"] = et.memo;
-            param["MPG_LNG"] = et.mapLng;
-            param["MPG_LAT"] = et.mapLat;
+            param["USER_ID"] = et.userId!;
+            param["MEMO"] = et.memo!;
+            param["MAP_LNG"] = et.mapLng!;
+            param["MAP_LAT"] = et.mapLat!;
 
         }
         
@@ -56,7 +59,8 @@ class DataPostInsert: NSObject {
                 
 
                 
-                imageData  = UIImageJPEGRepresentation(imgs[0] , 0.1)
+                imageData  = UIImageJPEGRepresentation(imgs[0] , 0.1);
+                
                 image_group_code = "G"+makeImageName();
                 param["IMAGE_GROUP_CODE"] = image_group_code;
                 
@@ -88,12 +92,16 @@ class DataPostInsert: NSObject {
             
             dispatch_async(dispatch_get_main_queue(), {
                 self.delegate?.onPostInsertComplete();
+                
+                
                 /*
                 self.myActivityIndicator.stopAnimating();
                 accView.emptyImage();
                 self.myMemo.text = nil
                 self.view.endEditing(true)// 키보드 내림
                 //self.tabBarController?.selectedIndex = 0;//tabBar 위치변환
+                
+                alert.hide
 */
             });
             

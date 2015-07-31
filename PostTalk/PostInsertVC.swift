@@ -10,7 +10,7 @@ import UIKit
 
 private var accView = PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
 
-class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UITextViewDelegate, IPostInsertAccessoryDelegate {
+class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UITextViewDelegate, IPostInsertAccessoryDelegate , IDataPostInsert{
     
     @IBOutlet var bottomToolbar: UIToolbar!
     @IBOutlet var myMemo: UITextView!
@@ -50,6 +50,7 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         self.myMemo.delegate = self;
         
         self.postDataInsert = DataPostInsert();
+        self.postDataInsert.delegate = self;
 
         
         if (myMemo.text == "") {
@@ -196,6 +197,8 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         //
         println("sendPost");
         
+
+        
         var imgs:[UIImage]? = [UIImage]();
         if let img = accView.getImage(){
             imgs?.append(img);
@@ -211,8 +214,10 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         
         if let g = gps{
             if let cl = g.currentLocation{
-                entity.mapLng = String(format: "%f", cl.coordinate.longitude);
-                entity.mapLat =  String(format: "%f", cl.coordinate.latitude);
+                //entity.mapLng = "\(cl.coordinate.longitude)";//String(format: "%f", cl.coordinate.longitude);
+                //entity.mapLat =  "\(cl.coordinate.latitude)";//String(format: "%f", cl.coordinate.latitude);
+                entity.mapLng = String(format: "%.7f", cl.coordinate.longitude);
+                entity.mapLat =  String(format: "%.7f", cl.coordinate.latitude);
             }
         }
         
@@ -223,6 +228,21 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
  //return;
 
         postDataInsert.send(entity, images: imgs);
+    }
+    
+    func onPostInsertStart() {
+        var alert = UIAlertController(title: "데이타 전송중...", message: "잠시만 기다려주세요.", preferredStyle: UIAlertControllerStyle.Alert);
+        
+        //self.presentViewController(alert, animated: true, completion: nil);
+    }
+    
+    func onPostInsertComplete() {
+        //
+        //self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
+    }
+    
+    func onPostInsertFail() {
+        //self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
     }
     
     func selectAlbum(target: AnyObject) {
