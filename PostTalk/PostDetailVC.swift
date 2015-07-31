@@ -62,20 +62,6 @@ class PostDetailVC: BaseVC {
             }
         }
         
-        
-        
-        
-        //scroll.setNeedsDisplay();
-        //scroll.setNeedsLayout();
-        
-        //println(desc.frame);
-        
-        //scroll.contentSize = CGSizeMake(desc.frame.size.width, desc.frame.size.height + 50 );
-        
-        //println("contne size \(scroll.contentSize)")
-        // Do any additional setup after loading the view.
-        
-        //scroll.setNeedsDisplay();
     }
     
     func hide(sender:AnyObject){

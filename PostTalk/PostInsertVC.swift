@@ -10,7 +10,7 @@ import UIKit
 
 private var accView = PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
 
-class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UITextViewDelegate, IPostInsertAccessoryDelegate {
+class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UITextViewDelegate, IPostInsertAccessoryDelegate , IDataPostInsert{
     
     @IBOutlet var bottomToolbar: UIToolbar!
     @IBOutlet var myMemo: UITextView!
@@ -23,41 +23,19 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     var isOpen = false;
     
+    var postDataInsert:DataPostInsert!;
+    
+    var gps:GpsManager?;
+    
     override var inputAccessoryView: UIView! {
         get {
             
-            /*var toolBar = UIView(frame: CGRectMake(0, 0, 200, 49))
-            var child = UIView(frame: CGRectMake(0, 0, 200, 49))
-            child.backgroundColor = UIColor.lightGrayColor()
-            toolBar.addSubview(child);
-            toolBar.layer.zPosition = 0;
-*/
-            /*
-           var container = UIView(frame: CGRectMake(0,0 , UIScreen.mainScreen().bounds.width, 49));
-            
-            var toolbar = UIToolbar(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
-            
-            var but = UIBarButtonItem(title: "좌측", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-            var but1 = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
-            
-            var but2 = UIBarButtonItem(title: "우측", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-            
-            toolbar.items = [but,but1, but2];
-            
-            println("#### outside toolbar ");
-            println(toolbar)
-            container.addSubview(toolbar);
-            
-            return container;
-*/
-            //var acc = PostInsertAccessory(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 49));
+
             accView.delegate = self;
             return accView;
-            //return  PostInsertAccessory(frame: CGRectZero)
+ 
         }
     }
-
-
     
     override func loadView() {
         NSBundle.mainBundle().loadNibNamed("PostInsertVC", owner: self, options: nil)
@@ -70,6 +48,9 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         //openLoginChk()
 
         self.myMemo.delegate = self;
+        
+        self.postDataInsert = DataPostInsert();
+        self.postDataInsert.delegate = self;
 
         
         if (myMemo.text == "") {
@@ -214,9 +195,54 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     func sendPost(target: AnyObject) {
         //
-        println("sendPost")
+        println("sendPost");
+        
 
-        myImageUploadRequest()
+        
+        var imgs:[UIImage]? = [UIImage]();
+        if let img = accView.getImage(){
+            imgs?.append(img);
+        }
+        
+        println(imgs)
+        
+        
+        
+        var entity = EntityPostInfo();
+        entity.memo = myMemo.text;
+        entity.userId = "user5";
+        
+        if let g = gps{
+            if let cl = g.currentLocation{
+                //entity.mapLng = "\(cl.coordinate.longitude)";//String(format: "%f", cl.coordinate.longitude);
+                //entity.mapLat =  "\(cl.coordinate.latitude)";//String(format: "%f", cl.coordinate.latitude);
+                entity.mapLng = String(format: "%.7f", cl.coordinate.longitude);
+                entity.mapLat =  String(format: "%.7f", cl.coordinate.latitude);
+            }
+        }
+        
+        println("entity \(entity.mapLng)");
+        println("entity \(entity.mapLat)");
+        println("entity \(entity.memo)");
+        println("entity \(entity.userId)");
+ //return;
+
+        postDataInsert.send(entity, images: imgs);
+    }
+    
+    func onPostInsertStart() {
+        var alert = UIAlertController(title: "데이타 전송중...", message: "잠시만 기다려주세요.", preferredStyle: UIAlertControllerStyle.Alert);
+        
+        //self.presentViewController(alert, animated: true, completion: nil);
+    }
+    
+    func onPostInsertComplete() {
+        //
+        //self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
+    }
+    
+    func onPostInsertFail() {
+        //self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
     }
     
     func selectAlbum(target: AnyObject) {
@@ -246,20 +272,6 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
 
     }
     
-    
-    //고유 이미지 생성키
-    func makeImageName()->String {
-
-        let now = NSDate() // 현재 날짜 및 시간 체크
-        
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.locale = NSLocale(localeIdentifier: "ko_KR") // 로케일 설정
-        dateFormatter.dateFormat = "yyyyMMddHHmmss" // 날짜 형식 설정
-        
-        
-        //println(dateFormatter.stringFromDate(now)+String(arc4random())
-        return dateFormatter.stringFromDate(now)+String(arc4random())
-    }
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
 
@@ -273,134 +285,7 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
             
         })
     }
-    
-    func myImageUploadRequest()
-    {
-        
-        let myUrl = NSURL(string:APIUrl.postInsert);
-        
-        //let cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData
-        //let request = NSMutableURLRequest(URL: myUrl!, cachePolicy: cachePolicy, timeoutInterval: 5.0)
-        let request = NSMutableURLRequest(URL: myUrl!)
-        
-        request.HTTPMethod = "POST"
-        
-        // set Content-Type in HTTP header
-        let boundaryConstant = "----------V2ymHFg03esomerandomstuffhbqgZCaKO6jy";
-        let contentType = "multipart/form-data; boundary=" + boundaryConstant
-        NSURLProtocol.setProperty(contentType, forKey: "Content-Type", inRequest: request)
- 
-        var imageData:NSData?;
-        var image_group_code:String = "";
-        
-        var param = [String:String]();
-        
-        param["MEMO"] = self.myMemo.text!
-        param["USER_ID"] = "user5";
-        //param["LONG"] = gps.currentLocation!.coordinate.longitude;
-        //param["LAT"] = gps.currentLocation!.coordinate.latitude;
-        
-        if let img = accView.getImage() {
-            imageData  = UIImageJPEGRepresentation(img , 0.1)
-            image_group_code = "G"+makeImageName();
-            param["IMAGE_GROUP_CODE"] = image_group_code;
-        }
-        
-        //let param = ["MEMO":self.myMemo.text!,"USER_ID":"user5","IMAGE_GROUP_CODE":image_group_code]
-        
-        let boundary = generateBoundaryString()
-        
-        request.setValue("multipart/form-data; boundary=\(boundary)",
-            forHTTPHeaderField:"Content-Type")
-        
-        request.HTTPBody = createBodyWithParameters(param, filePathKey:"file",imageDataKey:imageData, boundary:boundary)
-        
-        myActivityIndicator.startAnimating()
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request){
-            data,response,error in
-            
-            if error != nil{
-                println("error =\(error)")
-                return
-                
-            }
-            
-            //You can print out response object
-            println("******* response = \(response)")
-            
-            //Print out response body
-            let responseString = NSString(data:data, encoding:NSUTF8StringEncoding)
-            println("******* response data = \(responseString!)")
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                self.myActivityIndicator.stopAnimating();
-                accView.emptyImage();
-                self.myMemo.text = nil
-                self.view.endEditing(true)// 키보드 내림
-                //self.tabBarController?.selectedIndex = 0;//tabBar 위치변환
-            });
-            
-        }
-        
-        task.resume()
-        
-        
-    }
-    
-    
-    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData?, boundary: String) -> NSData {
-        let body = NSMutableData();
-        
-        //포스트 정보
-        if parameters != nil {
-            for (key, value) in parameters! {
-                if !value.isEmpty {
-                    body.appendString("--\(boundary)\r\n")
-                
-                    //body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
-                    //body.appendString("Content-Type: \(mimetype)\r\n\r\n")
-                    //body.appendData(imageDataKey)
-                
-                    body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-                    body.appendString("\(value)\r\n")
-                }
-            }
-        }
-        
-        
-        // 이미지 데이타
-        if let imgdata = imageDataKey{
-            
-            let filename = makeImageName()+".png" //"user-profile.jpg"
-        
-            //let mimetype = "image/jpg"
-            let mimetype = "application/octet-stream"
-        
-        
-            // Image
-            body.appendData(NSString(format: "\r\n--%@\r\n", boundary).dataUsingEncoding(NSUTF8StringEncoding)!)
-            body.appendData(NSString(format:"Content-Disposition: form-data; name=\"file1\"; filename=\(filename)\r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
-            body.appendData(NSString(format: "Content-Type: application/octet-stream\r\n\r\n").dataUsingEncoding(NSUTF8StringEncoding)!)
-        
-             body.appendData(imgdata)
-       
-       
-            body.appendData(NSString(format: "\r\n--%@\r\n", boundary).dataUsingEncoding(NSUTF8StringEncoding)!)
-        
-       
-        
-            body.appendString("–-\(boundary)–-\r\n")
-        
-        }
-        
-        return body
-    }
-    
-    func generateBoundaryString() -> String {
-        return "Boundary-\(NSUUID().UUIDString)"
-    }
-    
+
     
     @IBAction func hide(sender: AnyObject) {
         isOpen = false;
@@ -448,13 +333,3 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
 }
 
-
-
-
-extension NSMutableData {
-    func appendString(string: String) {
-        let data = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
-        appendData(data!)
-        
-    }
-}

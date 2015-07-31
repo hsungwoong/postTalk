@@ -82,7 +82,7 @@ class BaseVC: UIViewController {
         println("## search ##")
     }
 
-    func showPostInsert(target:UIBarButtonItem){
+    func showPostInsert(target:UIBarButtonItem?){
         println("#showPostInsert#")
         self.presentViewController(PostInsertVC(), animated: true, completion: nil);
     }

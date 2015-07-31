@@ -36,9 +36,8 @@ class MyPostListVC: CommonPostListVC {
     }
     
     override func getParams() -> String? {
-        //var p = "long=\(gps.currentLocation!.coordinate.longitude)&";
-        //p += "lat=\(gps.currentLocation!.coordinate.latitude)&"
-        return nil;
+        var p = "USER_ID=user5";
+        return p;
     }
 
     override func didReceiveMemoryWarning() {

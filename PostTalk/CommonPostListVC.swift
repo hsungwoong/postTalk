@@ -145,6 +145,7 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
             cell.like.text = "0";
         }
 
+        cell.passTimed.text = entity.insDate!;
         
         cell.desc.text = entity.memo!;
         

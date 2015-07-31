@@ -9,8 +9,10 @@
 import UIKit
 import CoreLocation
 
-class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
+class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate, IDataPostInsert{
  
+    @IBOutlet var btnInsertShort: UIButton!
+    @IBOutlet var btnInsertDetail: UIButton!
     @IBOutlet var inputBg: UIView!
     @IBOutlet var inputText: UITextView!
     @IBOutlet var cateToolbar: UIToolbar!
@@ -23,13 +25,14 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
     var gps:GpsManager!;
     
     var initedGpsUpdate = false;
-
+    
+    var postDataInsert:DataPostInsert! = DataPostInsert();
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
        
-        createPostInsertButton();
+        //createPostInsertButton();
         creatNaviBarRightButtons();
          createInsertBar();
         setupSortMenu();
@@ -39,6 +42,8 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
         inputText.delegate = self;
         inputText.layer.cornerRadius = 5;
         inputText.scrollEnabled = false;
+        
+        postDataInsert.delegate = self;
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil);
@@ -318,10 +323,45 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate{
         }else{
             super.tableView(tableView , didSelectRowAtIndexPath: indexPath);
         }
-        
-        
     }
 
+    @IBAction func onInsertDeail(sender: AnyObject) {
+        self.showPostInsert(nil);
+        println( ">> \(self.presentingViewController)");
+         println( ">> \(self.presentedViewController)");
+        
+        if let postInsertIns = self.presentedViewController as? PostInsertVC {
+            postInsertIns.gps = self.gps;
+        }
+    }
+    @IBAction func onInsertShort(sender: AnyObject) {
+        
+        var entity = EntityPostInfo();
+        entity.memo = inputText.text;
+        entity.userId = "user5";
+        
+        if let g = gps{
+            if let cl = g.currentLocation{
+                entity.mapLng = String(format: "%.7f", cl.coordinate.longitude);
+                entity.mapLat =  String(format: "%.7f", cl.coordinate.latitude);
+            }
+        }
+        
+        postDataInsert.send(entity, images: nil);
+    }
+    
+    func onPostInsertStart() {
+        //
+    }
+    
+    func onPostInsertComplete() {
+        //
+    }
+    
+    func onPostInsertFail() {
+        //
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
