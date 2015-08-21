@@ -79,7 +79,7 @@ class BaseVC: UIViewController {
     
     func doSearch(target:UIBarButtonItem){
         self.presentViewController(SearchMapVC(), animated: true, completion: nil);
-        println("## search ##")
+        //println("## search ##")
     }
 
     func showPostInsert(target:UIBarButtonItem?){

@@ -94,6 +94,17 @@
 		F4ABCFCA1B25521900405674 /* del_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ABCFC51B25521900405674 /* del_on@2x.png */; };
 		F4ABCFCB1B25521900405674 /* del.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ABCFC61B25521900405674 /* del.png */; };
 		F4ABCFCC1B25521900405674 /* del@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4ABCFC71B25521900405674 /* del@2x.png */; };
+		F4B11D301B85B3FF006098AD /* EntityChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B11D2F1B85B3FF006098AD /* EntityChart.swift */; };
+		F4B11D321B85B7A4006098AD /* EntityTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B11D311B85B7A4006098AD /* EntityTimeCell.swift */; };
+		F4B11D341B85BB4B006098AD /* ITimeCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B11D331B85BB4B006098AD /* ITimeCellDelegate.swift */; };
+		F4B11D361B85CB85006098AD /* DataTimeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B11D351B85CB85006098AD /* DataTimeChart.swift */; };
+		F4B11D381B8620B3006098AD /* NSDate+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B11D371B8620B3006098AD /* NSDate+Ext.swift */; };
+		F4B11D411B86B64E006098AD /* balonBg2.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B11D3B1B86B64E006098AD /* balonBg2.png */; };
+		F4B11D421B86B64E006098AD /* balonBg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B11D3C1B86B64E006098AD /* balonBg2@2x.png */; };
+		F4B11D431B86B64E006098AD /* balonBg3.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B11D3D1B86B64E006098AD /* balonBg3.png */; };
+		F4B11D441B86B64E006098AD /* balonBg3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B11D3E1B86B64E006098AD /* balonBg3@2x.png */; };
+		F4B11D451B86B64E006098AD /* balonBg4.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B11D3F1B86B64E006098AD /* balonBg4.png */; };
+		F4B11D461B86B64E006098AD /* balonBg4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B11D401B86B64E006098AD /* balonBg4@2x.png */; };
 		F4CF4CC01B3AA6F5003A3743 /* barbutton_postwrite @2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF4CBE1B3AA6F5003A3743 /* barbutton_postwrite @2x.png */; };
 		F4CF4CC11B3AA6F5003A3743 /* barbutton_postwrite.png in Resources */ = {isa = PBXBuildFile; fileRef = F4CF4CBF1B3AA6F5003A3743 /* barbutton_postwrite.png */; };
 		F4DB28FA1B1D7B37006CD67A /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DB28F91B1D7B37006CD67A /* Empty.xib */; };
@@ -106,6 +117,14 @@
 		F4DB29091B1E0555006CD67A /* like_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DB29071B1E0555006CD67A /* like_red@2x.png */; };
 		F4DB290C1B1E05E3006CD67A /* like_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DB290A1B1E05E3006CD67A /* like_gray.png */; };
 		F4DB290D1B1E05E3006CD67A /* like_red.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DB290B1B1E05E3006CD67A /* like_red.png */; };
+		F4F1EE4A1B74437000FFCF87 /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1EE481B74437000FFCF87 /* TimeCell.swift */; };
+		F4F1EE4B1B74437000FFCF87 /* TimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4F1EE491B74437000FFCF87 /* TimeCell.xib */; };
+		F4F1EE4D1B82C06D00FFCF87 /* Ballon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1EE4C1B82C06D00FFCF87 /* Ballon.swift */; };
+		F4F1EE511B82E0AB00FFCF87 /* Ballon.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4F1EE501B82E0AB00FFCF87 /* Ballon.xib */; };
+		F4F1EE551B82F0F300FFCF87 /* balonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F1EE531B82F0F200FFCF87 /* balonBg.png */; };
+		F4F1EE561B82F0F300FFCF87 /* balonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F1EE541B82F0F300FFCF87 /* balonBg@2x.png */; };
+		F4F1EE581B8320DC00FFCF87 /* TimeScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1EE571B8320DC00FFCF87 /* TimeScroll.swift */; };
+		F4F1EE5A1B83301500FFCF87 /* timeSearchTitleBg.png in Resources */ = {isa = PBXBuildFile; fileRef = F4F1EE591B83301500FFCF87 /* timeSearchTitleBg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +229,17 @@
 		F4ABCFC51B25521900405674 /* del_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "del_on@2x.png"; sourceTree = "<group>"; };
 		F4ABCFC61B25521900405674 /* del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = del.png; sourceTree = "<group>"; };
 		F4ABCFC71B25521900405674 /* del@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "del@2x.png"; sourceTree = "<group>"; };
+		F4B11D2F1B85B3FF006098AD /* EntityChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityChart.swift; sourceTree = "<group>"; };
+		F4B11D311B85B7A4006098AD /* EntityTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityTimeCell.swift; sourceTree = "<group>"; };
+		F4B11D331B85BB4B006098AD /* ITimeCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITimeCellDelegate.swift; sourceTree = "<group>"; };
+		F4B11D351B85CB85006098AD /* DataTimeChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTimeChart.swift; sourceTree = "<group>"; };
+		F4B11D371B8620B3006098AD /* NSDate+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Ext.swift"; sourceTree = "<group>"; };
+		F4B11D3B1B86B64E006098AD /* balonBg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balonBg2.png; sourceTree = "<group>"; };
+		F4B11D3C1B86B64E006098AD /* balonBg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "balonBg2@2x.png"; sourceTree = "<group>"; };
+		F4B11D3D1B86B64E006098AD /* balonBg3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balonBg3.png; sourceTree = "<group>"; };
+		F4B11D3E1B86B64E006098AD /* balonBg3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "balonBg3@2x.png"; sourceTree = "<group>"; };
+		F4B11D3F1B86B64E006098AD /* balonBg4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balonBg4.png; sourceTree = "<group>"; };
+		F4B11D401B86B64E006098AD /* balonBg4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "balonBg4@2x.png"; sourceTree = "<group>"; };
 		F4CF4CBE1B3AA6F5003A3743 /* barbutton_postwrite @2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbutton_postwrite @2x.png"; sourceTree = "<group>"; };
 		F4CF4CBF1B3AA6F5003A3743 /* barbutton_postwrite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbutton_postwrite.png; sourceTree = "<group>"; };
 		F4DB28F91B1D7B37006CD67A /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
@@ -222,6 +252,14 @@
 		F4DB29071B1E0555006CD67A /* like_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like_red@2x.png"; sourceTree = "<group>"; };
 		F4DB290A1B1E05E3006CD67A /* like_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_gray.png; sourceTree = "<group>"; };
 		F4DB290B1B1E05E3006CD67A /* like_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_red.png; sourceTree = "<group>"; };
+		F4F1EE481B74437000FFCF87 /* TimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
+		F4F1EE491B74437000FFCF87 /* TimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCell.xib; sourceTree = "<group>"; };
+		F4F1EE4C1B82C06D00FFCF87 /* Ballon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ballon.swift; sourceTree = "<group>"; };
+		F4F1EE501B82E0AB00FFCF87 /* Ballon.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Ballon.xib; sourceTree = "<group>"; };
+		F4F1EE531B82F0F200FFCF87 /* balonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = balonBg.png; sourceTree = "<group>"; };
+		F4F1EE541B82F0F300FFCF87 /* balonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "balonBg@2x.png"; sourceTree = "<group>"; };
+		F4F1EE571B8320DC00FFCF87 /* TimeScroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeScroll.swift; sourceTree = "<group>"; };
+		F4F1EE591B83301500FFCF87 /* timeSearchTitleBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeSearchTitleBg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -394,6 +432,9 @@
 				F44DA6E81B018BD600570717 /* IBaseDataAccessManager.swift */,
 				F47E79771B4E8CE40041D9D4 /* DataPostInsert.swift */,
 				F47E79791B4E94AA0041D9D4 /* IDataPostInsert.swift */,
+				F4B11D351B85CB85006098AD /* DataTimeChart.swift */,
+				F4B11D2F1B85B3FF006098AD /* EntityChart.swift */,
+				F4B11D311B85B7A4006098AD /* EntityTimeCell.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -401,6 +442,7 @@
 		F45882511B140CD6001B8A37 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				F4F1EE521B82F0D800FFCF87 /* search */,
 				F4A9E3251B39237F006EBB07 /* insert */,
 				F4ABCF9F1B25383300405674 /* post detail */,
 				F4DB28FB1B1D82AA006CD67A /* main post list */,
@@ -443,6 +485,12 @@
 				F43B53041B391D9600CDAB09 /* PostInsertAccessory.swift */,
 				F4A9E3231B391DEB006EBB07 /* PostInsertAccessory.xib */,
 				F4A9E33C1B39A3F2006EBB07 /* IPostInsertAccessoryDelegate.swift */,
+				F4F1EE481B74437000FFCF87 /* TimeCell.swift */,
+				F4B11D331B85BB4B006098AD /* ITimeCellDelegate.swift */,
+				F4F1EE491B74437000FFCF87 /* TimeCell.xib */,
+				F4F1EE4C1B82C06D00FFCF87 /* Ballon.swift */,
+				F4F1EE501B82E0AB00FFCF87 /* Ballon.xib */,
+				F4F1EE571B8320DC00FFCF87 /* TimeScroll.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -451,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				F48F31EA1B3BEBD1001AA7F1 /* UIImageView+AsynLoad.swift */,
+				F4B11D371B8620B3006098AD /* NSDate+Ext.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -513,6 +562,22 @@
 			name = "main post list";
 			sourceTree = "<group>";
 		};
+		F4F1EE521B82F0D800FFCF87 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				F4B11D3B1B86B64E006098AD /* balonBg2.png */,
+				F4B11D3C1B86B64E006098AD /* balonBg2@2x.png */,
+				F4B11D3D1B86B64E006098AD /* balonBg3.png */,
+				F4B11D3E1B86B64E006098AD /* balonBg3@2x.png */,
+				F4B11D3F1B86B64E006098AD /* balonBg4.png */,
+				F4B11D401B86B64E006098AD /* balonBg4@2x.png */,
+				F4F1EE591B83301500FFCF87 /* timeSearchTitleBg.png */,
+				F4F1EE531B82F0F200FFCF87 /* balonBg.png */,
+				F4F1EE541B82F0F300FFCF87 /* balonBg@2x.png */,
+			);
+			name = search;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -571,6 +636,7 @@
 					};
 					F40EF82D1AF1ED0A0007E992 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = S2JK8LA62D;
 						TestTargetID = F40EF8181AF1ED0A0007E992;
 					};
 				};
@@ -611,14 +677,18 @@
 				F40EF8241AF1ED0A0007E992 /* Main.storyboard in Resources */,
 				F4ABCFAE1B25391500405674 /* chatting.png in Resources */,
 				F4ABCFAC1B25391500405674 /* chatting_on.png in Resources */,
+				F4F1EE4B1B74437000FFCF87 /* TimeCell.xib in Resources */,
 				F40EF84F1AF1FDFE0007E992 /* PostMapVC.xib in Resources */,
 				F40EF8291AF1ED0A0007E992 /* LaunchScreen.xib in Resources */,
 				F4ABCFAF1B25391500405674 /* chatting@2x.png in Resources */,
 				F4DB28FF1B1D82BD006CD67A /* bulet_cate@2x.png in Resources */,
+				F4B11D421B86B64E006098AD /* balonBg2@2x.png in Resources */,
 				F4A9E3331B3926F3006EBB07 /* icon_camera_on@2x.png in Resources */,
 				F4A9E3391B399A60006EBB07 /* send_bg@2x.png in Resources */,
+				F4B11D441B86B64E006098AD /* balonBg3@2x.png in Resources */,
 				F45882701B16E2C0001B8A37 /* PostCell.xib in Resources */,
 				F4CF4CC01B3AA6F5003A3743 /* barbutton_postwrite @2x.png in Resources */,
+				F4F1EE551B82F0F300FFCF87 /* balonBg.png in Resources */,
 				F4ABCFC11B2551CF00405674 /* recommand_on@2x.png in Resources */,
 				F45882581B140D62001B8A37 /* barbutton_refresh@2x.png in Resources */,
 				F40EF8711AF204FD0007E992 /* LanguageChangeVC.xib in Resources */,
@@ -630,13 +700,16 @@
 				F40EF8691AF202D10007E992 /* PostInsertVC.xib in Resources */,
 				F4ABCFB31B25392200405674 /* reg_friend_on@2x.png in Resources */,
 				F458825E1B15A5C8001B8A37 /* barbutton_refresh.png in Resources */,
+				F4F1EE511B82E0AB00FFCF87 /* Ballon.xib in Resources */,
 				F4ABCFBA1B25392F00405674 /* heart.png in Resources */,
 				F4ABCFCA1B25521900405674 /* del_on@2x.png in Resources */,
 				F4ABCFCC1B25521900405674 /* del@2x.png in Resources */,
 				F45882571B140D62001B8A37 /* barbutton_map@2x.png in Resources */,
+				F4B11D411B86B64E006098AD /* balonBg2.png in Resources */,
 				F4ABCFA61B25385F00405674 /* reg_friend.png in Resources */,
 				F0C0B6FC1B3C242C00DF9EB4 /* SearchMapVC.xib in Resources */,
 				F4ABCFB21B25392200405674 /* reg_friend_on.png in Resources */,
+				F4F1EE561B82F0F300FFCF87 /* balonBg@2x.png in Resources */,
 				F4ABCFCB1B25521900405674 /* del.png in Resources */,
 				F40EF8261AF1ED0A0007E992 /* Images.xcassets in Resources */,
 				F4A9E32C1B392394006EBB07 /* icon_album.png in Resources */,
@@ -648,9 +721,11 @@
 				F40EF8651AF202B10007E992 /* CurrentMapVC.xib in Resources */,
 				F4A9E3381B399A60006EBB07 /* send_bg.png in Resources */,
 				F4A9E3351B3926F3006EBB07 /* icon_camera@2x.png in Resources */,
+				F4B11D431B86B64E006098AD /* balonBg3.png in Resources */,
 				F4A9E3241B391DEB006EBB07 /* PostInsertAccessory.xib in Resources */,
 				F4DB28FA1B1D7B37006CD67A /* Empty.xib in Resources */,
 				F4A9E32A1B392394006EBB07 /* icon_album_on.png in Resources */,
+				F4F1EE5A1B83301500FFCF87 /* timeSearchTitleBg.png in Resources */,
 				F4DB29031B1D932D006CD67A /* cate_toolbar_bg@2x.png in Resources */,
 				F4A9E3321B3926F3006EBB07 /* icon_camera_on.png in Resources */,
 				F4DB29051B1D9858006CD67A /* shadow.png in Resources */,
@@ -661,7 +736,9 @@
 				F4ABCFA71B25385F00405674 /* reg_friend@2x.png in Resources */,
 				F4ABCFBB1B25392F00405674 /* heart@2x.png in Resources */,
 				F4DB29081B1E0555006CD67A /* like_gray@2x.png in Resources */,
+				F4B11D461B86B64E006098AD /* balonBg4@2x.png in Resources */,
 				F40EF84B1AF1FD810007E992 /* PostDetailVC.xib in Resources */,
+				F4B11D451B86B64E006098AD /* balonBg4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,9 +758,12 @@
 			files = (
 				F40EF86C1AF204D70007E992 /* MyInfoVC.swift in Sources */,
 				F40EF8511AF1FE520007E992 /* BookMarkListVC.swift in Sources */,
+				F4F1EE4D1B82C06D00FFCF87 /* Ballon.swift in Sources */,
 				F40EF8581AF1FF920007E992 /* SettingVC.swift in Sources */,
 				F40EF8701AF204FD0007E992 /* LanguageChangeVC.swift in Sources */,
+				F4F1EE4A1B74437000FFCF87 /* TimeCell.swift in Sources */,
 				F47E79781B4E8CE40041D9D4 /* DataPostInsert.swift in Sources */,
+				F4B11D301B85B3FF006098AD /* EntityChart.swift in Sources */,
 				F40EF8601AF202900007E992 /* SearchMapVC.swift in Sources */,
 				F44569FA1AFB3E1C003F20CF /* DataBookMarkList.swift in Sources */,
 				F43B52FD1B2FC11100CDAB09 /* IGpsManagerDelegate.swift in Sources */,
@@ -696,8 +776,10 @@
 				F44569F61AFB3DA0003F20CF /* BaseDataAccessManager.swift in Sources */,
 				F48F31EB1B3BEBD1001AA7F1 /* UIImageView+AsynLoad.swift in Sources */,
 				F40EF81F1AF1ED0A0007E992 /* AppDelegate.swift in Sources */,
+				F4B11D381B8620B3006098AD /* NSDate+Ext.swift in Sources */,
 				F40EF8641AF202B10007E992 /* CurrentMapVC.swift in Sources */,
 				F44DA6E91B018BD600570717 /* IBaseDataAccessManager.swift in Sources */,
+				F4F1EE581B8320DC00FFCF87 /* TimeScroll.swift in Sources */,
 				F44569F31AFB391E003F20CF /* BaseVC.swift in Sources */,
 				F44569FC1AFB3E58003F20CF /* DataUserInfo.swift in Sources */,
 				F4456A001AFB3EAA003F20CF /* EntityUserInfo.swift in Sources */,
@@ -706,10 +788,13 @@
 				F40EF84A1AF1FD810007E992 /* PostDetailVC.swift in Sources */,
 				F45882651B16A63B001B8A37 /* Config.swift in Sources */,
 				F44569F81AFB3DE3003F20CF /* DataMainPostLIst.swift in Sources */,
+				F4B11D341B85BB4B006098AD /* ITimeCellDelegate.swift in Sources */,
 				F40EF8471AF1FCD00007E992 /* MainPostListVC.swift in Sources */,
+				F4B11D361B85CB85006098AD /* DataTimeChart.swift in Sources */,
 				F40EF84E1AF1FDFE0007E992 /* PostMapVC.swift in Sources */,
 				F43B52F31B2EADD600CDAB09 /* MyPostListVC.swift in Sources */,
 				F4A9E3411B39B11B006EBB07 /* PostInsertRootVC.swift in Sources */,
+				F4B11D321B85B7A4006098AD /* EntityTimeCell.swift in Sources */,
 				F40EF8541AF1FF1D0007E992 /* CommonPostListVC.swift in Sources */,
 				F458826F1B16E2C0001B8A37 /* PostCell.swift in Sources */,
 			);
@@ -867,6 +952,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -878,6 +965,7 @@
 				INFOPLIST_FILE = PostTalkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PostTalk.app/PostTalk";
 			};
 			name = Debug;
@@ -886,6 +974,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -893,6 +983,7 @@
 				INFOPLIST_FILE = PostTalkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PostTalk.app/PostTalk";
 			};
 			name = Release;

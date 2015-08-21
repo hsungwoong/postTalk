@@ -30,6 +30,16 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("-------")
+        println(NSDate().year());
+        println(NSDate().month());
+        println(NSDate().day());
+        println(NSDate().toShortDateString())
+        println(NSDate().OffsetByDay(-5));
+         println(NSDate().OffsetByMonth(-5));
+         println(NSDate().OffsetByYear(-5));
+  
+  
         
        
         //createPostInsertButton();
@@ -44,6 +54,8 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
         inputText.scrollEnabled = false;
         
         postDataInsert.delegate = self;
+        
+    
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil);
@@ -232,8 +244,11 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
     }
     
     override func getParams() -> String? {
-        var p = "long=\(gps.currentLocation!.coordinate.longitude)&";
-        p += "lat=\(gps.currentLocation!.coordinate.latitude)&"
+        //var p = "long=\(gps.currentLocation!.coordinate.longitude)&";
+        //p += "lat=\(gps.currentLocation!.coordinate.latitude)&"
+        
+        var p = "long=126.9393889&";
+        p += "lat=37.5494730&";
         
         return p;
     }

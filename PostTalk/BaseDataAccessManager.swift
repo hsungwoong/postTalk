@@ -12,6 +12,7 @@ class BaseDataAccessManager: NSObject {
 
     var delegate:IBaseDataAccessManager?;
     var entities:[Any]?;
+    var id:Int?
     
     var total:Int{
         
@@ -31,12 +32,12 @@ class BaseDataAccessManager: NSObject {
             let urlRequest = NSMutableURLRequest(URL: url!, cachePolicy: .ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:15.0)
             urlRequest.HTTPMethod = "POST";
             
-            println("url : \(u)")
+            println("url : \(u)?\(params!)")
             //println("params : \(params)")
             
             if let p = params {
                 urlRequest.HTTPBody = p.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-                println("\(p)")
+                //println("\(p)")
             }
             let queue = NSOperationQueue.mainQueue();
             
@@ -54,6 +55,10 @@ class BaseDataAccessManager: NSObject {
     
     */
     func complete(response: NSURLResponse!,data: NSData!,error: NSError!){
+        if data == nil{
+            fail();
+            return;
+        }
         
         if data.length > 0 && error == nil{
             // we serialize our bytes back to the original JSON structure
@@ -61,7 +66,7 @@ class BaseDataAccessManager: NSObject {
             
             parserJson(jsonResult);
             
-            delegate?.onLoadedData();
+            delegate?.onLoadedData(self);
             
         }else if data.length == 0 && error == nil{
             println("Nothing was downloaded")

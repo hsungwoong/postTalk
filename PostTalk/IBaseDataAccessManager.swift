@@ -11,5 +11,5 @@ import Foundation
 protocol IBaseDataAccessManager {
     // protocol definition goes here
     
-    func onLoadedData();
+    func onLoadedData(sender:BaseDataAccessManager);
 }

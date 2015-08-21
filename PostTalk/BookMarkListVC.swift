@@ -75,7 +75,7 @@ class BookMarkListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , UIS
     /**
     메인 데이타 완료
     */
-    func onLoadedData() {
+    func onLoadedData(sender: BaseDataAccessManager) {
         //
         println("onLoadedData at BookmarkListVC")
         

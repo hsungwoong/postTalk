@@ -33,8 +33,11 @@ struct APIUrl {
     static let bookMarkLocationList = APIHost.host + "bookmark_location_list.php"; //hsw 20150625 add
     static let userInfo = APIHost.host + "userInfo.php";  //add hsw
     static let loginChk = APIHost.host + "loginChk.php";  //add hsw
-    static let postInsert = APIHost.host + "postInsert_ok.php"
-    static let myPostList = APIHost.host + "mypost_list.php"
+    static let postInsert = APIHost.host + "postInsert_ok.php";
+    static let myPostList = APIHost.host + "mypost_list.php";
+    
+    static let chartList = APIHost.host + "chart_list.php"
+    
 }
 
 struct ImageUrl{

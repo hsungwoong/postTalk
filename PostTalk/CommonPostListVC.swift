@@ -70,7 +70,8 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
     /**
     메인 데이타 완료
     */
-    func onLoadedData() {
+    
+    func onLoadedData(sender: BaseDataAccessManager) {
         //
         println("onLoadedData")
         
@@ -80,6 +81,7 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
         
         self.tbl.reloadData();
     }
+
     
     
     

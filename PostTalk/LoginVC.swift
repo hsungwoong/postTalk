@@ -78,7 +78,7 @@ class LoginVC: BaseVC, IBaseDataAccessManager {
     /**
     데이타 완료
     */
-    func onLoadedData() {
+    func onLoadedData(sender: BaseDataAccessManager) {
         
         println("onLoadedData at LoginVC")
         
