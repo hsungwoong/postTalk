@@ -6,8 +6,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchMapVC" customModule="PostTalk" customModuleProvider="target">
             <connections>
-                <outlet property="Map" destination="VU0-oY-X3Z" id="xZ4-on-UyJ"/>
+                <outlet property="GmapView" destination="dJZ-HC-OGD" id="sNP-0g-fbY"/>
+                <outlet property="searchBar" destination="k1Q-gT-74U" id="2Uz-4d-BLC"/>
                 <outlet property="searchDisplayController" destination="QH0-FX-KqG" id="jgc-W6-mP0"/>
+                <outlet property="searchResultTbl" destination="rzf-4k-Tt1" id="CtI-0f-wRP"/>
+                <outlet property="timeConst" destination="eXv-dV-feE" id="bA2-En-8sP"/>
+                <outlet property="timeDummy" destination="WSK-9F-NCm" id="NVb-PK-fDl"/>
                 <outlet property="timeTbl" destination="pE6-4r-FMZ" id="KP9-pH-XEG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -36,15 +40,16 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="k1Q-gT-74U">
+                <searchBar contentMode="redraw" text="" placeholder="검색어" translatesAutoresizingMaskIntoConstraints="NO" id="k1Q-gT-74U">
                     <rect key="frame" x="0.0" y="69" width="600" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VU0-oY-X3Z">
-                    <rect key="frame" x="0.0" y="113" width="600" height="261"/>
-                </mapView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJZ-HC-OGD" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="113" width="600" height="487"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSK-9F-NCm">
-                    <rect key="frame" x="0.0" y="335" width="600" height="265"/>
+                    <rect key="frame" x="0.0" y="600" width="600" height="265"/>
                     <subviews>
                         <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pE6-4r-FMZ">
                             <rect key="frame" x="0.0" y="38" width="600" height="200"/>
@@ -60,7 +65,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="※ 위 위치 기준 반경 5km 내의 포스트" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pg9-BP-DWR">
                             <rect key="frame" x="11" y="9" width="253" height="21"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -72,19 +77,24 @@
                         <constraint firstItem="pE6-4r-FMZ" firstAttribute="top" secondItem="WSK-9F-NCm" secondAttribute="top" constant="38" id="cJa-Pa-1KH"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rzf-4k-Tt1">
+                    <rect key="frame" x="0.0" y="113" width="462" height="333"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="nMq-Vm-xka" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="0kX-QZ-gH5"/>
+                <constraint firstAttribute="trailing" secondItem="dJZ-HC-OGD" secondAttribute="trailing" id="0pq-nd-nZg"/>
                 <constraint firstAttribute="trailing" secondItem="nMq-Vm-xka" secondAttribute="trailing" id="BrK-4h-j88"/>
-                <constraint firstItem="VU0-oY-X3Z" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="113" id="Fvi-kh-WER"/>
                 <constraint firstAttribute="trailing" secondItem="WSK-9F-NCm" secondAttribute="trailing" id="Gwp-Q2-rFE"/>
-                <constraint firstAttribute="trailing" secondItem="VU0-oY-X3Z" secondAttribute="trailing" id="IIC-Db-7XR"/>
+                <constraint firstItem="dJZ-HC-OGD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="113" id="Jl2-eQ-qoe"/>
                 <constraint firstItem="k1Q-gT-74U" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ki7-fc-aVY"/>
                 <constraint firstItem="k1Q-gT-74U" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="69" id="N2F-0w-zrW"/>
                 <constraint firstAttribute="trailing" secondItem="k1Q-gT-74U" secondAttribute="trailing" id="RKj-Mi-aLc"/>
-                <constraint firstItem="VU0-oY-X3Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aBW-Vv-GJr"/>
-                <constraint firstAttribute="bottom" secondItem="WSK-9F-NCm" secondAttribute="bottom" id="eXv-dV-feE"/>
+                <constraint firstAttribute="bottom" secondItem="dJZ-HC-OGD" secondAttribute="bottom" id="U3f-4S-GXJ"/>
+                <constraint firstItem="dJZ-HC-OGD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="U6u-j5-SOc"/>
+                <constraint firstAttribute="bottom" secondItem="WSK-9F-NCm" secondAttribute="bottom" constant="-265" id="eXv-dV-feE"/>
                 <constraint firstItem="nMq-Vm-xka" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uL5-m7-rF8"/>
                 <constraint firstItem="WSK-9F-NCm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xNA-d4-Lc6"/>
             </constraints>

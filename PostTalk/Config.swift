@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct GoogleMap {
+    static let serverKey = "AIzaSyAkpnaxxH0h_aroMLZAq18sPTkrilsCAbA";
+    static let iosKey = "AIzaSyCya8CpHKxoc6l5xisb28zuGRPtNEkDO7A";
+}
 
 
 struct APIHost {

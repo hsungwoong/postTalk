@@ -41,15 +41,7 @@ class TimeCell: UITableViewCell, UIScrollViewDelegate {
         super.awakeFromNib()
         
         scroll.delegate = self;
-        // Initialization code
-        
-        
-        
-        println("Time cEll");
-        
 
-
-   
     }
     
     func update(){
@@ -87,6 +79,7 @@ class TimeCell: UITableViewCell, UIScrollViewDelegate {
                 var bal = Ballon(frame: CGRectMake(sx , 0, w, h) );
             
                 bal.index = i;
+                bal.timeIndex = _index;
                 
                 if let s = dd.predate {
                     bal.time.text = dd.predate!;
@@ -108,6 +101,43 @@ class TimeCell: UITableViewCell, UIScrollViewDelegate {
             self.scroll.contentSize = CGSizeMake( sx , h);
             self.scroll.contentOffset = CGPoint(x:endPoint, y:0);
         }
+    }
+    
+    
+    func didSelectItem(sender:TimeScroll, item:Ballon){
+        var data =  delegate?.timeCell(self , index: item.timeIndex!);
+        if let d = data{
+            if let list = d.list{
+                if let idx = item.index{
+                    var o = list[idx] as! EntityChart;
+                    var pd = o.predate!
+                    
+                    var fromDate = "";
+                    var toDate = "";
+                    
+                    if let dt = d.dateType {
+                        if dt == "Y" {
+                            fromDate = "\(pd)-01-01";
+                            toDate =  "\(pd)-12-31";
+                        }else if dt == "M"{
+                            fromDate = "\(pd)-01";
+                            toDate =  "\(pd)-30";
+                        }else if dt == "D"{
+                            fromDate = pd;
+                            toDate =  pd;
+                        }
+                        
+                        if let dg = delegate{
+                            dg.timeCell(self, didSelectItem: item, selFromdate: fromDate, selTodate: toDate, dateType: dt);
+                        }
+                    }
+
+                    
+                }
+                
+            }
+        }
+  
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {

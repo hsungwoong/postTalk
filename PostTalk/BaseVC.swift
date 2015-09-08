@@ -8,9 +8,11 @@
 
 import UIKit
 
-class BaseVC: UIViewController {
+class BaseVC: UIViewController, ISearchMapVcDelegate {
     
     var appMgr:AppManager?
+    
+    lazy var searchMap:SearchMapVC? =  SearchMapVC();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class BaseVC: UIViewController {
         buttons.append( createBarButtonSpace() )
         buttons.append( createBarButton("barbutton_map", target: self, action: "showMap:") )
         buttons.append( createBarButtonSpace() )
-        buttons.append( createBarButton("barbutton_search", target: self, action: "doSearch:") )
+        buttons.append( createBarButton("barbutton_search", target: self, action: "showSearch:") )
         
         self.navigationItem.rightBarButtonItems = buttons;
         
@@ -77,9 +79,42 @@ class BaseVC: UIViewController {
         println("## show map ##")
     }
     
-    func doSearch(target:UIBarButtonItem){
-        self.presentViewController(SearchMapVC(), animated: true, completion: nil);
+    func showSearch(target:UIBarButtonItem){
+        
+        if let vc = searchMap {
+            vc.delegate = self;
+            self.presentViewController(vc, animated: true, completion: nil);
+        }
+        
         //println("## search ##")
+    }
+    
+    func requestSearch(et:EntitySearch){
+        if let vc = searchMap {
+            vc.dismissViewControllerAnimated(true, completion: nil);
+            println(et);
+            
+            println(self.tabBarController)
+            
+            if  let tb = self.tabBarController {
+                tb.selectedIndex = 0;
+                println(tb.selectedViewController)
+                if let nv = tb.selectedViewController as? UINavigationController{
+                    if let first = nv.viewControllers.first as? MainPostListVC{
+                        first.searchParam = et;
+                        first.requestData();
+                    }
+                }
+
+            }
+            
+            /*
+            var tb = self.view.window?.rootViewController as! UITabBarController;
+            tb.selectedIndex = 0;
+            if let main = tb.selectedViewController as? MainPostListVC{
+                println(main);
+            }*/
+        }
     }
 
     func showPostInsert(target:UIBarButtonItem?){

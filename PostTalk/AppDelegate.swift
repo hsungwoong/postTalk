@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        /**
+            구글맵키 설정
+        */
+        GMSServices.provideAPIKey(GoogleMap.iosKey);
+        
         // Override point for customization after application launch.
         // Set app-wide shared cache (first number is megabyte value)
         var cacheSizeMemory = 500*1024*1024; // 500 MB

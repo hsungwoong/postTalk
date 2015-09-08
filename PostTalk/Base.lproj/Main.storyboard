@@ -150,9 +150,8 @@
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <variation key="heightClass=regular" ambiguous="YES">
+                                        <variation key="heightClass=regular">
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <rect key="frame" x="45" y="6" width="505" height="32"/>
                                         </variation>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cv-YL-pwX">
@@ -224,8 +223,7 @@
                                         <exclude reference="zNI-Fe-hy9"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" ambiguous="YES">
-                                    <rect key="frame" x="0.0" y="707" width="600" height="44"/>
+                                <variation key="heightClass=regular">
                                     <mask key="subviews">
                                         <include reference="qGA-y4-qLg"/>
                                         <include reference="bc7-gg-59Q"/>

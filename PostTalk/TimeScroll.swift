@@ -24,10 +24,44 @@ class TimeScroll: UIScrollView {
             
             var newPoint = self.convertPoint(point, toView: subview as? UIView);
             view = subview.hitTest(newPoint, withEvent: event);
+            
+            //println("--hit test \(view)")
 
         }
         
+        
+        
         return view;
+    }
+    
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if let touch = touches.first as? UITouch {
+            
+            var view:UIView? ;
+            
+            let currentPoint = touch.locationInView(self);
+            
+
+            for subview in self.subviews
+            {
+
+                var newPoint = self.convertPoint(currentPoint, toView: subview as? UIView);
+                view = subview.hitTest(newPoint, withEvent: event);
+                
+                //println("view \(view)")
+                
+                if view != nil{
+                    var bb = subview as! Ballon;
+                    //println("bb \(bb.time.text)");
+                    if let tc = delegate as? TimeCell{
+                        tc.didSelectItem(self, item: bb);
+                    }
+                    
+                }
+
+            }
+            
+        }
     }
 
 }

@@ -28,6 +28,8 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
     
     var postDataInsert:DataPostInsert! = DataPostInsert();
     
+    var searchParam:EntitySearch = EntitySearch();
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         println("-------")
@@ -227,7 +229,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
             //
         }
         
-        var contentInsets = UIEdgeInsetsMake(0, 0, h , 0)
+        var contentInsets = UIEdgeInsetsMake(0, 0, h , 0);
         
         //myMemo.contentInset = contentInsets
         //myMemo.scrollIndicatorInsets = contentInsets;
@@ -247,8 +249,15 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
         //var p = "long=\(gps.currentLocation!.coordinate.longitude)&";
         //p += "lat=\(gps.currentLocation!.coordinate.latitude)&"
         
-        var p = "long=126.9393889&";
-        p += "lat=37.5494730&";
+        //var p = "long=126.9393889&";
+        //p += "lat=37.5494730&";
+        
+        var p = "fromdate=" + searchParam.fromdate;
+        p += "&todate=" + searchParam.todate;
+        p += "&lat=" + searchParam.lat;
+        p += "&long=" + searchParam.lng;
+        
+        println("메인검색 파라미터 \(p)")
         
         return p;
     }
@@ -302,6 +311,9 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
         
         //앱실행시 현재 사용자 위치 업데이트 최초 한번 발생할때만 데이타 로드
         if !initedGpsUpdate {
+            
+            searchParam.lat = "\(gps.currentLocation!.coordinate.latitude)";
+            searchParam.lng = "\(gps.currentLocation!.coordinate.longitude)";
             
             self.requestData();
             initedGpsUpdate = true;

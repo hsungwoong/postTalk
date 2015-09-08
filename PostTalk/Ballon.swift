@@ -16,6 +16,7 @@ class Ballon: UIView {
     @IBOutlet var time: UILabel!
     
     var index:Int?;
+    var timeIndex:Int?;
     
     @IBOutlet var bg: UIImageView!
     

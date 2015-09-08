@@ -13,4 +13,6 @@ protocol ITimeCellDelegate {
     // protocol definition goes here
     func timeCell(timeCell: TimeCell, index:Int)->EntityTimeCell;
     func timeCell(timeCell: TimeCell, index:Int, selFromdate:String, selTodate:String);
+    func timeCell(timeCell: TimeCell , didSelectItem:Ballon , selFromdate:String, selTodate:String, dateType:String);
+    
 }
