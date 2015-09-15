@@ -53,9 +53,9 @@
                         <color key="textColor" red="0.88235294117647056" green="0.23137254901960785" blue="0.058823529411764705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-96-UwI">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1MC-96-UwI">
                         <rect key="frame" x="16" y="29" width="50" height="50"/>
-                        <color key="backgroundColor" red="0.7449931377205401" green="0.53245745405283929" blue="0.071885950179851929" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="Y7G-hO-LBc"/>
                             <constraint firstAttribute="height" constant="50" id="pe5-zh-FFU"/>

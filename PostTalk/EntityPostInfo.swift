@@ -24,4 +24,6 @@ struct EntityPostInfo {
     var mapLng:String?
     var tag:String?;
     var insDate:String?;
+    var userImg:String?;
+    var cateName:String?;
 }

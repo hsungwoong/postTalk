@@ -45,6 +45,7 @@ class DataPostInsert: NSObject {
             param["MEMO"] = et.memo!;
             param["MAP_LNG"] = et.mapLng!;
             param["MAP_LAT"] = et.mapLat!;
+            param["CATEGORY_NAME"] = et.categoryCode;
 
         }
         
@@ -56,16 +57,10 @@ class DataPostInsert: NSObject {
         if let imgs = images{
             
             if imgs.count > 0 {
-                
-
-                
                 imageData  = UIImageJPEGRepresentation(imgs[0] , 0.1);
                 
                 image_group_code = "G"+makeImageName();
                 param["IMAGE_GROUP_CODE"] = image_group_code;
-                
-                
-                
             }
 
         }

@@ -163,6 +163,14 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
                 }
    
             }
+            
+            if let userImg = entity.userImg{
+                if !userImg.isEmpty{
+                    cell.loadUserImgFromUrl(ImageUrl.originPath + userImg);
+                    println(">>usre img")
+                    println(ImageUrl.originPath + userImg)
+                }
+            }/**/
         }
         /*
         if let imgName = entity.img {
@@ -233,20 +241,20 @@ class CommonPostListVC: BaseVC , UITableViewDataSource , UITableViewDelegate , U
 
 */
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        println("scrollViewWillBeginDragging")
+        //println("scrollViewWillBeginDragging")
     }
     
     func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
-        println("scrollViewWillBeginDecelerating")
-        println(scrollView.contentOffset)
+        //println("scrollViewWillBeginDecelerating")
+        //println(scrollView.contentOffset)
     }
     
     func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
-        println("scrollViewDidEndScrollingAnimation")
+        //println("scrollViewDidEndScrollingAnimation")
     }
     
     func scrollViewDidScrollToTop(scrollView: UIScrollView) {
-        println("scrollViewDidScrollToTop")
+        //println("scrollViewDidScrollToTop")
     }
 
     

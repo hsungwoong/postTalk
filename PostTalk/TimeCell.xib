@@ -14,12 +14,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf7-aS-NSw" customClass="TimeScroll" customModule="PostTalk" customModuleProvider="target">
-                        <rect key="frame" x="148" y="10" width="120" height="114"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="타임셀" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVr-O0-HVT">
+                        <rect key="frame" x="10" y="10" width="94" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SxJ-7Z-6Gt">
+                        <rect key="frame" x="187" y="-2" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.97254901959999995" green="0.59607843140000005" blue="0.1137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <scrollView multipleTouchEnabled="YES" contentMode="center" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf7-aS-NSw" customClass="TimeScroll" customModule="PostTalk" customModuleProvider="target">
+                        <rect key="frame" x="173" y="10" width="70" height="114"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="I5Z-0W-ThV"/>
-                            <constraint firstAttribute="width" constant="120" id="Plm-de-Zkd"/>
+                            <constraint firstAttribute="width" constant="70" id="Plm-de-Zkd"/>
                             <constraint firstAttribute="height" constant="114" id="SRZ-x8-bGe"/>
                             <constraint firstAttribute="height" constant="114" id="wDL-kD-sfy"/>
                         </constraints>
@@ -30,19 +42,17 @@
                             </mask>
                         </variation>
                     </scrollView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="타임셀" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVr-O0-HVT">
-                        <rect key="frame" x="10" y="10" width="94" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="SxJ-7Z-6Gt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="179" id="3Gq-dn-ylD"/>
                     <constraint firstItem="Pf7-aS-NSw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="BGk-Gg-2Zg"/>
+                    <constraint firstAttribute="centerY" secondItem="SxJ-7Z-6Gt" secondAttribute="centerY" constant="58.5" id="Fv1-An-t43"/>
+                    <constraint firstItem="SxJ-7Z-6Gt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="K5q-Av-eXU"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Pf7-aS-NSw" secondAttribute="bottom" constant="-8" id="jo0-bL-Qf4"/>
                     <constraint firstItem="Pf7-aS-NSw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="lVf-AE-Def"/>
                     <constraint firstAttribute="centerX" secondItem="Pf7-aS-NSw" secondAttribute="centerX" id="lcf-jf-6XB"/>
+                    <constraint firstAttribute="centerX" secondItem="SxJ-7Z-6Gt" secondAttribute="centerX" id="lfE-1J-2y6"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Pf7-aS-NSw" secondAttribute="trailing" constant="-8" id="pez-DC-nN0"/>
                     <constraint firstAttribute="centerY" secondItem="Pf7-aS-NSw" secondAttribute="centerY" id="xK0-Jb-WQF"/>
                 </constraints>
@@ -52,6 +62,8 @@
                         <exclude reference="jo0-bL-Qf4"/>
                         <exclude reference="lVf-AE-Def"/>
                         <exclude reference="pez-DC-nN0"/>
+                        <exclude reference="3Gq-dn-ylD"/>
+                        <exclude reference="Fv1-An-t43"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

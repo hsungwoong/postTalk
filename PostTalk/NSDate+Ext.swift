@@ -11,6 +11,45 @@ import Foundation
 
 extension NSDate {
     
+    func firstDateOfTheMonth() -> NSDate{
+        //https://gist.github.com/benjamintanweihao/63c302852c0444189be1
+        
+        var unitFlags = NSCalendarUnit.CalendarUnitYear |
+            NSCalendarUnit.CalendarUnitMonth
+        
+        let calendar = NSCalendar.currentCalendar()
+        let components = NSCalendar.currentCalendar().components( unitFlags, fromDate: self)
+        
+        
+        // Getting the First and Last date of the month
+        components.day = 1
+        let firstDateOfMonth: NSDate = calendar.dateFromComponents(components)!
+        
+        return firstDateOfMonth;
+    }
+    
+    func lastDateOfTheMonth() -> NSDate{
+        //https://gist.github.com/benjamintanweihao/63c302852c0444189be1
+        
+        var unitFlags = NSCalendarUnit.CalendarUnitYear |
+            NSCalendarUnit.CalendarUnitMonth
+        
+        let calendar = NSCalendar.currentCalendar()
+        let components = NSCalendar.currentCalendar().components(unitFlags, fromDate: self)
+        
+        
+        // Getting the First and Last date of the month
+        components.day = 1
+        let firstDateOfMonth: NSDate = calendar.dateFromComponents(components)!
+        
+        components.month  += 1
+        components.day     = 0
+        let lastDateOfMonth: NSDate = calendar.dateFromComponents(components)!
+        
+        
+        return lastDateOfMonth;
+    }
+    
     func OffsetByYear(yy:Int) -> String {
         let calendar = NSCalendar.currentCalendar();
         let components = NSDateComponents();
@@ -113,7 +152,7 @@ extension NSDate {
     }
     
     func convertStringToDate(ss:String)-> NSDate?{
-        println("ss  \(ss)")
+        //println("ss  \(ss)")
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat =  "yyyy-MM-dd";
         return dateFormatter.dateFromString(ss);

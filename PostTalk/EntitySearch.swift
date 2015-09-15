@@ -18,6 +18,7 @@ struct EntitySearch {
     var todate:String = "";
     var lat:String = "";
     var lng:String = "";
-    
+    var sort:String = "";
+    var category:String = "";
     
 }

@@ -29,6 +29,7 @@ class PostCell: UITableViewCell {
         
         self.bg.layer.cornerRadius = 10;
         self.img.layer.cornerRadius = 25;
+        
 
     }
 
@@ -36,6 +37,13 @@ class PostCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func loadUserImgFromUrl(url:String){
+        if img.image == nil{
+            img.imageFromUrl(url);
+        }
+        
     }
     
     func loadImageFromUrl(url:String){
@@ -48,6 +56,8 @@ class PostCell: UITableViewCell {
     func emptyImage(){
         thumbNail.image = nil;
         thumbNail.hidden = true;
+        
+        img.image = nil;
     }
     
 }

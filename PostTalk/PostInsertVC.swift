@@ -27,6 +27,11 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
     
     var gps:GpsManager?;
     
+
+    @IBOutlet var categoryItem: UIBarButtonItem!
+    
+    var savingAlert:UIAlertController?;
+    
     override var inputAccessoryView: UIView! {
         get {
             
@@ -56,9 +61,25 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
         if (myMemo.text == "") {
             displayPlaceHolder(myMemo)
         }
+        
+        setupCategory();
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil);
+    }
+    
+    override func setupCategory(){
+        
+        println("setupCategory ")
+        
+        if let cc = rootvc!.category {
+            println("ccc \(cc.getSelectCategoryTag().tag) ")
+            
+            categoryItem.title = cc.getSelectCategoryTag().tag;
+ 
+            
+        }
+        
     }
     
     override func canBecomeFirstResponder() -> Bool {
@@ -221,24 +242,45 @@ class PostInsertVC: BaseVC, UIImagePickerControllerDelegate, UINavigationControl
             }
         }
         
-        println("entity \(entity.mapLng)");
-        println("entity \(entity.mapLat)");
-        println("entity \(entity.memo)");
-        println("entity \(entity.userId)");
- //return;
+        if let cc = rootvc!.category {
+
+            entity.categoryCode = cc.getSelectCategoryTag().value;
+            
+        }
+        
 
         postDataInsert.send(entity, images: imgs);
     }
     
     func onPostInsertStart() {
-        var alert = UIAlertController(title: "데이타 전송중...", message: "잠시만 기다려주세요.", preferredStyle: UIAlertControllerStyle.Alert);
         
-        //self.presentViewController(alert, animated: true, completion: nil);
+        if savingAlert == nil{
+            savingAlert =  UIAlertController(title: "데이타 전송중...", message: "잠시만 기다려주세요.", preferredStyle: UIAlertControllerStyle.Alert);
+        }
+        
+        if let aa = savingAlert{
+            self.presentViewController(aa, animated: true, completion: nil);
+        }
+        
+
     }
     
     func onPostInsertComplete() {
-        //
-        //self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil);
+        if let aa = savingAlert {
+            aa.dismissViewControllerAnimated(true, completion: { finished in
+                
+                var complete = UIAlertController(title: "성공", message: "저장되었습니다.", preferredStyle: UIAlertControllerStyle.Alert);
+                complete.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: { action in
+                    //
+                    self.checkSuccess();
+                }));
+                self.presentViewController(complete, animated: true, completion: nil)
+            });
+        }
+    }
+    
+    func checkSuccess(){
+        self.hide(self);
     }
     
     func onPostInsertFail() {

@@ -118,6 +118,9 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="l2z-Ly-5Yl" userLabel="카테고리 속성">
                                         <color key="tintColor" red="0.97254901960784312" green="0.59607843137254901" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="onTouchCate2:" destination="kYV-v9-A5F" id="TH9-08-hUC"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="W56-HO-tgS"/>
                                     <barButtonItem width="100" style="plain" id="HjB-Vh-Ayh">
@@ -129,6 +132,9 @@
                                                 <segment title="인기순" width="50"/>
                                             </segments>
                                             <color key="tintColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="onSort:" destination="kYV-v9-A5F" eventType="valueChanged" id="SHq-dA-9ha"/>
+                                            </connections>
                                         </segmentedControl>
                                     </barButtonItem>
                                 </items>
@@ -255,14 +261,12 @@
                             <constraint firstItem="Ujc-Ib-pJN" firstAttribute="leading" secondItem="rJC-BL-P16" secondAttribute="leadingMargin" constant="-16" id="5Hf-6w-hVq"/>
                             <constraint firstItem="577-rE-fLA" firstAttribute="leading" secondItem="rJC-BL-P16" secondAttribute="leadingMargin" constant="-16" id="Cfe-hM-vqj"/>
                             <constraint firstItem="SY3-BS-G4A" firstAttribute="leading" secondItem="rJC-BL-P16" secondAttribute="leadingMargin" constant="-16" id="Fbu-D2-qKv"/>
-                            <constraint firstItem="SY3-BS-G4A" firstAttribute="top" secondItem="28D-37-6Dz" secondAttribute="bottom" id="Gfb-rS-3bo">
-                                <variation key="heightClass=regular" constant="-20"/>
-                            </constraint>
+                            <constraint firstItem="SY3-BS-G4A" firstAttribute="top" secondItem="28D-37-6Dz" secondAttribute="bottom" constant="-20" id="Gfb-rS-3bo"/>
                             <constraint firstItem="SY3-BS-G4A" firstAttribute="width" secondItem="rJC-BL-P16" secondAttribute="width" id="QQB-Sa-QrQ"/>
-                            <constraint firstItem="SY3-BS-G4A" firstAttribute="height" secondItem="rJC-BL-P16" secondAttribute="height" id="V7C-su-Q6t">
-                                <variation key="heightClass=regular" constant="-44"/>
+                            <constraint firstItem="SY3-BS-G4A" firstAttribute="height" secondItem="rJC-BL-P16" secondAttribute="height" id="V7C-su-Q6t"/>
+                            <constraint firstItem="5ai-TH-Uhn" firstAttribute="top" secondItem="SY3-BS-G4A" secondAttribute="bottom" id="YIa-BB-UXN">
+                                <variation key="heightClass=regular" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="5ai-TH-Uhn" firstAttribute="top" secondItem="SY3-BS-G4A" secondAttribute="bottom" id="YIa-BB-UXN"/>
                             <constraint firstItem="577-rE-fLA" firstAttribute="top" secondItem="28D-37-6Dz" secondAttribute="bottom" id="Yj2-A4-463"/>
                             <constraint firstAttribute="trailingMargin" secondItem="577-rE-fLA" secondAttribute="trailing" constant="-16" id="bRO-T7-WKO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SY3-BS-G4A" secondAttribute="trailing" constant="-16" id="fDx-rT-1nn"/>
@@ -306,7 +310,6 @@
                                 <include reference="Fbu-D2-qKv"/>
                                 <include reference="Gfb-rS-3bo"/>
                                 <include reference="QQB-Sa-QrQ"/>
-                                <include reference="V7C-su-Q6t"/>
                                 <include reference="fDx-rT-1nn"/>
                                 <include reference="5Hf-6w-hVq"/>
                                 <include reference="m4k-Rf-9K3"/>
@@ -324,6 +327,7 @@
                         <outlet property="inputText" destination="bc7-gg-59Q" id="l8P-bE-7mg"/>
                         <outlet property="postInsertBar" destination="Ujc-Ib-pJN" id="lf7-1K-B0c"/>
                         <outlet property="postInsertBarBottomMargin" destination="4uZ-sB-BYj" id="buL-bm-DEO"/>
+                        <outlet property="selSort" destination="lJL-Ok-jXT" id="mRI-Sh-AZh"/>
                         <outlet property="tbl" destination="SY3-BS-G4A" id="pi4-hE-Dl7"/>
                         <segue destination="ctY-LL-hRC" kind="show" identifier="SgPostDetail" id="EaD-Wr-G26"/>
                     </connections>
@@ -441,10 +445,10 @@
             </objects>
             <point key="canvasLocation" x="3788" y="841"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--RootVC-->
         <scene sceneID="Gwn-q2-AsR">
             <objects>
-                <tabBarController id="Acu-te-0CT" sceneMemberID="viewController">
+                <tabBarController id="Acu-te-0CT" customClass="RootVC" customModule="PostTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ZXc-xs-Mxy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

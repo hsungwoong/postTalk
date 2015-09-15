@@ -46,6 +46,7 @@ class SearchMapVC: BaseVC, CLLocationManagerDelegate, IGpsManagerDelegate, UITab
     
     var delegate:ISearchMapVcDelegate?;
 
+    var isOpen = false;
     
     override func loadView() {
         NSBundle.mainBundle().loadNibNamed("SearchMapVC", owner: self, options: nil)
@@ -123,6 +124,10 @@ class SearchMapVC: BaseVC, CLLocationManagerDelegate, IGpsManagerDelegate, UITab
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        
+    }
+    
     func requestLoaderYear(){
 
         if let g = gps{
@@ -132,9 +137,20 @@ class SearchMapVC: BaseVC, CLLocationManagerDelegate, IGpsManagerDelegate, UITab
                 //p += "&lat=37.5494730&long=126.9393889";
                 if let pp = myPlace{
                     p += "&lat=\(pp.coordinate.latitude)&long=\(pp.coordinate.longitude)";
+                }else{
+                    if let curloc = gps.currentLocation {
+                        p += "&lat=\(curloc.coordinate.latitude)&long=\(curloc.coordinate.longitude)";
+                    }
+                    
                 }
                 p += "&fromdate=" +  timeCellData[0].fromdate;
                 p += "&todate=" + timeCellData[0].todate;//NSDate().toShortDateString();
+                
+                println("------")
+                println(timeCellData[0].prevDate)
+                println(timeCellData[0].fromdate)
+                println(timeCellData[0].todate)
+                println(timeCellData[0].nextDate)
                 
                 loaderYear.load(APIUrl.chartList, params: p)
             }
@@ -152,11 +168,17 @@ class SearchMapVC: BaseVC, CLLocationManagerDelegate, IGpsManagerDelegate, UITab
                 //p += "&lat=37.5494730&long=126.9393889";
                 if let pp = myPlace{
                     p += "&lat=\(pp.coordinate.latitude)&long=\(pp.coordinate.longitude)";
+                }else{
+                    if let curloc = gps.currentLocation {
+                        p += "&lat=\(curloc.coordinate.latitude)&long=\(curloc.coordinate.longitude)";
+                    }
+                    
                 }
                 p += "&fromdate=" +  timeCellData[1].fromdate;
                 p += "&todate=" + timeCellData[1].todate;
                 
                 println("requestLoaderMonth param \(p)")
+                
                 loaderMonth.load(APIUrl.chartList, params: p)
             }
         }
@@ -174,6 +196,11 @@ class SearchMapVC: BaseVC, CLLocationManagerDelegate, IGpsManagerDelegate, UITab
                 
                 if let pp = myPlace{
                     p += "&lat=\(pp.coordinate.latitude)&long=\(pp.coordinate.longitude)";
+                }else{
+                    if let curloc = gps.currentLocation {
+                        p += "&lat=\(curloc.coordinate.latitude)&long=\(curloc.coordinate.longitude)";
+                    }
+                    
                 }
                 
                 p += "&fromdate=" +  timeCellData[2].fromdate;
@@ -409,23 +436,20 @@ class SearchMapVC: BaseVC, CLLocationManagerDelegate, IGpsManagerDelegate, UITab
     
     func timeCell(timeCell: TimeCell, index:Int, selFromdate:String, selTodate:String){
         
-        //return timeCellData[index];
-        println("fromdate : \(selFromdate)")
-        println("todate : \(selTodate)")
         
         if  index == 0{
             timeCellData[0].selFromdate = selFromdate;
             timeCellData[0].selTodate = selTodate;
             
-            timeCellData[1].fromdate = selFromdate;
-            timeCellData[1].todate = selTodate;
+            timeCellData[1].fromdate = timeCellData[0].prevDate;
+            timeCellData[1].todate = timeCellData[0].nextDate;
             
         }else if index == 1 {
             timeCellData[1].selFromdate = selFromdate;
             timeCellData[1].selTodate = selTodate;
             
-            timeCellData[2].fromdate = selFromdate;
-            timeCellData[2].todate = selTodate;
+            timeCellData[2].fromdate = timeCellData[1].prevDate;
+            timeCellData[2].todate = timeCellData[1].nextDate;
         }else if index == 2 {
             
         }
@@ -433,11 +457,7 @@ class SearchMapVC: BaseVC, CLLocationManagerDelegate, IGpsManagerDelegate, UITab
     }
     
     func timeCell(timeCell: TimeCell , didSelectItem:Ballon , selFromdate:String, selTodate:String, dateType:String){
-        
-        println(selFromdate)
-        println(selTodate)
-        println(dateType)
-        
+
 
         var et = EntitySearch();
         et.fromdate = selFromdate;
@@ -506,6 +526,11 @@ class SearchMapVC: BaseVC, CLLocationManagerDelegate, IGpsManagerDelegate, UITab
                     mk.title = "현위치";
                     mk.map = self.GmapView;
                 }
+                
+
+                
+                
+                self.openclose(self);
             }
         }
         /*
@@ -555,6 +580,49 @@ class SearchMapVC: BaseVC, CLLocationManagerDelegate, IGpsManagerDelegate, UITab
         })
     }
 
+    @IBAction func openclose(sender: AnyObject) {
+        
+        self.isOpen = !self.isOpen;
+       
+        var h = self.isOpen ? 0 : -227;
+        
+        let duration = 0.3;
+        let curve = 2;
+
+        self.timeConst.constant = CGFloat( h);
+        
+        UIView.animateWithDuration(duration, delay: 0.03, options: UIViewAnimationOptions(rawValue: UInt(curve << 16)), animations: {
+            
+            self.timeDummy.layoutIfNeeded();
+            
+            
+            }, completion: {finished in
+                println("completion --------------->")
+                println(" self.isOpen  \( self.isOpen )")
+                self.requestLoaderYear();
+        });/**/
+        
+        
+        //현재위치를 중앙으로
+        if let pp = myPlace{
+            var vancouverCam = GMSCameraUpdate.setTarget(pp.coordinate)
+            self.GmapView.animateWithCameraUpdate(vancouverCam)
+        }else{
+            if let curloc = gps.currentLocation {
+                var vancouverCam = GMSCameraUpdate.setTarget(curloc.coordinate)
+                self.GmapView.animateWithCameraUpdate(vancouverCam)
+            }
+            
+        }
+        
+        //현재위치에서 위아래로
+        var pan = self.isOpen ? 120.0 : -120.0;
+        var downwards = GMSCameraUpdate.scrollByX(0, y: CGFloat ( pan ))
+        self.GmapView.animateWithCameraUpdate(downwards)
+
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

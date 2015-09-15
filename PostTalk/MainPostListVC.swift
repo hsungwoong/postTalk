@@ -22,6 +22,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
     @IBOutlet var postInsertBar: UIView!
 
     @IBOutlet var postInsertBarBottomMargin: NSLayoutConstraint!
+    @IBOutlet var selSort: UISegmentedControl!
     var gps:GpsManager!;
     
     var initedGpsUpdate = false;
@@ -30,23 +31,28 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
     
     var searchParam:EntitySearch = EntitySearch();
     
+    var alert:UIAlertController?;
+   
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
+        
         println("-------")
         println(NSDate().year());
         println(NSDate().month());
         println(NSDate().day());
         println(NSDate().toShortDateString())
         println(NSDate().OffsetByDay(-5));
-         println(NSDate().OffsetByMonth(-5));
-         println(NSDate().OffsetByYear(-5));
-  
-  
+        println(NSDate().OffsetByMonth(-5));
+        println(NSDate().OffsetByYear(-5));
+   println( NSDate().convertStringToDate("2014-10")   );
+  println("------>>-")
         
        
         //createPostInsertButton();
         creatNaviBarRightButtons();
-         createInsertBar();
+        createInsertBar();
+        
         setupSortMenu();
         
         setupGps();
@@ -57,11 +63,28 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
         
         postDataInsert.delegate = self;
         
-    
+  
+        setupCategory();
+
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillChangeFrameNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil);
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        //
+        println("===> \(self.presentingViewController)");
+    }
+    
+    override func setupCategory(){
+        
+        if let cc = rootvc!.category {
+            cateChildBarbtn.title = cc.getSelectCategoryTag().tag;
+        }
+        
+    }
+    
+    
     
     func textViewDidBeginEditing(textView: UITextView) {
         println("textViewDidBeginEditing")
@@ -256,6 +279,8 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
         p += "&todate=" + searchParam.todate;
         p += "&lat=" + searchParam.lat;
         p += "&long=" + searchParam.lng;
+        p += "&category_name=" + searchParam.category;
+        p += "&reSort=" + searchParam.sort;
         
         println("메인검색 파라미터 \(p)")
         
@@ -320,7 +345,7 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
         }
     }
     
-    override func refresh(target: UIBarButtonItem) {
+    override func refresh(target: UIBarButtonItem?) {
         super.refresh(target);
         self.requestData();
     }
@@ -334,9 +359,38 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
         cateBuletBarbtn.customView = UIImageView(image: UIImage(named: "bulet_cate.png"))
     }
     
-    @IBAction func onTouchCate(sender: AnyObject) {
-        //
+    @IBAction func onSort(sender: AnyObject) {
+        
+        println("\(selSort.selectedSegmentIndex)")
+        
+        searchParam.sort = selSort.selectedSegmentIndex == 0 ? "" : "like";
+        self.requestData();
+
     }
+    /**
+
+*/
+    func updateAfterSelectCategory(){
+        
+
+            if let cc = rootvc!.category{
+                
+                self.cateChildBarbtn.title =  cc.getSelectCategoryTag().tag;
+                self.searchParam.category = cc.getSelectCategoryTag().value;
+                self.requestData();
+            }
+
+    }
+    
+    @IBAction func onTouchCate(sender: AnyObject) {
+        
+        self.rootvc!.showCategory(self);
+    }
+    
+    @IBAction func onTouchCate2(sender: AnyObject) {
+        self.rootvc!.showCategory(self);
+    }
+    
     
     @IBAction func onPan(sender:AnyObject){
         println(sender);
@@ -354,17 +408,25 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
 
     @IBAction func onInsertDeail(sender: AnyObject) {
         self.showPostInsert(nil);
-        println( ">> \(self.presentingViewController)");
-         println( ">> \(self.presentedViewController)");
-        
+
         if let postInsertIns = self.presentedViewController as? PostInsertVC {
             postInsertIns.gps = self.gps;
         }
     }
     @IBAction func onInsertShort(sender: AnyObject) {
         
+        inputText.resignFirstResponder();
+        
         var entity = EntityPostInfo();
         entity.memo = inputText.text;
+        
+        if let cc = rootvc!.category {
+            
+            entity.categoryCode = cc.getSelectCategoryTag().value;
+            
+        }
+ 
+        
         entity.userId = "user5";
         
         if let g = gps{
@@ -375,18 +437,54 @@ class MainPostListVC: CommonPostListVC, IGpsManagerDelegate, UITextViewDelegate,
         }
         
         postDataInsert.send(entity, images: nil);
+        
+        
     }
     
     func onPostInsertStart() {
         //
+        
+        println("간략 업로드 시작")
+        if alert == nil {
+            alert = UIAlertController(title: "저장중", message: "잠시만 기다려주세요", preferredStyle: UIAlertControllerStyle.Alert)
+        }
+        
+        if let aa = alert{
+            self.presentViewController(aa, animated: true, completion: nil);
+        }
+        
     }
     
     func onPostInsertComplete() {
         //
+        println("간략 업로드 끝")
+        
+        inputText.text = "";
+        
+        if let aa = alert{
+            aa.dismissViewControllerAnimated(true, completion: { finished in
+            
+                var complete = UIAlertController(title: "성공", message: "저장되었습니다.", preferredStyle: UIAlertControllerStyle.Alert);
+                complete.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.Default, handler: { action in
+                    self.checkSuccess(complete);
+                }));
+                self.presentViewController(complete, animated: true, completion: nil)
+            });
+        }
+        
+
+    }
+    
+    func checkSuccess(sender:AnyObject){
+        refresh(nil );
     }
     
     func onPostInsertFail() {
         //
+    }
+    
+    func updteCategory(){
+        
     }
     
     override func didReceiveMemoryWarning() {

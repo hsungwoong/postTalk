@@ -30,6 +30,8 @@ class DataMainPostLIst: BaseDataAccessManager {
                 entity.insDate = item["INS_DATE"] as? String;
                 entity.likeCnt = item["LIKE_CNT"] as? String;
                 entity.viewCnt = item["VIEW_CNT"] as? String;
+                entity.userImg = item["IMAGE_MAIN_NAME"] as? String;
+                entity.cateName = item["CATEGORY_NAME"] as? String;
                 entities?.append(entity);
             }
         }//end if

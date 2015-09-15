@@ -121,6 +121,10 @@
 		F4DB29091B1E0555006CD67A /* like_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DB29071B1E0555006CD67A /* like_red@2x.png */; };
 		F4DB290C1B1E05E3006CD67A /* like_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DB290A1B1E05E3006CD67A /* like_gray.png */; };
 		F4DB290D1B1E05E3006CD67A /* like_red.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DB290B1B1E05E3006CD67A /* like_red.png */; };
+		F4EEDF701BA110990086B9F7 /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EEDF6E1BA110990086B9F7 /* CategoryVC.swift */; };
+		F4EEDF711BA110990086B9F7 /* CategoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4EEDF6F1BA110990086B9F7 /* CategoryVC.xib */; };
+		F4EEDF731BA128060086B9F7 /* EntityCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EEDF721BA128060086B9F7 /* EntityCategory.swift */; };
+		F4EEDF751BA1433F0086B9F7 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EEDF741BA1433F0086B9F7 /* RootVC.swift */; };
 		F4F1EE4A1B74437000FFCF87 /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1EE481B74437000FFCF87 /* TimeCell.swift */; };
 		F4F1EE4B1B74437000FFCF87 /* TimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4F1EE491B74437000FFCF87 /* TimeCell.xib */; };
 		F4F1EE4D1B82C06D00FFCF87 /* Ballon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F1EE4C1B82C06D00FFCF87 /* Ballon.swift */; };
@@ -262,6 +266,10 @@
 		F4DB29071B1E0555006CD67A /* like_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like_red@2x.png"; sourceTree = "<group>"; };
 		F4DB290A1B1E05E3006CD67A /* like_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_gray.png; sourceTree = "<group>"; };
 		F4DB290B1B1E05E3006CD67A /* like_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like_red.png; sourceTree = "<group>"; };
+		F4EEDF6E1BA110990086B9F7 /* CategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
+		F4EEDF6F1BA110990086B9F7 /* CategoryVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryVC.xib; sourceTree = "<group>"; };
+		F4EEDF721BA128060086B9F7 /* EntityCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityCategory.swift; sourceTree = "<group>"; };
+		F4EEDF741BA1433F0086B9F7 /* RootVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
 		F4F1EE481B74437000FFCF87 /* TimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
 		F4F1EE491B74437000FFCF87 /* TimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeCell.xib; sourceTree = "<group>"; };
 		F4F1EE4C1B82C06D00FFCF87 /* Ballon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ballon.swift; sourceTree = "<group>"; };
@@ -398,6 +406,7 @@
 		F40EF8401AF1FA470007E992 /* Vc */ = {
 			isa = PBXGroup;
 			children = (
+				F4EEDF741BA1433F0086B9F7 /* RootVC.swift */,
 				F44569F21AFB391E003F20CF /* BaseVC.swift */,
 				F40EF8521AF1FF1D0007E992 /* CommonPostListVC.swift */,
 				F40EF8461AF1FCD00007E992 /* MainPostListVC.swift */,
@@ -423,6 +432,8 @@
 				F40EF86F1AF204FD0007E992 /* LanguageChangeVC.xib */,
 				F43B52F21B2EADD600CDAB09 /* MyPostListVC.swift */,
 				F4A9E3401B39B11B006EBB07 /* PostInsertRootVC.swift */,
+				F4EEDF6E1BA110990086B9F7 /* CategoryVC.swift */,
+				F4EEDF6F1BA110990086B9F7 /* CategoryVC.xib */,
 			);
 			name = Vc;
 			sourceTree = "<group>";
@@ -468,6 +479,7 @@
 				F4B11D2F1B85B3FF006098AD /* EntityChart.swift */,
 				F4B11D311B85B7A4006098AD /* EntityTimeCell.swift */,
 				F45619521B99547F005F508F /* EntitySearch.swift */,
+				F4EEDF721BA128060086B9F7 /* EntityCategory.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -710,6 +722,7 @@
 				F40EF86D1AF204D70007E992 /* MyInfoVC.xib in Resources */,
 				F45882601B15A876001B8A37 /* barbutton_search@2x.png in Resources */,
 				F40EF8241AF1ED0A0007E992 /* Main.storyboard in Resources */,
+				F4EEDF711BA110990086B9F7 /* CategoryVC.xib in Resources */,
 				F4ABCFAE1B25391500405674 /* chatting.png in Resources */,
 				F4ABCFAC1B25391500405674 /* chatting_on.png in Resources */,
 				F4F1EE4B1B74437000FFCF87 /* TimeCell.xib in Resources */,
@@ -851,6 +864,7 @@
 				F40EF8641AF202B10007E992 /* CurrentMapVC.swift in Sources */,
 				F44DA6E91B018BD600570717 /* IBaseDataAccessManager.swift in Sources */,
 				F4F1EE581B8320DC00FFCF87 /* TimeScroll.swift in Sources */,
+				F4EEDF751BA1433F0086B9F7 /* RootVC.swift in Sources */,
 				F44569F31AFB391E003F20CF /* BaseVC.swift in Sources */,
 				F44569FC1AFB3E58003F20CF /* DataUserInfo.swift in Sources */,
 				F4456A001AFB3EAA003F20CF /* EntityUserInfo.swift in Sources */,
@@ -863,10 +877,12 @@
 				F40EF8471AF1FCD00007E992 /* MainPostListVC.swift in Sources */,
 				F4B11D361B85CB85006098AD /* DataTimeChart.swift in Sources */,
 				F40EF84E1AF1FDFE0007E992 /* PostMapVC.swift in Sources */,
+				F4EEDF701BA110990086B9F7 /* CategoryVC.swift in Sources */,
 				F43B52F31B2EADD600CDAB09 /* MyPostListVC.swift in Sources */,
 				F4A9E3411B39B11B006EBB07 /* PostInsertRootVC.swift in Sources */,
 				F4B11D321B85B7A4006098AD /* EntityTimeCell.swift in Sources */,
 				F40EF8541AF1FF1D0007E992 /* CommonPostListVC.swift in Sources */,
+				F4EEDF731BA128060086B9F7 /* EntityCategory.swift in Sources */,
 				F458826F1B16E2C0001B8A37 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,7 +22,7 @@ class MyPostListVC: CommonPostListVC {
         self.requestData();
     }
     
-    override func refresh(target: UIBarButtonItem) {
+    override func refresh(target: UIBarButtonItem?) {
         self.requestData();
     }
     

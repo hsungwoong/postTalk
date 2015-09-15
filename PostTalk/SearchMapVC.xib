@@ -68,14 +68,44 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVj-WQ-g5Z">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <state key="normal" title="버튼">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="openclose:" destination="-1" eventType="touchUpInside" id="ze7-j7-Nnb"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="pE6-4r-FMZ" firstAttribute="leading" secondItem="WSK-9F-NCm" secondAttribute="leading" id="07O-Rz-QVA"/>
+                        <constraint firstItem="kVj-WQ-g5Z" firstAttribute="top" secondItem="WSK-9F-NCm" secondAttribute="top" constant="4" id="CCF-2t-Y6v"/>
                         <constraint firstAttribute="height" constant="265" id="CTV-d6-Gid"/>
+                        <constraint firstAttribute="trailing" secondItem="kVj-WQ-g5Z" secondAttribute="trailing" constant="55" id="DcZ-Do-5Mf"/>
                         <constraint firstAttribute="trailing" secondItem="pE6-4r-FMZ" secondAttribute="trailing" id="Ydo-fQ-Cld"/>
                         <constraint firstItem="pE6-4r-FMZ" firstAttribute="top" secondItem="WSK-9F-NCm" secondAttribute="top" constant="38" id="cJa-Pa-1KH"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="kVj-WQ-g5Z"/>
+                        </mask>
+                        <mask key="constraints">
+                            <exclude reference="CCF-2t-Y6v"/>
+                            <exclude reference="DcZ-Do-5Mf"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular" misplaced="YES">
+                        <rect key="frame" x="0.0" y="524" width="600" height="265"/>
+                        <mask key="subviews">
+                            <include reference="kVj-WQ-g5Z"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="CCF-2t-Y6v"/>
+                            <include reference="DcZ-Do-5Mf"/>
+                        </mask>
+                    </variation>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rzf-4k-Tt1">
                     <rect key="frame" x="0.0" y="113" width="462" height="333"/>

@@ -14,10 +14,25 @@ class BaseVC: UIViewController, ISearchMapVcDelegate {
     
     lazy var searchMap:SearchMapVC? =  SearchMapVC();
     
+    var rootvc:RootVC? {
+        get{
+            return UIApplication.sharedApplication().delegate?.window??.rootViewController as? RootVC;
+            //return self.view.window?.rootViewController as? RootVC;
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+    }
+    
+    /**
+    카테고리 초기 설정
+*/
+    func setupCategory(){
+
+        
     }
     
     /**
@@ -68,7 +83,7 @@ class BaseVC: UIViewController, ISearchMapVcDelegate {
         return button;
     }
     
-    func refresh(target:UIBarButtonItem){
+    func refresh(target:UIBarButtonItem?){
         println("## refresh ##")
     }
     
@@ -92,9 +107,9 @@ class BaseVC: UIViewController, ISearchMapVcDelegate {
     func requestSearch(et:EntitySearch){
         if let vc = searchMap {
             vc.dismissViewControllerAnimated(true, completion: nil);
-            println(et);
             
-            println(self.tabBarController)
+            //println(et);
+            //println(self.tabBarController)
             
             if  let tb = self.tabBarController {
                 tb.selectedIndex = 0;
